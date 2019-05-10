@@ -9,13 +9,13 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration("classpath:spring/applicationContext.xml")
-public class Text {
+public class Tests {
 
     @Autowired
     private AthleteMapper athleteMapper;
 
     @Test
-    public void getAthletes() {
+    public void test1() {
         System.out.println(athleteMapper.queryAll());
     }
 
