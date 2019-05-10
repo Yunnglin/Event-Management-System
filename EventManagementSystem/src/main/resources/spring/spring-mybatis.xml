@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                        http://www.springframework.org/schema/beans/spring-beans.xsd
+                        http://www.springframework.org/schema/context
+                        http://www.springframework.org/schema/context/spring-context.xsd
+                        http://www.springframework.org/schema/tx
+                        http://www.springframework.org/schema/tx/spring-tx.xsd
+                        http://www.springframework.org/schema/aop
+                        http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <!-- 自动扫描 -->
+    <context:component-scan base-package="com.mao.mapper">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+    <!-- 引入配置文件 -->
+   <context:property-placeholder location="classpath:jdbc.properties"/>
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driverClassName}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->
+    <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 自动扫描mapping.xml文件 -->
+        <property name="mapperLocations" value="classpath:com/mao/mapper/**/*.xml"/>
+        <property name="configuration">
+            <bean class="org.apache.ibatis.session.Configuration">
+                <property name="mapUnderscoreToCamelCase" value="true"/>
+            </bean>
+        </property>
+        <!--<property name="plugins">-->
+            <!--<array>-->
+                <!--<bean class="com.github.pagehelper.PageInterceptor">-->
+                    <!--<property name="properties">-->
+                        <!--<value>-->
+                            <!--helperDialect=oracle-->
+                            <!--reasonable=true-->
+                            <!--supportMethodsArguments=true-->
+                            <!--params=count=countSql-->
+                            <!--autoRuntimeDialect=true-->
+                        <!--</value>-->
+                    <!--</property>-->
+                <!--</bean>-->
+            <!--</array>-->
+        <!--</property>-->
+    </bean>
+
+    <!-- DAO接口所在包名，Spring会自动查找其下的类 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.mao.mapper"/>
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryBean"/>
+    </bean>
+
+    <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <!--通过<tx:advice>标签定义事务增强，并制定事务管理器  -->
+    <tx:advice id="transactionAdvice" transaction-manager="transactionManager">
+        <!--定义属性，声明事务规则 -->
+        <tx:attributes>
+            <tx:method name="create*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="insert*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="add*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="upd*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="del*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="execute*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="do*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="save*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="set*" propagation="REQUIRED" isolation="DEFAULT" rollback-for="Exception"/>
+            <tx:method name="get*" propagation="SUPPORTS" isolation="DEFAULT" read-only="true"/>
+            <tx:method name="show*" propagation="SUPPORTS" isolation="DEFAULT" read-only="true"/>
+            <tx:method name="list*" propagation="SUPPORTS" isolation="DEFAULT" read-only="true"/>
+            <tx:method name="select*" propagation="SUPPORTS" isolation="DEFAULT" read-only="true"/>
+            <tx:method name="query*" propagation="SUPPORTS" isolation="DEFAULT" read-only="true"/>
+            <tx:method name="has*" propagation="SUPPORTS" isolation="DEFAULT" read-only="true"/>
+            <tx:method name="ntx*" propagation="NOT_SUPPORTED"/>
+            <tx:method name="*" propagation="SUPPORTS" isolation="DEFAULT" read-only="true"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <!--定义切面-->
+    <aop:config>
+        <aop:pointcut expression="execution(* com.mao.service..*.*(..))" id="txCut"/>
+        <!-- 将事务增强与切入点组合（织入事务切面） -->
+        <aop:advisor pointcut-ref="txCut" advice-ref="transactionAdvice"/>
+    </aop:config>
+
+    <tx:annotation-driven transaction-manager="transactionManager"/>
+
+</beans>

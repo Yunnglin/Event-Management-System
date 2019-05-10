@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mao.mapper.AthletesMapper">
+
+    <update id="update" parameterType="com.mao.Entity.Athletes">
+        update ATHLETES
+        <set>
+            <if test="name != null and name != ''">
+                NAME = #{name},
+            </if>
+            <if test="sex != null">
+                SEX = #{sex},
+            </if>
+            <if test="age != null">
+                AGE = #{age},
+            </if>
+        </set>
+        <where>
+            NO= #{number}
+        </where>
+
+    </update>
+
+    <insert id="insert">
+        INSERT INTO ATHLETES(name,SEX,AGE,IDNUM,no,team_no) values (#{name},#{sex},#{age},#{id},#{number},#{teamno})
+    </insert>
+
+    <select id="selectId" resultType="com.mao.Entity.Athletes">
+        SELECT * FROM athletes
+        <!--<where> 自动消除多于and -->
+        <where>
+            <if test="name != null and name != ''">
+                and name = #{name}
+            </if>
+            <if test="sex != null">
+                and sex=#{sex}
+            </if>
+        </where>
+    </select>
+
+    <select id="athletesList" resultType="com.mao.Entity.Athletes">
+        SELECT * FROM ATHLETES
+    </select>
+    <!--多参传递时使用param1,param2,arg0,arg1-->
+</mapper>
