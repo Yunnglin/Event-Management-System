@@ -6,6 +6,7 @@ public class ScoringSocketManager {
 
     public static ScoringSocketManager instance = new ScoringSocketManager();
     private ArrayList<ScoringServer> clientList;
+    private Game game;
 
     private ScoringSocketManager(){
         clientList = new ArrayList<ScoringServer>();
@@ -24,6 +25,10 @@ public class ScoringSocketManager {
             clientList.remove(node);
         }
         System.out.println("referee " + node.referee.getName() + " out");
+    }
+
+    public static synchronized Game getScoringGame(){
+        return game;
     }
 
 }

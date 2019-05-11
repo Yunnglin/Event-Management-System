@@ -13,4 +13,9 @@
         select name from REFEREES WHERE IDNUM = #{idNum}
     </select>
 
+    <select id="queryByAccountName" resultType="com.cms.pojo.Referee">
+        select * from REFEREES WHERE NAME = #{name}
+        AND TEAM_NO = (select tno from TEAMS where account = #{account})
+    </select>
+
 </mapper>
