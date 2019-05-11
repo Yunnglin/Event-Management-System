@@ -47,10 +47,13 @@
     <!--<databaseIdProvider type=""/>-->
     <!--映射器-->
     <mappers>
+        <!--
         <mapper resource="com/cms/mapper/DoctorMapper.xml"></mapper>
         <mapper resource="com/cms/mapper/LeaderMapper.xml"></mapper>
         <mapper resource="com/cms/mapper/RefereeMapper.xml"></mapper>
         <mapper resource="com/cms/mapper/CoachMapper.xml"></mapper>
         <mapper resource="com/cms/mapper/TeamMapper.xml"></mapper>
+        -->
+        <package name="com.cms.mapper"/>
     </mappers>
 </configuration>
