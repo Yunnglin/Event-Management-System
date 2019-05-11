@@ -31,9 +31,19 @@ public class Login extends HttpServlet {
         PrintWriter out = resp.getWriter();
         account=req.getParameter("username");
         password=req.getParameter("password");
-        boolean flag = judgeLogin(account,password,req,resp);
-        if (flag){
-            out.print("<script>window.location.href = 'http://localhost:8080/cms/mainPage.jsp'</script>");
+
+        String userType = req.getParameter("user_type");
+        if(userType.equals("leader")){
+            boolean flag = judgeLogin(account,password,req,resp);
+            if (flag){
+                out.print("<script>window.location.href = 'http://localhost:8080/cms/mainPage.jsp'</script>");
+            }
+        }else if(userType.equals("admin")){
+            if (account.equals("admin")&&password.equals("123456")){
+                out.print("<script>window.location.href = 'http://localhost:8080/cms/adminPage.jsp'</script>");
+            }else{
+                out.print("<script>alert('用户名错误或不存在该用户');window.location.href = 'http://localhost:8080/cms/index.jsp'</script>");
+            }
         }
     }
 

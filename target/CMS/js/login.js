@@ -15,3 +15,15 @@ window,onload = function () {
         black.style.display = 'none';
     }
 }
+function loginLeader () {
+    document.getElementById("user_type").value="leader";
+    document.forms[0].submit();
+}
+function loginAdmin() {
+    document.getElementById("user_type").value="admin";
+    document.forms[0].submit();
+}
+function loginCoach() {
+    document.getElementById("user_type").value="coach";
+    document.forms[0].submit();
+}

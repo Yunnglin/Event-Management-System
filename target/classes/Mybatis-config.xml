@@ -8,7 +8,7 @@
 
 <configuration>
     <!--属性-->
-    <!--<properties resource="jdbc.properties">-->
+    <properties resource="jdbc.properties"/>
 
     <!--</properties>-->
 
@@ -36,10 +36,10 @@
             <transactionManager type="jdbc"/>
             <!--数据源-->
             <dataSource type="pooled">
-                <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
-                <property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:orcl"/>
-                <property name="username" value="bixiuping"/>
-                <property name="password" value="Bxp123456"/>
+                <property name="driver" value="${jdbc.driver}"/>
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
             </dataSource>
         </environment>
     </environments>

@@ -27,9 +27,10 @@
         <input type="text" id="username" placeholder="输入用户名" name="username">
         <span class="label label-info" id="login_password">密码</span>
         <input type="password" id="password" placeholder="输入密码" name="password">
-        <button type="submit" class="btn btn-primary" id="login_leader">领队登录</button>
-        <button type="button" class="btn btn-primary" id="login_adm">管理员登录</button>
-        <button type="button" class="btn btn-primary" id="login_coach">教练登录</button>
+        <input type="text" id="user_type" name="user_type" value=" " style="visibility: hidden">
+        <button class="btn btn-primary" id="login_leader" onclick="loginLeader()">领队登录</button>
+        <button class="btn btn-primary" id="login_adm" onclick="loginAdmin()">管理员登录</button>
+        <button class="btn btn-primary" id="login_coach" onclick="loginCoach()">教练登录</button>
     </form>
     <%--<div id="" action="" >--%>
     <%----%>
