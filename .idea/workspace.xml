@@ -6,12 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4577e5a1-6bd8-456a-952d-6cb98f07c027" name="Default Changelist" comment="use package to import mapper and modify jdbc6 config">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cms/controller/ScoringLogin.java" afterDir="false" />
+    <list default="true" id="4577e5a1-6bd8-456a-952d-6cb98f07c027" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cms/mapper/RefereeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cms/mapper/RefereeMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/cms/websocket/ScoringSocketManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cms/websocket/ScoringSocketManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/cms/mapper/RefereeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/cms/mapper/RefereeMapper.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -41,8 +37,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/cms/controller/ScoringLogin.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="627">
-              <caret line="52" column="31" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
+            <state relative-caret-position="389">
+              <caret line="45" column="9" lean-forward="true" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -290,99 +286,6 @@
       <pane id="ProjectPane">
         <subPane>
           <expand>
-            <path>
-              <item name="项目" type="b2602c69:ProjectViewProjectNode" />
-              <item name="项目" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="项目" type="b2602c69:ProjectViewProjectNode" />
-              <item name="项目" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="项目" type="b2602c69:ProjectViewProjectNode" />
-              <item name="项目" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="项目" type="b2602c69:ProjectViewProjectNode" />
-              <item name="项目" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="项目" type="b2602c69:ProjectViewProjectNode" />
-              <item name="项目" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cms" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="项目" type="b2602c69:ProjectViewProjectNode" />
-              <item name="项目" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cms" type="462c0819:PsiDirectoryNode" />
-              <item name="controller" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="项目" type="b2602c69:ProjectViewProjectNode" />
-              <item name="项目" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cms" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="项目" type="b2602c69:ProjectViewProjectNode" />
-              <item name="项目" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cms" type="462c0819:PsiDirectoryNode" />
-              <item name="websocket" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="项目" type="b2602c69:ProjectViewProjectNode" />
-              <item name="项目" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="项目" type="b2602c69:ProjectViewProjectNode" />
-              <item name="项目" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="项目" type="b2602c69:ProjectViewProjectNode" />
-              <item name="项目" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="项目" type="b2602c69:ProjectViewProjectNode" />
-              <item name="项目" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="项目" type="b2602c69:ProjectViewProjectNode" />
-              <item name="项目" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="cms" type="462c0819:PsiDirectoryNode" />
-            </path>
             <path>
               <item name="项目" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
@@ -825,7 +728,7 @@
       <workItem from="1557476554870" duration="2129000" />
       <workItem from="1557483927465" duration="7292000" />
       <workItem from="1557498601770" duration="3374000" />
-      <workItem from="1557551359228" duration="20897000" />
+      <workItem from="1557551359228" duration="21130000" />
     </task>
     <task id="LOCAL-00001" summary="use package to import mapper and modify jdbc6 config">
       <created>1557556628169</created>
@@ -870,7 +773,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="94531000" />
+    <option name="totallyTimeSpent" value="94764000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
@@ -951,7 +854,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="use package to import mapper and modify jdbc6 config" />
-    <option name="LAST_COMMIT_MESSAGE" value="use package to import mapper and modify jdbc6 config" />
+    <MESSAGE value="git test" />
+    <option name="LAST_COMMIT_MESSAGE" value="git test" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
@@ -1364,8 +1268,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cms/controller/ScoringLogin.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="627">
-          <caret line="52" column="31" selection-start-line="52" selection-start-column="31" selection-end-line="52" selection-end-column="31" />
+        <state relative-caret-position="389">
+          <caret line="45" column="9" lean-forward="true" selection-start-line="45" selection-start-column="9" selection-end-line="45" selection-end-column="9" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
