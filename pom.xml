@@ -42,15 +42,6 @@
             <version>3.4.6</version>
         </dependency>
 
-        <!-- 添加oracle驱动依赖 -->
-        <!-- 添加oracle jdbc driver -->
-        <dependency>
-            <groupId>com.oracle</groupId>
-            <artifactId>ojdbc6</artifactId>
-            <!-- 注意版本一致 -->
-            <version>11.2.0.3</version>
-        </dependency>
-
         <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
         <dependency>
             <groupId>javax.servlet</groupId>
@@ -59,7 +50,14 @@
         </dependency>
 
 
-
+        <!-- 添加oracle驱动依赖 -->
+        <!-- 添加oracle jdbc driver -->
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <!-- 注意版本一致 -->
+            <version>11.2.0.3</version>
+        </dependency>
 
     </dependencies>
 

@@ -29,7 +29,7 @@
             <option value="coach">教练员</option>
             <option value="referee">裁判员</option>
         </select>
-        <form class="information" id="leaderPage" action="main/java/com/com/AddServlet">
+        <form class="information" id="leaderPage" action="main/java/com/controller/AddServlet">
             <span  class="s_name">姓名</span>
             <input type="text" class="input_name" placeholder="输入姓名" name="dName">
             <span  class="ID">身份证</span>

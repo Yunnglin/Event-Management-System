@@ -7,168 +7,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4577e5a1-6bd8-456a-952d-6cb98f07c027" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/cms/controller/AdminServlet.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/adminPage.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/css/layui.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/css/layui.mobile.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/css/modules/code.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/css/modules/laydate/default/laydate.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/css/modules/layer/default/icon-ext.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/css/modules/layer/default/icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/css/modules/layer/default/layer.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/css/modules/layer/default/loading-0.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/css/modules/layer/default/loading-1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/css/modules/layer/default/loading-2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/font/iconfont.eot" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/font/iconfont.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/font/iconfont.ttf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/font/iconfont.woff" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/0.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/1.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/10.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/11.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/12.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/13.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/14.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/15.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/16.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/17.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/18.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/19.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/2.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/20.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/21.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/22.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/23.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/24.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/25.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/26.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/27.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/28.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/29.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/3.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/30.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/31.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/32.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/33.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/34.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/35.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/36.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/37.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/38.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/39.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/4.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/40.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/41.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/42.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/43.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/44.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/45.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/46.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/47.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/48.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/49.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/5.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/50.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/51.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/52.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/53.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/54.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/55.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/56.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/57.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/58.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/59.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/6.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/60.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/61.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/62.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/63.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/64.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/65.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/66.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/67.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/68.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/69.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/7.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/70.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/71.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/8.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/images/face/9.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/carousel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/code.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/colorpicker.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/element.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/flow.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/form.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/jquery.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/laydate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/layedit.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/layer.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/laypage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/laytpl.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/mobile.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/rate.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/slider.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/table.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/tree.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/upload.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/lay/modules/util.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/layui.all.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/plugins/layui/layui.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/adminJsp/footer.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/adminJsp/header.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/adminJsp/index.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/adminJsp/team.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/adminJsp/teamAccount.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cms/controller/AdminServlet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cms/controller/AdminServlet.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/cms/controller/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cms/controller/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/Mybatis-config.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/jdbc.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/cms/mapper/TeamMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/cms/mapper/TeamMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/cms/mapper/TeamMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/cms/mapper/TeamMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/bootstrap-3.3.7-dist/css/bootstrap-theme.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/bootstrap-3.3.7-dist/css/bootstrap-theme.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/bootstrap-3.3.7-dist/css/bootstrap-theme.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/bootstrap-3.3.7-dist/css/bootstrap-theme.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/bootstrap-3.3.7-dist/css/bootstrap.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/bootstrap-3.3.7-dist/css/bootstrap.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/bootstrap-3.3.7-dist/css/bootstrap.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/bootstrap-3.3.7-dist/css/bootstrap.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/bootstrap-3.3.7-dist/css/bootstrap.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/bootstrap-3.3.7-dist/css/bootstrap.min.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/bootstrap-3.3.7-dist/css/bootstrap.min.css.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/bootstrap-3.3.7-dist/css/bootstrap.min.css.map" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.eot" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.eot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.svg" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.ttf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.woff" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.woff" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.woff2" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/bootstrap-3.3.7-dist/js/bootstrap.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/bootstrap-3.3.7-dist/js/bootstrap.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/bootstrap-3.3.7-dist/js/bootstrap.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/bootstrap-3.3.7-dist/js/bootstrap.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/bootstrap-3.3.7-dist/js/npm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/plugins/bootstrap-3.3.7-dist/js/npm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CMS/META-INF/MANIFEST.MF" beforeDir="false" afterPath="$PROJECT_DIR$/target/CMS/META-INF/MANIFEST.MF" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CMS/WEB-INF/classes/Mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/CMS/WEB-INF/classes/Mybatis-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/adminPage.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/mainPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/mainPage.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CMS/WEB-INF/classes/com/cms/controller/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CMS/WEB-INF/classes/com/cms/controller/Login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CMS/WEB-INF/classes/com/cms/util/MybatiesUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CMS/WEB-INF/classes/com/cms/util/MybatiesUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CMS/WEB-INF/classes/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/CMS/WEB-INF/classes/jdbc.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CMS/WEB-INF/classes/com/cms/mapper/TeamMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/CMS/WEB-INF/classes/com/cms/mapper/TeamMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CMS/WEB-INF/classes/com/cms/mapper/TeamMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/CMS/WEB-INF/classes/com/cms/mapper/TeamMapper.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/CMS/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/CMS/WEB-INF/web.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CMS/bootstrap-3.3.7-dist/css/bootstrap-theme.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CMS/bootstrap-3.3.7-dist/css/bootstrap-theme.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CMS/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CMS/bootstrap-3.3.7-dist/css/bootstrap-theme.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CMS/bootstrap-3.3.7-dist/css/bootstrap.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CMS/bootstrap-3.3.7-dist/css/bootstrap.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CMS/bootstrap-3.3.7-dist/css/bootstrap.min.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CMS/bootstrap-3.3.7-dist/css/bootstrap.min.css.map" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CMS/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.eot" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CMS/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CMS/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.ttf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CMS/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.woff" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CMS/bootstrap-3.3.7-dist/fonts/glyphicons-halflings-regular.woff2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CMS/bootstrap-3.3.7-dist/js/bootstrap.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CMS/bootstrap-3.3.7-dist/js/bootstrap.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CMS/bootstrap-3.3.7-dist/js/npm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CMS/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CMS/index.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/CMS/js/login.js" beforeDir="false" afterPath="$PROJECT_DIR$/target/CMS/js/login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/Mybatis-config.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/Mybatis-config.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/CMS/mainPage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/target/CMS/mainPage.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/cms/controller/Login.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cms/controller/Login.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/cms/util/MybatiesUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cms/util/MybatiesUtil.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jdbc.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cms/mapper/TeamMapper.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cms/mapper/TeamMapper.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/cms/mapper/TeamMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/cms/mapper/TeamMapper.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -198,16 +58,115 @@
         <item name="Oracle" type="feb32156:DbDataSourceImpl" />
         <item name="ADMIN: schema" type="3abd1b6a:OraImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Oracle" type="feb32156:DbDataSourceImpl" />
+        <item name="ADMIN: schema" type="3abd1b6a:OraImplModel$Schema" />
+        <item name="TEAMS: table" type="942f455b:OraImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/cms/controller/Login.java">
           <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="137">
+              <caret line="46" column="59" lean-forward="true" selection-start-line="46" selection-start-column="59" selection-end-line="46" selection-end-column="59" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+          <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="277">
-              <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+              <caret line="35" column="14" lean-forward="true" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cms/controller/AdminServlet.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="26" column="44" lean-forward="true" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/adminJsp/team.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="115">
+              <caret line="5" column="43" lean-forward="true" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/com/cms/mapper/TeamMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="231">
+              <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/mainPage.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="736">
+              <caret line="32" column="43" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/mainPage.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1656">
+              <caret line="72" column="51" selection-start-line="72" selection-start-column="51" selection-end-line="72" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cms/pojo/Team.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-363">
+              <caret line="3" column="20" lean-forward="true" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+              <folding>
+                <element signature="e#171#172#0" expanded="true" />
+                <element signature="e#197#198#0" expanded="true" />
+                <element signature="e#232#233#0" expanded="true" />
+                <element signature="e#262#263#0" expanded="true" />
+                <element signature="e#293#294#0" expanded="true" />
+                <element signature="e#320#321#0" expanded="true" />
+                <element signature="e#360#361#0" expanded="true" />
+                <element signature="e#392#393#0" expanded="true" />
+                <element signature="e#426#427#0" expanded="true" />
+                <element signature="e#456#457#0" expanded="true" />
+                <element signature="e#502#503#0" expanded="true" />
+                <element signature="e#540#541#0" expanded="true" />
+                <element signature="e#575#576#0" expanded="true" />
+                <element signature="e#606#607#0" expanded="true" />
+                <element signature="e#654#655#0" expanded="true" />
+                <element signature="e#694#695#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/cms/mapper/TeamMapper.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -216,85 +175,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/adminJsp/teamAccount.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
-              <folding>
-                <element signature="n#style#0;n#input#2;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/mainPage.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1150">
-              <caret line="50" column="15" selection-start-line="50" selection-start-column="15" selection-end-line="50" selection-end-column="15" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/adminPage.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="60" column="25" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cms/controller/AdminServlet.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/cms/Hello.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="322">
-              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/Mybatis-config.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="635">
-              <caret line="36" column="22" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/login.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="266">
-              <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+            <state relative-caret-position="480">
+              <caret line="45" column="19" selection-start-line="18" selection-start-column="11" selection-end-line="45" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -364,20 +248,26 @@
         <option value="$PROJECT_DIR$/src/main/resources/com/cms/mapper/RefereeMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/com/cms/mapper/AthleteMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/cms/mapper/AthleteMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/mainPage.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/cms/pojo/Team.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cms/mapper/TeamMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/com/cms/mapper/TeamMapper.xml" />
         <option value="$PROJECT_DIR$/src/test/java/com/cms/Test1.java" />
         <option value="$PROJECT_DIR$/src/main/resources/jdbc.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/Mybatis-config.xml" />
-        <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/adminPage.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/cms/controller/AdminServlet.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/login.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/header.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/adminPage.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/adminJsp.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/adminJsp/footer.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/adminJsp/adminPage.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/adminJsp/header.jsp" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cms/mapper/TeamMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/com/cms/mapper/TeamMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/mainPage.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/cms/controller/Login.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/cms/controller/AdminServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/adminJsp/team.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
       </list>
     </option>
   </component>
@@ -410,16 +300,21 @@
         <path>
           <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
           <item name="CMS Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Run Configurations" type="21c1f71a:MavenProjectsStructure$RunConfigurationsNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="CMS Maven Webapp" type="9519ce18:MavenProjectsStructure$ProjectNode" />
           <item name="Dependencies" type="f4be9f2a:MavenProjectsStructure$DependenciesNode" />
         </path>
       </expand>
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="952" />
-    <option name="width" value="977" />
-    <option name="height" value="1088" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="950" />
+    <option name="width" value="980" />
+    <option name="height" value="1090" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -444,7 +339,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -534,7 +428,32 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="adminJsp" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Event-Management-System" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Event-Management-System" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Event-Management-System" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Event-Management-System" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Event-Management-System" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Event-Management-System" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="plugins" type="462c0819:PsiDirectoryNode" />
+              <item name="layui" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Event-Management-System" type="b2602c69:ProjectViewProjectNode" />
@@ -569,6 +488,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -576,15 +496,17 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="android.sdk.path" value="D:/SDK_Android" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557556974654" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557575905011" />
     <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="E:/app/Mr.mao/product/11.2.0/dbhome_1/jdbc/lib/ojdbc6.jar!/" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Problems" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="MavenSettings" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -597,6 +519,7 @@
       <recent name="D:\CMS\src\main\webapp" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\My\MyCode\CMS\Event-Management-System\src\main\webapp\adminJsp" />
       <recent name="E:\My\MyCode\CMS\Event-Management-System\src\main\webapp\plugins" />
       <recent name="D:\CMS\src\main\java\com\cms" />
       <recent name="D:\CMS\src\main\webapp" />
@@ -932,6 +855,9 @@
       <workItem from="1557498601770" duration="3374000" />
       <workItem from="1557505650222" duration="1927000" />
       <workItem from="1557549585899" duration="7378000" />
+      <workItem from="1557557280174" duration="15945000" />
+      <workItem from="1557576013466" duration="7021000" />
+      <workItem from="1557627681512" duration="2096000" />
     </task>
     <servers />
   </component>
@@ -968,34 +894,43 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82939000" />
+    <option name="totallyTimeSpent" value="108001000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="878" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6013889" visible="true" weight="0.13346747" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.5983437" visible="true" weight="0.13950369" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
       <window_info id="UI Designer" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
       <window_info id="Capture Tool" order="6" />
-      <window_info id="Web" order="7" sideWeight="0.3986111" side_tool="true" visible="true" weight="0.13346747" />
+      <window_info id="Web" order="7" sideWeight="0.4016563" side_tool="true" weight="0.13547954" />
       <window_info id="Learn" order="8" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32777777" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.27222222" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.38286334" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.27222222" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.38194445" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" weight="0.3286119" />
-      <window_info anchor="bottom" id="Messages" order="9" weight="0.3258427" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32916668" />
+      <window_info anchor="bottom" id="Terminal" order="7" sideWeight="0.49966466" weight="0.32916668" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.50033534" side_tool="true" weight="0.32916668" />
+      <window_info anchor="bottom" id="Messages" order="9" weight="0.3236111" />
       <window_info anchor="bottom" id="Java Enterprise" order="10" />
       <window_info anchor="bottom" id="Database Changes" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="12" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Application Servers" order="13" weight="0.3286119" />
+      <window_info anchor="bottom" id="Application Servers" order="13" weight="0.32777777" />
       <window_info anchor="bottom" id="Database Console" order="14" weight="0.32905984" />
       <window_info anchor="bottom" id="Docker" order="15" show_stripe_button="false" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -1004,7 +939,7 @@
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
       <window_info anchor="right" id="Maven Projects" order="5" weight="0.3297587" />
-      <window_info anchor="right" id="Database" order="6" weight="0.3296" />
+      <window_info anchor="right" id="Database" order="6" visible="true" weight="0.3293092" />
       <window_info anchor="right" id="Palette&#9;" order="7" />
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Mybatis datasource" order="9" side_tool="true" />
@@ -1049,10 +984,6 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cms/controller/HelloWorld.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/MybatisGenerator.xml" />
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cms/mapper/MybatisGenerator.xml" />
     <entry file="file://$PROJECT_DIR$/target/CMS/index.jsp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1188,37 +1119,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cms/pojo/Team.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-          <folding>
-            <element signature="e#197#198#0" expanded="true" />
-            <element signature="e#232#233#0" expanded="true" />
-            <element signature="e#262#263#0" expanded="true" />
-            <element signature="e#293#294#0" expanded="true" />
-            <element signature="e#320#321#0" expanded="true" />
-            <element signature="e#360#361#0" expanded="true" />
-            <element signature="e#392#393#0" expanded="true" />
-            <element signature="e#426#427#0" expanded="true" />
-            <element signature="e#456#457#0" expanded="true" />
-            <element signature="e#502#503#0" expanded="true" />
-            <element signature="e#540#541#0" expanded="true" />
-            <element signature="e#575#576#0" expanded="true" />
-            <element signature="e#606#607#0" expanded="true" />
-            <element signature="e#654#655#0" expanded="true" />
-            <element signature="e#694#695#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cms/mapper/TeamMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="4" column="35" selection-start-line="4" selection-start-column="35" selection-end-line="4" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cms/mapper/CoachMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="207">
@@ -1287,13 +1187,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/mainPage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1656">
-          <caret line="72" column="51" selection-start-line="72" selection-start-column="51" selection-end-line="72" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/Css/login.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1586" />
@@ -1337,10 +1230,73 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cms/mapper/TeamMapper.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cms/Hello.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/Mybatis-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="36" column="22" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/adminJsp.jsp" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/adminJsp/footer.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+          <caret line="11" column="6" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/adminJsp/header.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="213">
+          <caret line="32" column="44" selection-start-line="32" selection-start-column="44" selection-end-line="32" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/adminJsp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="24" column="36" selection-start-line="24" selection-start-column="36" selection-end-line="24" selection-end-column="36" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#i#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#p#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="349">
+          <caret line="50" selection-start-line="50" selection-end-line="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="22" column="26" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -1356,86 +1312,97 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/mainPage.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
+        <state relative-caret-position="736">
+          <caret line="32" column="43" selection-start-line="32" selection-start-column="43" selection-end-line="32" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/Mybatis-config.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/mainPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="635">
-          <caret line="36" column="22" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
+        <state relative-caret-position="1656">
+          <caret line="72" column="51" selection-start-line="72" selection-start-column="51" selection-end-line="72" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cms/pojo/Team.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="14" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+        <state relative-caret-position="-363">
+          <caret line="3" column="20" lean-forward="true" selection-start-line="3" selection-start-column="20" selection-end-line="3" selection-end-column="20" />
+          <folding>
+            <element signature="e#171#172#0" expanded="true" />
+            <element signature="e#197#198#0" expanded="true" />
+            <element signature="e#232#233#0" expanded="true" />
+            <element signature="e#262#263#0" expanded="true" />
+            <element signature="e#293#294#0" expanded="true" />
+            <element signature="e#320#321#0" expanded="true" />
+            <element signature="e#360#361#0" expanded="true" />
+            <element signature="e#392#393#0" expanded="true" />
+            <element signature="e#426#427#0" expanded="true" />
+            <element signature="e#456#457#0" expanded="true" />
+            <element signature="e#502#503#0" expanded="true" />
+            <element signature="e#540#541#0" expanded="true" />
+            <element signature="e#575#576#0" expanded="true" />
+            <element signature="e#606#607#0" expanded="true" />
+            <element signature="e#654#655#0" expanded="true" />
+            <element signature="e#694#695#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/cms/Hello.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/cms/mapper/TeamMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="322">
-          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="31" column="4" selection-start-line="31" selection-start-column="4" selection-end-line="31" selection-end-column="4" />
+        <state relative-caret-position="207">
+          <caret line="9" column="19" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cms/controller/AdminServlet.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="175">
+          <caret line="26" column="44" lean-forward="true" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/index.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/adminJsp/team.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="34" column="34" selection-start-line="34" selection-start-column="34" selection-end-line="34" selection-end-column="34" />
-          <folding>
-            <element signature="n#style#0;n#input#2;n#form#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="115">
+          <caret line="5" column="43" lean-forward="true" selection-start-line="5" selection-start-column="43" selection-end-line="5" selection-end-column="43" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/login.js">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/adminJsp/teamAccount.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/mainPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1150">
-          <caret line="50" column="15" selection-start-line="50" selection-start-column="15" selection-end-line="50" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/adminPage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="60" column="25" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="25" />
+        <state relative-caret-position="480">
+          <caret line="45" column="19" selection-start-line="18" selection-start-column="11" selection-end-line="45" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/cms/controller/Login.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="47" column="5" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+        <state relative-caret-position="137">
+          <caret line="46" column="59" lean-forward="true" selection-start-line="46" selection-start-column="59" selection-end-line="46" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/com/cms/mapper/TeamMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="35" column="14" lean-forward="true" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
         </state>
       </provider>
     </entry>

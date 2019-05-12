@@ -9,5 +9,8 @@
     <select id="queryIdByAccount" resultType="int">
         select TNO from TEAMS where ACCOUNT = #{s}
     </select>
+    <select id="queryAll" resultType="com.cms.pojo.Team">
+        SELECT * FROM  TEAMS
+    </select>
 
 </mapper>

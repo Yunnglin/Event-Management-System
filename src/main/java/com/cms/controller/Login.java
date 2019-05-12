@@ -6,12 +6,14 @@ import org.apache.ibatis.binding.BindingException;
 import org.apache.ibatis.session.SqlSession;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+@WebServlet(name = "Login")
 public class Login extends HttpServlet {
 
     private String account;
@@ -33,6 +35,7 @@ public class Login extends HttpServlet {
         password=req.getParameter("password");
 
         String userType = req.getParameter("user_type");
+
         if(userType.equals("leader")){
             boolean flag = judgeLogin(account,password,req,resp);
             if (flag){
@@ -40,7 +43,8 @@ public class Login extends HttpServlet {
             }
         }else if(userType.equals("admin")){
             if (account.equals("admin")&&password.equals("123456")){
-                out.print("<script>window.location.href = 'http://localhost:8080/cms/adminPage.jsp'</script>");
+               out.print("<script>window.location.href = 'http://localhost:8080/cms/adminJsp/index.jsp'</script>");
+               // resp.sendRedirect("/adminJsp/index.jsp");
             }else{
                 out.print("<script>alert('用户名错误或不存在该用户');window.location.href = 'http://localhost:8080/cms/index.jsp'</script>");
             }
