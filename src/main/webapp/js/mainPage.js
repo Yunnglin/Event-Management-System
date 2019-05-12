@@ -13,6 +13,7 @@ window.onload = function(){
     selectRole();
 }
 
+
 function selectRole() {
     var lPage = document.getElementById("leaderPage");
     var dPage = document.getElementById("doctorPage");

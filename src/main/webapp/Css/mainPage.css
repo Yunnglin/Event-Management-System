@@ -4,7 +4,7 @@
     left: 0;
     width: 15%;
     height: 100%;
-    background-color: #2aabd2;
+    background-color: #393D49;
 }
 #information_entering{
     position: absolute;
@@ -15,7 +15,8 @@
     font-size: 20px;
     text-align: center;
     font-family: STHupo;
-    background-color: #a94442;
+    color: whitesmoke;
+    background-color: #393D49;
 }
 #enteringPage{
     position: absolute;
@@ -23,7 +24,7 @@
     left: 15%;
     width: 85%;
     height: 100%;
-    background-color: #9acfea;
+    background-color: #d2dfea;
 }
 
 /*选择*/
@@ -47,14 +48,17 @@
     width: 100%;
     height: 100%;
 }
-.attachment{
+#attachment{
     position: absolute;
-    top: 60%;
-    left: 70%;
-    width: 8%;
-    height: 4%;
+    top: 70%;
+    right: 5%;
+    width: 20%;
+    height: 20%;
     text-align: center;
-    background-color: #a5cfd2;
+    border-radius: 15px;
+    font-family: STXingkai;
+    font-size: 18px;
+    background-color: #cbe0ed;
 }
 /*领队和队医*/
 #leaderPage{
@@ -118,7 +122,9 @@
     width: 8%;
     height: 8%;
     text-align: center;
-    background-color: #2aabd2;
+    border-radius: 20px;
+    opacity: 90%;
+    background-color: #4a76d2;
 }
 
 /*运动员*/

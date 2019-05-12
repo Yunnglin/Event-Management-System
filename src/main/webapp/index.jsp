@@ -23,9 +23,9 @@
     <div id="black"></div>
     <form id="login_main" action="<%=request.getContextPath()%>/Login" method="post">
         <div id="login_title">登录</div>
-        <span class="label label-info" id="login_user">用户名</span>
+        <span  id="login_user">用户名</span>
         <input type="text" id="username" placeholder="输入用户名" name="username">
-        <span class="label label-info" id="login_password">密码</span>
+        <span  id="login_password">密码</span>
         <input type="password" id="password" placeholder="输入密码" name="password">
         <input type="text" id="user_type" name="user_type" value=" " style="visibility: hidden">
         <button class="btn btn-primary" id="login_leader" onclick="loginLeader()">领队登录</button>

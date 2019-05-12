@@ -12,4 +12,9 @@ public interface TeamMapper {
     Team queryById(int tno);
 
     Team queryByAccount(String account);
+
+    int insertAttachment(Team team);
+
+    int updatePassword(Team team);
+
 }

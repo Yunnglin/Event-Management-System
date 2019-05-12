@@ -8,9 +8,8 @@
 
 <configuration>
     <!--属性-->
-    <properties resource="jdbc.properties"/>
 
-    <!--</properties>-->
+    <properties resource="jdbc.properties"/>
 
     <!--设置-->
     <!--<settings>-->

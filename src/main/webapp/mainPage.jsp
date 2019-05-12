@@ -29,74 +29,71 @@
             <option value="coach">教练员</option>
             <option value="referee">裁判员</option>
         </select>
-        <form class="information" id="leaderPage" action="main/java/com/controller/AddServlet">
+
+        <form class="information" id="leaderPage" action="<%=request.getContextPath()%>/AddServlet">
             <span  class="s_name">姓名</span>
             <input type="text" class="input_name" placeholder="输入姓名" name="dName">
             <span  class="ID">身份证</span>
             <input type="text" class="input_ID" placeholder="输入身份证" name="dID" onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')">
             <span  class="phone">电话</span>
             <input type="text" class="input_phone" placeholder="输入电话" name="dPhone"  onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')">
-            <button type="button" class="attachment">上传附件</button>
             <button type="submit" class="submit_button" id="L_submit" name="submitB" value="L">提交</button>
         </form>
-        <form class="information" id="doctorPage" action="main/java/com/controller/AddServlet">
+        <form class="information" id="doctorPage" action="<%=request.getContextPath()%>/AddServlet">
             <span  class="s_name">姓名</span>
             <input type="text" class="input_name" placeholder="输入姓名" name="dName">
             <span  class="ID">身份证</span>
             <input type="text" class="input_ID" placeholder="输入身份证" name="dID" onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')">
             <span  class="phone">电话</span>
             <input type="text" class="input_phone" placeholder="输入电话" name="dPhone"  onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')">
-            <button type="button" class="attachment">上传附件</button>
             <button type="submit" class="submit_button" id="D_submit" name="submitB" value="D">提交</button>
         </form>
-        <form class="information" id="refereePage" action="main/java/com/controller/AddServlet">
+        <form class="information" id="refereePage" action="<%=request.getContextPath()%>/AddServlet">
             <span  class="s_name">姓名</span>
             <input type="text" class="input_name" placeholder="输入姓名" name="dName">
             <span  class="ID">身份证</span>
             <input type="text" class="input_ID" placeholder="输入身份证" name="dID" onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')">
             <span  class="phone">电话</span>
             <input type="text" class="input_phone" placeholder="输入电话" name="dPhone"  onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')">
-            <button type="button" class="attachment">上传附件</button>
             <button type="submit" class="submit_button" id="R_submit" name="submitB" value="R">提交</button>
         </form>
-        <form class="information" id="athletePage" action="main/java/com/controller/AddServlet">
+        <form class="information" id="athletePage" action="<%=request.getContextPath()%>/AddServlet">
             <span  class="s_name">姓名</span>
-            <input type="text" class="input_name" placeholder="输入姓名">
+            <input type="text" class="input_name" placeholder="输入姓名" name="aName">
             <span  class="ID">身份证</span>
-            <input type="text" class="input_ID" placeholder="输入身份证" onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')">
-            <span  class="age">年龄</span>
-            <input type="number" class="input_age" placeholder="输入年龄" onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')">
+            <input type="text" class="input_ID" placeholder="输入身份证" onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')" name="aID">
+            <span  class="age" >年龄</span>
+            <input id="a_age" type="number" class="input_age" placeholder="输入年龄" onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')" name="aAge">
             <span  class="group">组别</span>
-            <select id="select_group">
-                <option value ="seven_eight">7-8</option>
-                <option value ="night_ten">9-10</option>
-                <option value="elven_twelve">11-12</option>
+            <select id="select_group" name="ageGroup">
+                <option value ="7-8">7-8</option>
+                <option value ="9-10">9-10</option>
+                <option value="11-12">11-12</option>
             </select>
             <span  class="sex">性别</span>
-            <select class="select_sex" onclick="selectSex()" name="chooseSex">
+            <select class="select_sex" onclick="selectSex()" name="aSex">
                 <option value ="男">男</option>
                 <option value ="女">女</option>
             </select>
             <span  class="culGrade">文化成绩</span>
-            <input type="number" class="input_culGrade" placeholder="文化成绩（可空）">
+            <input type="number" class="input_culGrade" placeholder="文化成绩（可空）" name="aCGrade">
             <span  class="event">比赛项目</span>
             <div id="male_event">
-                    单杠<input type="checkbox" value="horizontalBar">
-                    双杠<input type="checkbox" value="parallelBars">
-                    吊环<input type="checkbox" value="handRing">
-                    跳马<input type="checkbox" value="vault">
-                    自由体操<input type="checkbox" value="freeExercises">
-                    鞍马<input type="checkbox" value="pommelHorse">
-                    蹦床<input type="checkbox" value="trampoline">
+                    单杠<input type="checkbox" value="3" name="event">
+                    双杠<input type="checkbox" value="1" name="event">
+                    吊环<input type="checkbox" value="4" name="event">
+                    跳马<input type="checkbox" value="5" name="event">
+                    自由体操<input type="checkbox" value="7" name="event">
+                    鞍马<input type="checkbox" value="6" name="event">
+                    蹦床<input type="checkbox" value="8" name="event">
             </div>
             <div id="female_event">
-                    高低杠<input type="checkbox" value="unevenBar">
-                    平衡木<input type="checkbox" value="balanceBeam">
-                    跳马<input type="checkbox" value="vault">
-                    自由体操<input type="checkbox" value="freeExercises">
-                    蹦床<input type="checkbox" value="trampoline">
+                    高低杠<input type="checkbox" value="10" name="event">
+                    平衡木<input type="checkbox" value="11" name="event">
+                    跳马<input type="checkbox" value="12" name="event">
+                    自由体操<input type="checkbox" value="2" name="event">
+                    蹦床<input type="checkbox" value="9" name="event">
             </div>
-            <button type="button" class="attachment">上传附件</button>
             <button type="submit" class="submit_button" id="athlete_submit" name="submitB" value="A">提交</button>
         </form>
         <form class="information" id="coachPage" action="<%=request.getContextPath()%>/AddServlet">
@@ -111,10 +108,15 @@
                 <option value ="男">男</option>
                 <option value ="女">女</option>
             </select>
-            <button type="button" class="attachment">上传附件</button>
             <button type="submit" class="submit_button" id="coach_submit" name="submitB" value="C">提交</button>
-
         </form>
+        <form method="post" action="<%=request.getContextPath()%>/UploadServlet" enctype="multipart/form-data" id="attachment">
+            选择附件:
+            <input type="file" name="uploadFile" />
+            <br/>
+            <input type="submit" value="上传" />
+        </form>
+
     </div>
 </body>
 </html>

@@ -2,12 +2,12 @@ package com.cms.pojo;
 
 public class Athlete {
     private String name;
-    private String id;
+    private String idNum;
     private String sex;
     private int age;
-    private String ac_record;
+    private int ac_record;
     private int Team_No;
-    private String No;
+    private int No;
 
     public String getName() {
         return name;
@@ -18,11 +18,11 @@ public class Athlete {
     }
 
     public String getId() {
-        return id;
+        return idNum;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setId(String idNum) {
+        this.idNum = idNum;
     }
 
     public String getSex() {
@@ -41,11 +41,11 @@ public class Athlete {
         this.age = age;
     }
 
-    public String getAc_record() {
+    public int getAc_record() {
         return ac_record;
     }
 
-    public void setAc_record(String ac_record) {
+    public void setAc_record(int ac_record) {
         this.ac_record = ac_record;
     }
 
@@ -57,11 +57,11 @@ public class Athlete {
         Team_No = team_No;
     }
 
-    public String getNo() {
+    public int getNo() {
         return No;
     }
 
-    public void setNo(String no) {
+    public void setNo(int no) {
         No = no;
     }
 }
