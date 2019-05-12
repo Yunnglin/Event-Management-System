@@ -62,6 +62,9 @@
         <mapper resource="com/cms/mapper/RefereeMapper.xml"></mapper>
         <mapper resource="com/cms/mapper/CoachMapper.xml"></mapper>
         <mapper resource="com/cms/mapper/TeamMapper.xml"></mapper>
+		<mapper resource="com/cms/mapper/AthleteMapper.xml"></mapper>
+        <mapper resource="com/cms/mapper/GameMapper.xml"></mapper>
+        <mapper resource="com/cms/mapper/ParticipationMapper.xml"></mapper>
         -->
         <package name="com.cms.mapper"/>
     </mappers>
