@@ -13,7 +13,7 @@
         select TNO from TEAMS where ACCOUNT = #{s}
     </select>
     <select id="queryAll" resultType="com.cms.pojo.Team">
-        SELECT * FROM  TEAMS
+        SELECT * FROM  TEAMS ORDER BY TNO asc
     </select>
     <select id="queryById" resultType="com.cms.pojo.Team">
         SELECT * FROM  TEAMS WHERE TNO = #{tno}
