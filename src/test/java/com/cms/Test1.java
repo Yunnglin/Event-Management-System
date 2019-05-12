@@ -1,12 +1,10 @@
 package com.cms;
 
-import com.cms.mapper.DoctorMapper;
-import com.cms.mapper.TeamMapper;
+import com.cms.mapper.*;
+import com.cms.pojo.Athlete;
 import com.cms.pojo.Doctor;
-import com.cms.pojo.Leader;
-import com.cms.mapper.LeaderMapper;
+import com.cms.pojo.Game;
 import com.cms.pojo.Referee;
-import com.cms.mapper.RefereeMapper;
 import com.cms.util.MybatiesUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
@@ -71,11 +69,57 @@ public class Test1 {
         SqlSession sqlSession = MybatiesUtil.getSession();
         TeamMapper mapper = sqlSession.getMapper(TeamMapper.class);
 
-        String account = "3337001";
+        String account = "20191521003";
         String p="000000";
+        int no = mapper.queryIdByAccount(account);
         String pw=mapper.queryPassword(account);
-        System.out.println(pw);
+        System.out.println(no);
         System.out.println(p.equals(mapper.queryPassword(account)));
+        sqlSession.commit();
+
+        sqlSession.close();
+    }
+    @Test
+    public void m6(){
+        SqlSession sqlSession = MybatiesUtil.getSession();
+        AthleteMapper mapper = sqlSession.getMapper(AthleteMapper.class);
+
+        Athlete athlete = new Athlete();
+        athlete.setAge(8);
+        athlete.setName("王德恩");
+        athlete.setSex("男");
+        athlete.setId("339888");
+        athlete.setTeam_No(1);
+        athlete.setAc_record(9);
+        athlete.setNo(mapper.queryAthleteCount()+1);
+        try {
+            mapper.insert(athlete);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e);
+        }
+        sqlSession.commit();
+
+        sqlSession.close();
+    }
+
+    @Test
+    public void m7(){
+        SqlSession sqlSession = MybatiesUtil.getSession();
+        GameMapper mapper = sqlSession.getMapper(GameMapper.class);
+
+        Game game = new Game();
+        game.setGameId(mapper.queryGameCount()+1);
+        game.setLevel("初赛");
+        game.setGroupAge("7-8");
+        game.setEventId(2);
+
+        try {
+            mapper.insetGame(game);
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println(e);
+        }
         sqlSession.commit();
 
         sqlSession.close();

@@ -5,17 +5,21 @@ import com.cms.util.MybatiesUtil;
 import org.apache.ibatis.binding.BindingException;
 import org.apache.ibatis.session.SqlSession;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.SessionCookieConfig;
+import javax.servlet.http.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Enumeration;
 
 public class Login extends HttpServlet {
 
     private String account;
     private String password;
+    public static int tNo;
+
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -29,8 +33,10 @@ public class Login extends HttpServlet {
         String CONTENT_TYPE = "text/html; charset=GBK";
         resp.setContentType( CONTENT_TYPE);
         PrintWriter out = resp.getWriter();
+
         account=req.getParameter("username");
         password=req.getParameter("password");
+
         boolean flag = judgeLogin(account,password,req,resp);
         if (flag){
             out.print("<script>window.location.href = 'http://localhost:8080/cms/mainPage.jsp'</script>");
@@ -48,7 +54,7 @@ public class Login extends HttpServlet {
         TeamMapper mapper = sqlSession.getMapper(TeamMapper.class);
 
         try {
-            int tNo=mapper.queryIdByAccount(a);
+            tNo=mapper.queryIdByAccount(a);
             String pWord = mapper.queryPassword(a);
             if (!p.equals(pWord)){
                 out.print("<script>alert('密码错误');window.location.href = 'http://localhost:8080/cms/index.jsp'</script>");

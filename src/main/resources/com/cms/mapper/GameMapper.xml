@@ -1,0 +1,23 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cms.mapper.GameMapper">
+    <insert id="insetGame">
+        insert into GAMES (EVENT_ID,GROUP_AGE,LV,ID) values (#{eventId},#{groupAge},#{level},#{gameId})
+    </insert>
+
+    <update id="updateRId" parameterType="int">
+        update GAMES
+        <trim prefix="set" suffixOverrides=",">
+        <if test="rIdNum!=null">RIDNUM=#{rIdNum},</if>
+        </trim>
+        where ID=#{gameId}
+    </update>
+
+    <select id="queryGameCount" resultType="int">
+        select count(ID) from GAMES
+    </select>
+
+    <select id="queryIsExist" resultType="int">
+        select ID from GAMES where EVENT_ID=#{eventId} AND GROUP_AGE=#{groupAge} AND LV=#{level}
+    </select>
+
+</mapper>
