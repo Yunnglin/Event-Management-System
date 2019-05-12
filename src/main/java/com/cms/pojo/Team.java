@@ -6,6 +6,16 @@ public class Team {
     private String account;
     private String password;
 
+    @Override
+    public String toString() {
+        return "Team{" +
+                "tNo=" + tNo +
+                ", name='" + name + '\'' +
+                ", account='" + account + '\'' +
+                ", password='" + password + '\'' +
+                '}';
+    }
+
     public int gettNo() {
         return tNo;
     }

@@ -8,4 +8,8 @@ public interface TeamMapper {
     String queryPassword(String s);
     int queryIdByAccount(String s);
     List<Team> queryAll();
+    int insert(Team team);
+    Team queryById(int tno);
+
+    Team queryByAccount(String account);
 }

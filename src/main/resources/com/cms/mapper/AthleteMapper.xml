@@ -16,4 +16,7 @@
     <select id="queryAthleteCount" resultType="int">
         select count(IDNUM) from ATHLETES
     </select>
+    <select id="queryAll" resultType="com.cms.pojo.Athlete">
+        SELECT * FROM ATHLETES
+    </select>
 </mapper>

@@ -1,6 +1,9 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cms.mapper.TeamMapper">
 
+    <insert id="insert">
+    INSERT INTO TEAMS (TNO, NAME, ACCOUNT,PASSWORD) VALUES (#{tNo},#{name},#{account},#{password})
+    </insert>
 
     <select id="queryPassword" resultType="string">
         select PASSWORD from TEAMS WHERE ACCOUNT = #{s}
@@ -12,5 +15,12 @@
     <select id="queryAll" resultType="com.cms.pojo.Team">
         SELECT * FROM  TEAMS
     </select>
+    <select id="queryById" resultType="com.cms.pojo.Team">
+        SELECT * FROM  TEAMS WHERE TNO = #{tno}
+    </select>
+    <select id="queryByAccount" resultType="com.cms.pojo.Team">
+        SELECT * FROM TEAMS WHERE ACCOUNT = #{account}
+    </select>
+
 
 </mapper>

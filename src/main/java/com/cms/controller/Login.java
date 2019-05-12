@@ -45,9 +45,10 @@ public class Login extends HttpServlet {
                //out.print("<script>window.location.href = 'http://localhost:8080/cms/adminIndex.jsp'</script>");
                 resp.sendRedirect("adminIndex.jsp");
             }else{
-                out.print("<script>alert('用户名错误或不存在该用户');window.location.href = 'http://localhost:8080/cms/mainPage.jsp'</script>");
+                out.print("<script>alert('用户名错误或不存在该用户');window.location.href = 'http://localhost:8080/cms/index.jsp'</script>");
             }
         }
+
     }
 
     private boolean judgeLogin(String a,String p,HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException{

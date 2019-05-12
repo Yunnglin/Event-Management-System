@@ -6,7 +6,7 @@ window,onload = function () {
         surface.style.webkitFilter = "blur(10px)";
         surface.style.filter = "blur(10px)";
         black.style.display = 'block';
-    }
+    };
     login_main.onmouseout = function () {
         var surface = document.getElementById("surface");
         var black = document.getElementById("black");
@@ -14,7 +14,7 @@ window,onload = function () {
         surface.style.filter = "blur(0px)";
         black.style.display = 'none';
     }
-}
+};
 function loginLeader () {
     document.getElementById("user_type").value="leader";
     document.forms[0].submit();

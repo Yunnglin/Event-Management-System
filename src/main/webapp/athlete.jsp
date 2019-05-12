@@ -23,7 +23,8 @@
         <!-- 内容主体区域 -->
         <div style="padding: 15px;">
 
-            <form class="layui-form" action="<%=request.getContextPath()%>/AdminServlet?method=queryTeam" method="post">
+            <form class="layui-form" action="<%=request.getContextPath()%>/AdminServlet?method=queryAthlete"
+                  method="post">
                 <div class="layui-form-item">
                     <div class="layui-input-block">
                         <button type="submit" class="layui-btn">查询</button>
@@ -34,20 +35,22 @@
             <table lay-filter="test" id="teamTable">
                 <thead>
                 <tr>
-                    <th lay-data="{field:'number', width:100, sort:true}">队号</th>
-                    <th lay-data="{field:'name', width:250}">队名</th>
-                    <th lay-data="{field:'account', minWidth: 180}">账号</th>
-                    <th lay-data="{field:'password', minWidth: 180}">密码</th>
+                    <th lay-data="{field:'number', width:100, sort:true}">ID</th>
+                    <th lay-data="{field:'name', width:250}">姓名</th>
+                    <th lay-data="{field:'age', minWidth: 180, sort:true}">年龄</th>
+                    <th lay-data="{field:'sex', minWidth: 180}">性别</th>
+                    <th lay-data="{field:'team', minWidth: 180,sort:true}">所属队伍</th>
                     <th lay-data="{fixed: 'right', width:250, align:'center', toolbar: '#toolBar'}">操作</th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach items="${teams}" var="team">
+                <c:forEach items="${athletes}" var="a">
                     <tr>
-                        <td align="center">${team.gettNo()}</td>
-                        <td align="center">${team.getName()}</td>
-                        <td align="center">${team.getAccount()}</td>
-                        <td align="center">${team.getPassword()}</td>
+                        <td align="center">${a.getId()}</td>
+                        <td align="center">${a.getName()}</td>
+                        <td align="center">${a.getAge()}</td>
+                        <td align="center">${a.getSex()}</td>
+                        <td align="center">${a.getTeam_No()}</td>
                     </tr>
                 </c:forEach>
                 </tbody>
@@ -100,24 +103,16 @@
                     //do something
                     //同步更新缓存对应的值
                     obj.update({
-                        name: '123'
-                        , number: 'xxx'
+                        username: '123'
+                        , title: 'xxx'
                     });
-                    //从js向服务器发送post请求
-                    var tmp = document.createElement("form");
-                    var action = "<%=request.getContextPath()%>/AdminServlet?method=queryTeam";
-                    tmp.action = action;
-                    tmp.method = "post";
-                    tmp.style.display = "none";
-                    document.body.appendChild(tmp);
-                    tmp.submit();
                 }
             });
-
 
         });
 
     };
 </script>
+
 </body>
 </html>

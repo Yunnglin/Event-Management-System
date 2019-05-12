@@ -99,7 +99,7 @@
             <button type="button" class="attachment">上传附件</button>
             <button type="submit" class="submit_button" id="athlete_submit" name="submitB" value="A">提交</button>
         </form>
-        <form class="information" id="coachPage" action="main/java/com/controller/AddServlet">
+        <form class="information" id="coachPage" action="<%=request.getContextPath()%>/AddServlet">
             <span  class="s_name">姓名</span>
             <input type="text" class="input_name" placeholder="输入姓名" name="cName">
             <span  class="ID">身份证</span>

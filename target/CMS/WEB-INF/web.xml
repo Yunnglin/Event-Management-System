@@ -15,7 +15,7 @@
         <!--别名-->
         <servlet-name>addServlet</servlet-name>
         <!--资源名-->
-        <url-pattern>/main/java/com/controller/AddServlet</url-pattern>
+        <url-pattern>/AddServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
