@@ -8,9 +8,6 @@
 
 <configuration>
     <!--属性-->
-    <!--<properties resource="jdbc.properties">-->
-
-    <!--</properties>-->
     <properties resource="jdbc_socket.properties">
 
     </properties>
@@ -39,12 +36,6 @@
             <transactionManager type="jdbc"/>
             <!--数据源-->
             <dataSource type="pooled">
-                <!--
-                <property name="driver" value="oracle.jdbc.driver.OracleDriver"/>
-                <property name="url" value="jdbc:oracle:thin:@127.0.0.1:1521:orcl"/>
-                <property name="username" value="bixiuping"/>
-                <property name="password" value="Bxp123456"/>
-                -->
                 <property name="driver" value="${jdbc.driver}"/>
                 <property name="url" value="${jdbc.url}"/>
                 <property name="username" value="${jdbc.username}"/>
@@ -56,16 +47,6 @@
     <!--<databaseIdProvider type=""/>-->
     <!--映射器-->
     <mappers>
-        <!--
-        <mapper resource="com/cms/mapper/DoctorMapper.xml"></mapper>
-        <mapper resource="com/cms/mapper/LeaderMapper.xml"></mapper>
-        <mapper resource="com/cms/mapper/RefereeMapper.xml"></mapper>
-        <mapper resource="com/cms/mapper/CoachMapper.xml"></mapper>
-        <mapper resource="com/cms/mapper/TeamMapper.xml"></mapper>
-		<mapper resource="com/cms/mapper/AthleteMapper.xml"></mapper>
-        <mapper resource="com/cms/mapper/GameMapper.xml"></mapper>
-        <mapper resource="com/cms/mapper/ParticipationMapper.xml"></mapper>
-        -->
         <package name="com.cms.mapper"/>
     </mappers>
 </configuration>

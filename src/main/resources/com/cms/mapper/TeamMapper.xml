@@ -10,4 +10,13 @@
         select TNO from TEAMS where ACCOUNT = #{s}
     </select>
 
+    <update id="insertAttachment">
+        update TEAMS set ATTACHMENT = #{attachment}
+        where TNO=#{tNo}
+    </update>
+
+    <update id="updatePassword" parameterType="com.cms.pojo.Team">
+        update TEAMS set PASSWORD = #{password}
+        where TNO=#{tNo}
+    </update>
 </mapper>

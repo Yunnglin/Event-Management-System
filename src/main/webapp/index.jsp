@@ -21,11 +21,11 @@
 <div id="backImg">
     <img src="img/login_surface.jpg" id="surface">
     <div id="black"></div>
-    <form id="login_main" action="main/java/com/controller/Login" method="post">
+    <form id="login_main" action="<%=request.getContextPath()%>/Login" method="post">
         <div id="login_title">登录</div>
-        <span class="label label-info" id="login_user">用户名</span>
+        <span  id="login_user">用户名</span>
         <input type="text" id="username" placeholder="输入用户名" name="username">
-        <span class="label label-info" id="login_password">密码</span>
+        <span  id="login_password">密码</span>
         <input type="password" id="password" placeholder="输入密码" name="password">
         <button type="submit" class="btn btn-primary" id="login_leader">领队登录</button>
         <button type="button" class="btn btn-primary" id="login_adm">管理员登录</button>

@@ -19,7 +19,7 @@
         <!--别名-->
         <servlet-name>addServlet</servlet-name>
         <!--资源名-->
-        <url-pattern>/main/java/com/controller/AddServlet</url-pattern>
+        <url-pattern>/AddServlet</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -36,7 +36,17 @@
         <!--别名-->
         <servlet-name>login</servlet-name>
         <!--资源名-->
-        <url-pattern>/main/java/com/controller/Login</url-pattern>
+        <url-pattern>/Login</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>uploadServlet</servlet-name>
+        <servlet-class>com.cms.controller.UploadServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>uploadServlet</servlet-name>
+        <url-pattern>/UploadServlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>

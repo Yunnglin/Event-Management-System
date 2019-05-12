@@ -50,10 +50,14 @@ body{
     position: absolute;
     top: 38.5%;
     left: 10%;
-    width: 15%;
-    height: 8%;
+    width: 100px;
+    height: 40px;
     font-size: 30px;
+    text-align: center;
     font-family: STXingkai;
+    border-radius: 5px;
+    color: white;
+    background-color: #77b7d2;
 }
 #username{
     position: absolute;
@@ -66,11 +70,14 @@ body{
     position: absolute;
     top: 57.5%;
     left: 10%;
-    width: 15%;
-    height: 8%;
     font-size: 30px;
     font-family: STXingkai;
     text-align: center;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    color: white;
+    background-color: #77b7d2;
 }
 #password{
     position: absolute;

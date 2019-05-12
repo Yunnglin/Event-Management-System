@@ -29,37 +29,34 @@
             <option value="coach">教练员</option>
             <option value="referee">裁判员</option>
         </select>
-        <form class="information" id="leaderPage" action="main/java/com/controller/AddServlet">
+        <form class="information" id="leaderPage" action="<%=request.getContextPath()%>/AddServlet">
             <span  class="s_name">姓名</span>
             <input type="text" class="input_name" placeholder="输入姓名" name="dName">
             <span  class="ID">身份证</span>
             <input type="text" class="input_ID" placeholder="输入身份证" name="dID" onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')">
             <span  class="phone">电话</span>
             <input type="text" class="input_phone" placeholder="输入电话" name="dPhone"  onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')">
-            <button type="button" class="attachment">上传附件</button>
             <button type="submit" class="submit_button" id="L_submit" name="submitB" value="L">提交</button>
         </form>
-        <form class="information" id="doctorPage" action="main/java/com/controller/AddServlet">
+        <form class="information" id="doctorPage" action="<%=request.getContextPath()%>/AddServlet">
             <span  class="s_name">姓名</span>
             <input type="text" class="input_name" placeholder="输入姓名" name="dName">
             <span  class="ID">身份证</span>
             <input type="text" class="input_ID" placeholder="输入身份证" name="dID" onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')">
             <span  class="phone">电话</span>
             <input type="text" class="input_phone" placeholder="输入电话" name="dPhone"  onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')">
-            <button type="button" class="attachment">上传附件</button>
             <button type="submit" class="submit_button" id="D_submit" name="submitB" value="D">提交</button>
         </form>
-        <form class="information" id="refereePage" action="main/java/com/controller/AddServlet">
+        <form class="information" id="refereePage" action="<%=request.getContextPath()%>/AddServlet">
             <span  class="s_name">姓名</span>
             <input type="text" class="input_name" placeholder="输入姓名" name="dName">
             <span  class="ID">身份证</span>
             <input type="text" class="input_ID" placeholder="输入身份证" name="dID" onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')">
             <span  class="phone">电话</span>
             <input type="text" class="input_phone" placeholder="输入电话" name="dPhone"  onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')">
-            <button type="button" class="attachment">上传附件</button>
             <button type="submit" class="submit_button" id="R_submit" name="submitB" value="R">提交</button>
         </form>
-        <form class="information" id="athletePage" action="main/java/com/controller/AddServlet">
+        <form class="information" id="athletePage" action="<%=request.getContextPath()%>/AddServlet">
             <span  class="s_name">姓名</span>
             <input type="text" class="input_name" placeholder="输入姓名" name="aName">
             <span  class="ID">身份证</span>
@@ -96,10 +93,9 @@
                     自由体操<input type="checkbox" value="2" name="event">
                     蹦床<input type="checkbox" value="9" name="event">
             </div>
-            <button type="button" class="attachment">上传附件</button>
             <button type="submit" class="submit_button" id="athlete_submit" name="submitB" value="A">提交</button>
         </form>
-        <form class="information" id="coachPage" action="main/java/com/controller/AddServlet">
+        <form class="information" id="coachPage" action="<%=request.getContextPath()%>/AddServlet">
             <span  class="s_name">姓名</span>
             <input type="text" class="input_name" placeholder="输入姓名" name="cName">
             <span  class="ID">身份证</span>
@@ -111,10 +107,15 @@
                 <option value ="男">男</option>
                 <option value ="女">女</option>
             </select>
-            <button type="button" class="attachment">上传附件</button>
             <button type="submit" class="submit_button" id="coach_submit" name="submitB" value="C">提交</button>
-
         </form>
+        <form method="post" action="<%=request.getContextPath()%>/UploadServlet" enctype="multipart/form-data" id="attachment">
+            选择附件:
+            <input type="file" name="uploadFile" />
+            <br/>
+            <input type="submit" value="上传" />
+        </form>
+
     </div>
 </body>
 </html>

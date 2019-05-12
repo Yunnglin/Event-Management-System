@@ -1,13 +1,14 @@
 package com.cms;
 
+import com.cms.controller.Login;
 import com.cms.mapper.*;
-import com.cms.pojo.Athlete;
-import com.cms.pojo.Doctor;
-import com.cms.pojo.Game;
-import com.cms.pojo.Referee;
+import com.cms.pojo.*;
 import com.cms.util.MybatiesUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
+
+import java.io.*;
+
 public class Test1 {
 
     @Test
@@ -104,18 +105,46 @@ public class Test1 {
     }
 
     @Test
-    public void m7(){
-        SqlSession sqlSession = MybatiesUtil.getSession();
-        GameMapper mapper = sqlSession.getMapper(GameMapper.class);
+    public void m7() throws FileNotFoundException {
+        Team t =new Team();
+        t.settNo(3);
+        String url = "D:/CMS/target/CMS/upload/test_compile.txt";
+        File uploadDir = new File(url);
+        if (!uploadDir.exists()) {
+            uploadDir.mkdir();
+        }
+        InputStream is = null;
+        try {
+            is=new FileInputStream(uploadDir);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            System.out.println(e);
+        }
+        byte[] att = new byte[0];
+        try {
+            ByteArrayOutputStream swapStream = new ByteArrayOutputStream();
+            byte[] buff = new byte[100];
+            int rc=0;
+            while ((rc=is.read(buff,0,100))>0){
+                swapStream.write(buff, 0, rc);
+            }
+            att = swapStream.toByteArray();
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println(e);
+        }
+        t.setAttachment(att);
 
-        Game game = new Game();
-        game.setGameId(mapper.queryGameCount()+1);
-        game.setLevel("初赛");
-        game.setGroupAge("7-8");
-        game.setEventId(2);
+        byte[] test = t.getAttachment();
+        for (int i=0;i<att.length;i++){
+            System.out.print(test[i]);
+        }
+
+        SqlSession sqlSession = MybatiesUtil.getSession();
+        TeamMapper mapper = sqlSession.getMapper(TeamMapper.class);
 
         try {
-            mapper.insetGame(game);
+            mapper.insertAttachment(t);
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println(e);
@@ -124,4 +153,5 @@ public class Test1 {
 
         sqlSession.close();
     }
+
 }
