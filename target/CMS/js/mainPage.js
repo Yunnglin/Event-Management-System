@@ -13,18 +13,6 @@ window.onload = function(){
     selectRole();
 }
 
-// function setGroup() {
-//     var age = document.getElementById("a_age");
-//     var group = document.getElementById("select_group");
-//     var a = age.value;
-//     if (a<9){
-//         group.v
-//     }else if (a>8&&a<11){
-//
-//     } else if(a>10){
-//
-//     }
-// }
 
 function selectRole() {
     var lPage = document.getElementById("leaderPage");
