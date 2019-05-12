@@ -1,0 +1,21 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cms.mapper.RefereeMapper">
+
+    <insert id="insert">
+         insert into REFEREES (NAME ,IDNUM, PHONENUM, TEAM_NO) VALUES (#{name},#{idNum},#{phone},#{Team_No})
+    </insert>
+
+    <select id="queryById" resultType="com.cms.pojo.Referee">
+        select * from REFEREES WHERE IDNUM = #{idNum}
+    </select>
+
+    <select id="queryNameById" resultType="string">
+        select name from REFEREES WHERE IDNUM = #{idNum}
+    </select>
+
+    <select id="queryByAccountName" resultType="com.cms.pojo.Referee">
+        select * from REFEREES WHERE NAME = #{name}
+        AND TEAM_NO = (select tno from TEAMS where account = #{account})
+    </select>
+
+</mapper>
