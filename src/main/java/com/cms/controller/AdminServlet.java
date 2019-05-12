@@ -19,13 +19,8 @@ public class AdminServlet extends HttpServlet {
         SqlSession sqlSession = MybatiesUtil.getSession();
         TeamMapper mapper = sqlSession.getMapper(TeamMapper.class);
         List<Team> teams = mapper.queryAll();
-        for (Team i:teams
-             ) {
-            System.out.println(i.getAccount());
-        }
-        System.out.println();
         request.setAttribute("teams",teams);
-        request.getRequestDispatcher("/adminJsp/team.jsp").forward(request, response);
+        request.getRequestDispatcher("/team.jsp").forward(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>赛事管理系统</title>
-    <link rel="stylesheet" href="../plugins/layui/css/layui.css">
+    <link rel="stylesheet" href="plugins/layui/css/layui.css">
 
 </head>
 <body class="layui-layout-body">
@@ -24,7 +24,7 @@
 
     <jsp:include page="footer.jsp"/>
 </div>
-<script src="../plugins/layui/layui.js"></script>
+<script src="plugins/layui/layui.js"></script>
 <script>
     //JavaScript代码区域
     layui.use('element', function(){

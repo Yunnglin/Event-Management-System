@@ -27,7 +27,7 @@
         <!--别名-->
         <servlet-name>login</servlet-name>
         <!--资源名-->
-        <url-pattern>/main/java/com/controller/Login</url-pattern>
+        <url-pattern>/Login</url-pattern>
     </servlet-mapping>
     
     <servlet>
@@ -36,6 +36,6 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>AdminServlet</servlet-name>
-        <url-pattern>/adminJsp</url-pattern>
+        <url-pattern>/AdminServlet</url-pattern>
     </servlet-mapping>
 </web-app>

@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name = "Login")
 public class Login extends HttpServlet {
 
     private String account;
@@ -43,10 +42,10 @@ public class Login extends HttpServlet {
             }
         }else if(userType.equals("admin")){
             if (account.equals("admin")&&password.equals("123456")){
-               out.print("<script>window.location.href = 'http://localhost:8080/cms/adminJsp/index.jsp'</script>");
-               // resp.sendRedirect("/adminJsp/index.jsp");
+               //out.print("<script>window.location.href = 'http://localhost:8080/cms/adminIndex.jsp'</script>");
+                resp.sendRedirect("adminIndex.jsp");
             }else{
-                out.print("<script>alert('用户名错误或不存在该用户');window.location.href = 'http://localhost:8080/cms/index.jsp'</script>");
+                out.print("<script>alert('用户名错误或不存在该用户');window.location.href = 'http://localhost:8080/cms/mainPage.jsp'</script>");
             }
         }
     }

@@ -21,7 +21,7 @@
 <div id="backImg">
     <img src="img/login_surface.jpg" id="surface">
     <div id="black"></div>
-    <form id="login_main" action="main/java/com/controller/Login" method="post">
+    <form id="login_main" action="<%=request.getContextPath()%>/Login" method="post">
         <div id="login_title">登录</div>
         <span class="label label-info" id="login_user">用户名</span>
         <input type="text" id="username" placeholder="输入用户名" name="username">
