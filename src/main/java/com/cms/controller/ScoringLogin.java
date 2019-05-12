@@ -38,7 +38,7 @@ public class ScoringLogin extends HttpServlet {
         }else{
             res.put("flag", true);
             res.put("idnum", referee.getIdNum());
-            if(referee.getIdNum().equals(ScoringSocketManager.instance.getScoringGame().getRIdNum)){
+            if(referee.getIdNum().equals(ScoringSocketManager.instance.getScoringGame().getrIdNum())){
                 res.put("leader", true);
             }else{
                 res.put("leader", false);

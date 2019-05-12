@@ -47,4 +47,8 @@ public class ScoringServer {
         ScoringSocketManager.instance.removeClient(this);
     }
 
+    public void send(String data) throws IOException {
+        this.session.getBasicRemote().sendText(data);
+    }
+
 }

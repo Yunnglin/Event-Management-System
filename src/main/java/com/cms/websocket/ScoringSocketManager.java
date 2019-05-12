@@ -1,34 +1,48 @@
 package com.cms.websocket;
 
+import com.cms.pojo.Game;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ScoringSocketManager {
 
     public static ScoringSocketManager instance = new ScoringSocketManager();
-    private ArrayList<ScoringServer> clientList;
+    private Map<String, ScoringServer> clientMap;
     private Game game;
 
     private ScoringSocketManager(){
-        clientList = new ArrayList<ScoringServer>();
+        clientMap = new HashMap<String, ScoringServer>();
         System.out.println("Socket Manager initializes");
     }
 
     void addClient(ScoringServer node){
-        synchronized (clientList) {
-            clientList.add(node);
+        synchronized (clientMap) {
+            clientMap.put(node.referee.getIdNum(), node);
         }
         System.out.println("referee " + node.referee.getName() + " in");
     }
 
     void removeClient(ScoringServer node){
-        synchronized (clientList) {
-            clientList.remove(node);
+        synchronized (clientMap) {
+            clientMap.remove(node.referee.getIdNum());
         }
         System.out.println("referee " + node.referee.getName() + " out");
     }
 
-    public static synchronized Game getScoringGame(){
+    public synchronized Game getScoringGame(){
         return game;
     }
 
+    public synchronized void setScoringGame(Game game){
+        this.game = game;
+    }
+
+    public void startGame(Game game){
+        int gameId = game.getGameId();
+        String groupAge = game.getGroupAge();
+        String lv = game.getLevel();
+        String leaderID = game.getrIdNum();
+    }
 }
