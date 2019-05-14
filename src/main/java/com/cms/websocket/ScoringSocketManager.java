@@ -1,9 +1,15 @@
 package com.cms.websocket;
 
+import com.alibaba.fastjson.JSONObject;
+import com.cms.mapper.RefereeSeviceMapper;
 import com.cms.pojo.Game;
+import com.cms.pojo.Referee;
+import com.cms.util.MybatiesUtil;
+import org.apache.ibatis.session.SqlSession;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class ScoringSocketManager {
@@ -44,5 +50,24 @@ public class ScoringSocketManager {
         String groupAge = game.getGroupAge();
         String lv = game.getLevel();
         String leaderID = game.getrIdNum();
+
+        SqlSession sqlSession = MybatiesUtil.getSession();
+        RefereeSeviceMapper mapper1 = sqlSession.getMapper(RefereeSeviceMapper.class);
+        List<Referee> referees = mapper1.queryRelatedReferee(gameId);
+
+
+        JSONObject msg = new JSONObject();
+        JSONObject g = new JSONObject();
+        g.put("gameid", gameId);
+        g.put("name", )
+        msg.put("type", 0);
+        msg.put()
+
+        synchronized (clientMap) {
+            for (Referee r : referees) {
+                ScoringServer server = clientMap.get(r.getIdNum());
+                server.send();
+            }
+        }
     }
 }
