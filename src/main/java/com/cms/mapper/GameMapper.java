@@ -10,4 +10,7 @@ public interface GameMapper {
     int queryGameCount();
 
     int queryIsExist(Game game);
+
+    String queryName(Game game);
+    String queryNameById(int gid);
 }

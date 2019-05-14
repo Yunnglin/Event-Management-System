@@ -20,4 +20,13 @@
         select ID from GAMES where EVENT_ID=#{eventId} AND GROUP_AGE=#{groupAge} AND LV=#{level}
     </select>
 
+    <select id="queryName" resultType="string">
+        select name from events where events.id = #{eventId}
+    </select>
+
+    <select id="queryNameById" resultType="string">
+        select name from events
+        where events.id = (select event_id from games where games.id = #{gid})
+    </select>
+
 </mapper>
