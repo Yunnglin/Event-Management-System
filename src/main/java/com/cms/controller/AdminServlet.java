@@ -8,6 +8,7 @@ import com.cms.util.MybatiesUtil;
 import org.apache.ibatis.binding.BindingException;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.json.JSONObject;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -48,27 +49,54 @@ public class AdminServlet extends HttpServlet {
                 team.setName(request.getParameter("name"));
                 team.setAccount(request.getParameter("account"));
                 team.setPassword(request.getParameter("password"));
-
-                System.out.println(team.toString());
-
                 TeamMapper mapper = sqlSession.getMapper(TeamMapper.class);
                 if (mapper.queryById(team.gettNo()) != null) {
                     out.print("<script>alert('队号重复,添加失败');window.location.href = 'http://localhost:8080/cms/teamAccount.jsp'</script>");
 
                 } else if(mapper.queryByAccount(team.getAccount()) != null){
-                    //out.print("<script>alert('编号重复')</script>");
                     out.print("<script>alert('帐号重复,添加失败');window.location.href = 'http://localhost:8080/cms/teamAccount.jsp'</script>");
                 }else{
                     mapper.insert(team);
+                    sqlSession.commit();
                     out.print("<script>alert('添加成功');window.location.href = 'http://localhost:8080/cms/teamAccount.jsp'</script>");
                 }
+            }else if(method.equals("delTeam")){
+                int tNo =Integer.valueOf(request.getParameter("teamNo"));
+                TeamMapper teamMapper = sqlSession.getMapper(TeamMapper.class);
+                teamMapper.deleteByTNo(tNo);
+                sqlSession.commit();
+                List<Team> teams = teamMapper.queryAll();
+                request.setAttribute("teams", teams);
+                request.getRequestDispatcher("/team.jsp").forward(request, response);
+            }else if(method.equals("updateTeam")){
+                String teamJson = request.getParameter("teamJson");
+                System.out.println(teamJson);
+                JSONObject jsonObject = new JSONObject(teamJson);
+                TeamMapper teamMapper = sqlSession.getMapper(TeamMapper.class);
+                Team team=teamMapper.queryById(jsonObject.getInt("tNo"));
+                team.setName(jsonObject.getString("name"));
+                team.setPassword(jsonObject.getString("password"));
+                teamMapper.updateNameAndPassword(team);
+                sqlSession.commit();
+                List<Team> teams = teamMapper.queryAll();
+                request.setAttribute("teams", teams);
+                request.getRequestDispatcher("/team.jsp").forward(request, response);
+            }else if(method.equals("delAthlete")){
+                String id =request.getParameter("athleteID");
+                AthleteMapper mapper = sqlSession.getMapper(AthleteMapper.class);
+                mapper.deleteByIdNum(id);
+                sqlSession.commit();
+                List<Athlete> athletes = mapper.queryAll();
+                request.setAttribute("athletes", athletes);
+                request.getRequestDispatcher("/athlete.jsp").forward(request, response);
             }
         } catch (BindingException e) {
+            sqlSession.rollback();
             out.print("<script>alert('错误!')</script>");
         } catch (Exception e) {
+            sqlSession.rollback();
             e.printStackTrace();
         } finally {
-            sqlSession.commit();
             sqlSession.close();
         }
     }

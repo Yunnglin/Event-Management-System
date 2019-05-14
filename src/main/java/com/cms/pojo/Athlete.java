@@ -1,13 +1,32 @@
 package com.cms.pojo;
 
 public class Athlete {
+    private int No;
     private String name;
     private String idNum;
     private String sex;
     private int age;
     private int ac_record;
     private int Team_No;
-    private int No;
+    private String teamName;
+
+
+
+    public String getTeamName() {
+        return teamName;
+    }
+
+    public void setTeamName(String teamName) {
+        this.teamName = teamName;
+    }
+
+    public String getIdNum() {
+        return idNum;
+    }
+
+    public void setIdNum(String idNum) {
+        this.idNum = idNum;
+    }
 
     public String getName() {
         return name;

@@ -8,6 +8,10 @@ import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
 import java.io.*;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 public class Test1 {
 
@@ -152,6 +156,11 @@ public class Test1 {
         sqlSession.commit();
 
         sqlSession.close();
+    }
+    @Test
+    public void m8(){
+        SqlSession sqlSession = MybatiesUtil.getSession();
+
     }
 
 }

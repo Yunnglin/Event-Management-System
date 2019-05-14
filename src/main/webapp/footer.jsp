@@ -8,5 +8,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="layui-footer">
     <!-- 底部固定区域 -->
-    © WHU赛事管理系统
+    &copy;WHU赛事管理系统
 </div>

@@ -35,11 +35,11 @@
             <table lay-filter="test" id="teamTable">
                 <thead>
                 <tr>
-                    <th lay-data="{field:'number', width:100, sort:true}">ID</th>
-                    <th lay-data="{field:'name', width:250}">姓名</th>
-                    <th lay-data="{field:'age', minWidth: 180, sort:true}">年龄</th>
-                    <th lay-data="{field:'sex', minWidth: 180}">性别</th>
-                    <th lay-data="{field:'team', minWidth: 180,sort:true}">所属队伍</th>
+                    <th lay-data="{field:'ID', width:200, sort:true}">ID</th>
+                    <th lay-data="{field:'name', width:100}">姓名</th>
+                    <th lay-data="{field:'age', minWidth: 100, sort:true}">年龄</th>
+                    <th lay-data="{field:'sex', minWidth: 100}">性别</th>
+                    <th lay-data="{field:'team', minWidth: 200,sort:true}">所属队伍</th>
                     <th lay-data="{fixed: 'right', width:250, align:'center', toolbar: '#toolBar'}">操作</th>
                 </tr>
                 </thead>
@@ -66,7 +66,6 @@
 <script type="text/html" id="toolBar">
     <div class="layui-btn-container">
         <button class="layui-btn layui-btn-sm" lay-event="delete">删除</button>
-        <button class="layui-btn layui-btn-sm" lay-event="edit">编辑</button>
     </div>
 </script>
 <script>
@@ -80,7 +79,7 @@
             var table = layui.table;
             //转换静态表格
             table.init('test', {
-                height: 315 //设置高度
+                height: 400 //设置高度
                 , page: true
                 , limit: 10 //注意：请务必确保 limit 参数（默认：10）是与你服务端限定的数据条数一致
             });
@@ -98,13 +97,21 @@
                         obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
                         layer.close(index);
                         //向服务端发送删除指令
-                    });
-                } else if (layEvent === 'edit') { //编辑
-                    //do something
-                    //同步更新缓存对应的值
-                    obj.update({
-                        username: '123'
-                        , title: 'xxx'
+                        var tmp = document.createElement('form');
+                        var action = '<%=request.getContextPath()%>/AdminServlet?method=delAthlete';
+                        tmp.action = action;
+                        tmp.method = 'post';
+                        tmp.style.display = 'none';
+                        var input = document.createElement('input');
+                        input.type = 'hidden';
+                        input.name = 'athleteID';
+                        //var json= JSON.stringify(data);
+                        input.value = data.ID;
+                        console.log(data.ID);
+                        console.log(input.value);
+                        tmp.appendChild(input);
+                        document.body.appendChild(tmp);
+                        tmp.submit();
                     });
                 }
             });

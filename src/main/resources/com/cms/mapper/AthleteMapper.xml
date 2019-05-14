@@ -9,6 +9,9 @@
     <insert id="insertNotGrade">
         insert into ATHLETES (NAME,IDNUM,SEX,AGE,TEAM_NO,NO) values (#{name} ,#{idNum} ,#{sex} ,#{age} ,#{team_No} ,#{No})
     </insert>
+    <delete id="deleteByIdNum">
+        DELETE FROM ATHLETES WHERE IDNUM = #{id}
+    </delete>
 
     <select id="queryById" resultType="com.cms.pojo.Athlete">
          select * from ATHLETES WHERE IDNUM = #{idNum}
@@ -22,6 +25,6 @@
         select count(IDNUM) from ATHLETES
     </select>
     <select id="queryAll" resultType="com.cms.pojo.Athlete">
-        SELECT * FROM ATHLETES ORDER BY TEAM_NO asc
+        SELECT * FROM ATHLETES
     </select>
 </mapper>

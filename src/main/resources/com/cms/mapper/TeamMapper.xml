@@ -32,4 +32,14 @@
         update TEAMS set PASSWORD = #{password}
         where TNO=#{tNo}
     </update>
+    <update id="updateNameAndPassword">
+        UPDATE TEAMS SET
+        NAME =#{name},
+        PASSWORD = #{password}
+        WHERE TNO=#{tNo}
+    </update>
+    <delete id="deleteByTNo">
+      DELETE FROM TEAMS WHERE TNO = #{tNo}
+    </delete>
+
 </mapper>

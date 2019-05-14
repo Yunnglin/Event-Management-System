@@ -34,10 +34,10 @@
             <table lay-filter="test" id="teamTable">
                 <thead>
                 <tr>
-                    <th lay-data="{field:'number', width:100, sort:true}">队号</th>
-                    <th lay-data="{field:'name', width:250}">队名</th>
+                    <th lay-data="{field:'tNo', width:100, sort:true}">队号</th>
+                    <th lay-data="{field:'name', width:250,edit:'text'}">队名</th>
                     <th lay-data="{field:'account', minWidth: 180}">账号</th>
-                    <th lay-data="{field:'password', minWidth: 180}">密码</th>
+                    <th lay-data="{field:'password', minWidth: 180,edit:'text'}">密码</th>
                     <th lay-data="{fixed: 'right', width:250, align:'center', toolbar: '#toolBar'}">操作</th>
                 </tr>
                 </thead>
@@ -59,14 +59,14 @@
 </div>
 
 <script src="plugins/layui/layui.js"></script>
-
 <script type="text/html" id="toolBar">
     <div class="layui-btn-container">
         <button class="layui-btn layui-btn-sm" lay-event="delete">删除</button>
-        <button class="layui-btn layui-btn-sm" lay-event="edit">编辑</button>
+        <button class="layui-btn layui-btn-sm" lay-event="update">更新</button>
     </div>
 </script>
 <script>
+
     window.onload = function () {
         layui.use('element', function () {
             var element = layui.element;
@@ -77,9 +77,17 @@
             var table = layui.table;
             //转换静态表格
             table.init('test', {
-                height: 315 //设置高度
+                height: 500 //设置高度
                 , page: true
                 , limit: 10 //注意：请务必确保 limit 参数（默认：10）是与你服务端限定的数据条数一致
+            });
+
+            //监听单元格编辑
+            table.on('edit(test)', function(obj){
+                var value = obj.value //得到修改后的值
+                    ,data = obj.data //得到所在行所有键值
+                    ,field = obj.field; //得到字段
+                layer.msg('[队号: '+ data.tNo +'] ' + field + ' 更改为：'+ value);
             });
 
             //监听工具条
@@ -95,20 +103,35 @@
                         obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
                         layer.close(index);
                         //向服务端发送删除指令
+                        var tmp = document.createElement('form');
+                        var action = '<%=request.getContextPath()%>/AdminServlet?method=delTeam';
+                        tmp.action = action;
+                        tmp.method = 'post';
+                        tmp.style.display = 'none';
+                        var input = document.createElement('input');
+                        input.type = 'hidden';
+                        input.name = 'teamNo';
+                        //var json= JSON.stringify(data);
+                        input.value = data.tNo;
+                        console.log(data.tNo);
+                        console.log(input.value);
+                        tmp.appendChild(input);
+                        document.body.appendChild(tmp);
+                        tmp.submit();
                     });
-                } else if (layEvent === 'edit') { //编辑
-                    //do something
-                    //同步更新缓存对应的值
-                    obj.update({
-                        name: '123'
-                        , number: 'xxx'
-                    });
+                } else if (layEvent === 'update') { //编辑
                     //从js向服务器发送post请求
-                    var tmp = document.createElement("form");
-                    var action = "<%=request.getContextPath()%>/AdminServlet?method=queryTeam";
+                    var tmp = document.createElement('form');
+                    var action = '<%=request.getContextPath()%>/AdminServlet?method=updateTeam';
                     tmp.action = action;
-                    tmp.method = "post";
-                    tmp.style.display = "none";
+                    tmp.method = 'post';
+                    tmp.style.display = 'none';
+                    var input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = 'teamJson';
+                    input.value = JSON.stringify(data);
+                    console.log(data);
+                    tmp.appendChild(input);
                     document.body.appendChild(tmp);
                     tmp.submit();
                 }
