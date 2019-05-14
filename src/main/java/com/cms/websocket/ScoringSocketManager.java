@@ -1,6 +1,7 @@
 package com.cms.websocket;
 
 import com.alibaba.fastjson.JSONObject;
+import com.cms.mapper.GameMapper;
 import com.cms.mapper.RefereeSeviceMapper;
 import com.cms.pojo.Game;
 import com.cms.pojo.Referee;
@@ -54,19 +55,22 @@ public class ScoringSocketManager {
         SqlSession sqlSession = MybatiesUtil.getSession();
         RefereeSeviceMapper mapper1 = sqlSession.getMapper(RefereeSeviceMapper.class);
         List<Referee> referees = mapper1.queryRelatedReferee(gameId);
+        GameMapper mapper2 = sqlSession.getMapper(GameMapper.class);
 
+        String gname = mapper2.queryNameById(gameId);
 
         JSONObject msg = new JSONObject();
         JSONObject g = new JSONObject();
         g.put("gameid", gameId);
-        g.put("name", )
+        g.put("name", gname);
+
         msg.put("type", 0);
-        msg.put()
+
 
         synchronized (clientMap) {
             for (Referee r : referees) {
                 ScoringServer server = clientMap.get(r.getIdNum());
-                server.send();
+//                server.send();
             }
         }
     }

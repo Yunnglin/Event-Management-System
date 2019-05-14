@@ -34,6 +34,7 @@ public class ScoringServer {
         }else{
             ScoringSocketManager.instance.addClient(this);
         }
+        sqlSession.close();
     }
 
     @OnMessage
