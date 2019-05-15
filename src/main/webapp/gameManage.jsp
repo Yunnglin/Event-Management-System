@@ -17,14 +17,30 @@
     <div class="layui-body" style="background-color: #eeeeee;  ">
         <!-- 内容主体区域 -->
         <div style="padding: 15px;">
-            <table lay-filter="test" id="teamTable">
+            <table id="teamTable" class="layui-table" lay-data="{height:400, page:true, url:'<%=request.getContextPath()%>/AdminServlet'}" lay-filter="test">
+                <thead>
+                <tr>
+                    <th lay-data="{field: 'GAMEID', align:'center',  width:150, sort: true}">编号</th>
+                    <th lay-data="{field: 'EVENTNAME',  align:'center', width:200}">项目名</th>
+                    <th lay-data="{field: 'GAMEAGE', align:'center',  width:150, sort: true}">年龄组</th>
+                    <th lay-data="{field: 'REFEREENUM', align:'center',  width:200,edit:'text'}">裁判编号</th>
+                    <th lay-data="{field: 'GAMELEVEL',  align:'center', width: 200}">等级</th>
+                    <th lay-data="{fixed: 'right', width:150, align:'center', toolbar: '#toolBar'}">操作</th>
+                </tr>
+                </thead>
             </table>
         </div>
     </div>
 
     <jsp:include page="footer.jsp"/>
 </div>
+<script type="text/html" id="toolBar">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="start">开始比赛</button>
+    </div>
+</script>
 <script src="plugins/layui/layui.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
 <script>
     //JavaScript代码区域
     layui.use('element', function(){
@@ -34,28 +50,23 @@
     layui.use('table', function(){
         var table = layui.table;
 
-        //第一个实例
-        table.render({
-            elem: '#teamTable'
-            ,height: 400
-            ,url: '<%=request.getContextPath()%>/AdminServlet' //数据接口
-            ,method: 'get'
-            ,size: 'lg'
-            ,page:true
-            ,cols: [[ //表头
-                {field: 'GAMEID', title: '编号', width:150, sort: true}
-                ,{field: 'EVENTNAME', title: '项目名', width:150}
-                ,{field: 'GAMEAGE', title: '年龄组', width:150, sort: true}
-                ,{field: 'REFEREENUM', title: '裁判编号', width:200,edit:'text'}
-                ,{field: 'GAMELEVEL', title: '等级', width: 150}
-            ]]
-        });
         //监听单元格编辑
         table.on('edit(test)', function(obj){
             var value = obj.value //得到修改后的值
                 ,data = obj.data //得到所在行所有键值
                 ,field = obj.field; //得到字段
-            layer.msg('['+ data.id +'] ' + field + ' 更改为：'+ value);
+            layer.msg(field + ' 更改为：'+ value);
+        });
+
+        table.on('tool(test)', function(obj){
+            var data = obj.data; //获得当前行数据
+            var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+            var tr = obj.tr; //获得当前行 tr 的DOM对象
+
+            if(layEvent === 'start'){//点击开始比赛后的操作
+                //do somehing
+                console.log("start"+data.GAMEID);
+            }
         });
 
     });
