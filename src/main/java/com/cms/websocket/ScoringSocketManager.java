@@ -110,6 +110,7 @@ public class ScoringSocketManager {
             }
         }
         this.isInProgress = true;
+
     }
 
     private boolean refereesAllReady(){

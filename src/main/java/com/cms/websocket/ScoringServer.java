@@ -1,5 +1,7 @@
 package com.cms.websocket;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.cms.mapper.RefereeMapper;
 import com.cms.pojo.Referee;
 import com.cms.util.MybatiesUtil;
@@ -39,6 +41,7 @@ public class ScoringServer {
 
     @OnMessage
     public void onMessage(String message, Session session){
+        JSONObject msg = JSON.parseObject(message);
 
     }
 
