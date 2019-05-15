@@ -24,12 +24,27 @@
         <div style="padding: 15px;">
 
             <form class="layui-form" action="<%=request.getContextPath()%>/AdminServlet?method=queryTeam" method="post">
+               <div class="layui-form-item layui-row">
+                   <label class="layui-form-label">查询方式</label>
+                   <div class="layui-input-block layui-col-md3">
+                       <select name="select" lay-verify="" lay-search>
+                           <option value="all" selected>--全部--</option>
+                           <option value="number">队号</option>
+                           <option value="name">队名</option>
+                       </select>
+                   </div>
+               </div>
                 <div class="layui-form-item">
-                    <div class="layui-input-block">
+                    <label class="layui-form-label">查询内容</label>
+                    <div class="layui-input-block layui-col-md3">
+                        <input type="text" name="input"  lay-verify="" placeholder="请输入" autocomplete="off" class="layui-input">
+                    </div>
+                    <div class="layui-input-block layui-col-md3">
                         <button type="submit" class="layui-btn">查询</button>
                         <button type="reset" class="layui-btn layui-btn-primary">重置</button>
                     </div>
                 </div>
+
             </form>
             <table lay-filter="test" id="teamTable">
                 <thead>
@@ -77,7 +92,7 @@
             var table = layui.table;
             //转换静态表格
             table.init('test', {
-                height: 500 //设置高度
+                height: 700 //设置高度
                 , page: true
                 , limit: 10 //注意：请务必确保 limit 参数（默认：10）是与你服务端限定的数据条数一致
             });

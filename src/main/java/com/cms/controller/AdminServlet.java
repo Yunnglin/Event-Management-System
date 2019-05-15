@@ -1,6 +1,7 @@
 package com.cms.controller;
 
 import com.cms.mapper.AthleteMapper;
+import com.cms.mapper.GameMapper;
 import com.cms.mapper.TeamMapper;
 import com.cms.pojo.Athlete;
 import com.cms.pojo.Team;
@@ -8,6 +9,7 @@ import com.cms.util.MybatiesUtil;
 import org.apache.ibatis.binding.BindingException;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.servlet.ServletException;
@@ -17,6 +19,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
 
 public class AdminServlet extends HttpServlet {
@@ -53,27 +56,27 @@ public class AdminServlet extends HttpServlet {
                 if (mapper.queryById(team.gettNo()) != null) {
                     out.print("<script>alert('队号重复,添加失败');window.location.href = 'http://localhost:8080/cms/teamAccount.jsp'</script>");
 
-                } else if(mapper.queryByAccount(team.getAccount()) != null){
+                } else if (mapper.queryByAccount(team.getAccount()) != null) {
                     out.print("<script>alert('帐号重复,添加失败');window.location.href = 'http://localhost:8080/cms/teamAccount.jsp'</script>");
-                }else{
+                } else {
                     mapper.insert(team);
                     sqlSession.commit();
                     out.print("<script>alert('添加成功');window.location.href = 'http://localhost:8080/cms/teamAccount.jsp'</script>");
                 }
-            }else if(method.equals("delTeam")){
-                int tNo =Integer.valueOf(request.getParameter("teamNo"));
+            } else if (method.equals("delTeam")) {
+                int tNo = Integer.valueOf(request.getParameter("teamNo"));
                 TeamMapper teamMapper = sqlSession.getMapper(TeamMapper.class);
                 teamMapper.deleteByTNo(tNo);
                 sqlSession.commit();
                 List<Team> teams = teamMapper.queryAll();
                 request.setAttribute("teams", teams);
                 request.getRequestDispatcher("/team.jsp").forward(request, response);
-            }else if(method.equals("updateTeam")){
+            } else if (method.equals("updateTeam")) {
                 String teamJson = request.getParameter("teamJson");
                 System.out.println(teamJson);
                 JSONObject jsonObject = new JSONObject(teamJson);
                 TeamMapper teamMapper = sqlSession.getMapper(TeamMapper.class);
-                Team team=teamMapper.queryById(jsonObject.getInt("tNo"));
+                Team team = teamMapper.queryById(jsonObject.getInt("tNo"));
                 team.setName(jsonObject.getString("name"));
                 team.setPassword(jsonObject.getString("password"));
                 teamMapper.updateNameAndPassword(team);
@@ -81,14 +84,18 @@ public class AdminServlet extends HttpServlet {
                 List<Team> teams = teamMapper.queryAll();
                 request.setAttribute("teams", teams);
                 request.getRequestDispatcher("/team.jsp").forward(request, response);
-            }else if(method.equals("delAthlete")){
-                String id =request.getParameter("athleteID");
+            } else if (method.equals("delAthlete")) {
+                String id = request.getParameter("athleteID");
                 AthleteMapper mapper = sqlSession.getMapper(AthleteMapper.class);
                 mapper.deleteByIdNum(id);
                 sqlSession.commit();
                 List<Athlete> athletes = mapper.queryAll();
                 request.setAttribute("athletes", athletes);
                 request.getRequestDispatcher("/athlete.jsp").forward(request, response);
+            } else if (method.equals("queryGame")) {
+                GameMapper mapper = sqlSession.getMapper(GameMapper.class);
+                List<HashMap> hashMaps=mapper.queryAll();
+                JSONArray jsonArray= new JSONArray(hashMaps);
             }
         } catch (BindingException e) {
             sqlSession.rollback();
@@ -104,6 +111,21 @@ public class AdminServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("get");
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
+        String CONTENT_TYPE = "text/html; charset=GBK";
+        response.setContentType(CONTENT_TYPE);
 
+        SqlSession sqlSession = MybatiesUtil.getSession();
+        GameMapper mapper = sqlSession.getMapper(GameMapper.class);
+        List<HashMap> hashMaps=mapper.queryAll();
+        JSONArray jsonArray= new JSONArray(hashMaps);
+        PrintWriter out = response.getWriter();
+        String head="{\"code\":0,\"msg\":\"\",\"count\":1000,\"data\":";
+        String json=head+jsonArray+"}";
+        System.out.println(json);
+        out.print(json);
+        out.flush();
+        out.close();
     }
 }

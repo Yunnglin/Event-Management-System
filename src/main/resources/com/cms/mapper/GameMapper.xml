@@ -18,6 +18,21 @@
 
     <select id="queryIsExist" resultType="int">
         select ID from GAMES where EVENT_ID=#{eventId} AND GROUP_AGE=#{groupAge} AND LV=#{level}
+
+    </select>
+    <select id="queryAll" resultType="java.util.HashMap">
+         SELECT
+        g.ID as gameId,
+        g.GROUP_AGE as gameAge,
+        g.LV as gameLevel,
+        e.NAME as eventName,
+        g.RIDNUM as refereeNum
+    from
+        GAMES g
+    INNER JOIN
+        EVENTS e
+            ON g.EVENT_ID=e.ID
+    ORDER BY g.ID ASC
     </select>
 
 </mapper>

@@ -23,15 +23,6 @@
         <!-- 内容主体区域 -->
         <div style="padding: 15px;">
 
-            <form class="layui-form" action="<%=request.getContextPath()%>/AdminServlet?method=queryAthlete"
-                  method="post">
-                <div class="layui-form-item">
-                    <div class="layui-input-block">
-                        <button type="submit" class="layui-btn">查询</button>
-                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
-                    </div>
-                </div>
-            </form>
             <table lay-filter="test" id="teamTable">
                 <thead>
                 <tr>
@@ -79,7 +70,7 @@
             var table = layui.table;
             //转换静态表格
             table.init('test', {
-                height: 400 //设置高度
+                height: 800 //设置高度
                 , page: true
                 , limit: 10 //注意：请务必确保 limit 参数（默认：10）是与你服务端限定的数据条数一致
             });

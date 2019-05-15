@@ -1,17 +1,15 @@
 package com.cms;
 
-import com.cms.controller.Login;
 import com.cms.mapper.*;
 import com.cms.pojo.*;
 import com.cms.util.MybatiesUtil;
 import org.apache.ibatis.session.SqlSession;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.junit.Test;
 
 import java.io.*;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class Test1 {
 
@@ -160,7 +158,17 @@ public class Test1 {
     @Test
     public void m8(){
         SqlSession sqlSession = MybatiesUtil.getSession();
-
+        GameMapper mapper=sqlSession.getMapper(GameMapper.class);
+        List<HashMap> hashMaps=mapper.queryAll();
+        JSONArray jsonArray= new JSONArray(hashMaps);
+        System.out.println(jsonArray.toString());
+    }
+    @Test
+    public void m9(){
+        SqlSession sqlSession = MybatiesUtil.getSession();
+        TeamMapper mapper = sqlSession.getMapper(TeamMapper.class);
+        Team team = mapper.queryById(1);
+        System.out.println(team.toString());
     }
 
 }
