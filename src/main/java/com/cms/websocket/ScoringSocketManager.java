@@ -1,5 +1,6 @@
 package com.cms.websocket;
 
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.cms.mapper.GameMapper;
@@ -164,7 +165,42 @@ public class ScoringSocketManager {
         return true;
     }
 
-    private void transitMessage() {
+    public void transitMessage() {
+
+    }
+
+    private void sendScoreToLeader(JSONObject scoreData){
+        String id = game.getrIdNum();
+        JSONObject msg = new JSONObject();
+        msg.put("type", 3);
+        msg.put("data", scoreData);
+        synchronized (clientMap) {
+            ScoringServer leaderServer = clientMap.get(id);
+            try {
+                leaderServer.send(msg.toJSONString());
+            } catch (IOException e) {
+                System.out.println("发送给裁判长失败");
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void sendRescoreCmdToClient(JSONObject refereeData) {
+        JSONObject msg = new JSONObject();
+        msg.put("type", 1);
+        msg.put("no", athletesIn.get(currentAthlete).getNo());
+        msg.put("revise", true);
+        synchronized (clientMap) {
+            try {
+                clientMap.get(refereeData.getString("idnum")).send(msg.toJSONString());
+            } catch (IOException e) {
+                System.out.println("发送重评命令失败");
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private void setScore(JSONObject scores) {
         
     }
 }

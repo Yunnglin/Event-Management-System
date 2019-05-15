@@ -4,6 +4,11 @@
         insert into PARTICIPATION (ATHLETE_NO, GAME_ID) values (#{athleteNo}, #{gameId})
     </insert>
 
+    <update id="updateScores">
+        update participation set score = #{score}, penalty = #{p}, bonus = #{b}
+        where athlete_no = #{ano} and game_id = #{gid};
+    </update>
+
     <select id="queryAthletesByGame" resultType="com.cms.pojo.Athlete">
         select * from athletes
         where athletes.no in
