@@ -61,6 +61,11 @@
         tmp.action = action;
         tmp.method = 'post';
         tmp.style.display = 'none';
+        var input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'select';
+        input.value = 'all';
+        tmp.appendChild(input);
         document.body.appendChild(tmp);
         tmp.submit();
     }

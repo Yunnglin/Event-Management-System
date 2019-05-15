@@ -171,13 +171,14 @@ public class Test1 {
     public void m9(){
         SqlSession sqlSession = MybatiesUtil.getSession();
         TeamMapper mapper = sqlSession.getMapper(TeamMapper.class);
-        Team team = mapper.queryById(1);
-        System.out.println(team.toString());
+        List<Team> team = mapper.queryByName("湖北");
+
     }
     @Test
     public void m10(){
         SqlSession sqlSession = MybatiesUtil.getSession();
         RefereeMapper mapper = sqlSession.getMapper(RefereeMapper.class);
+        System.out.println(mapper.queryById("123"));
     }
 
 }

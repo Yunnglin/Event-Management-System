@@ -34,6 +34,7 @@
             ON g.EVENT_ID=e.ID
     ORDER BY g.ID ASC
     </select>
+
     <select id="queryById" resultMap="GameResultMap">
         SELECT * FROM GAMES WHERE ID = #{gameId}
     </select>
