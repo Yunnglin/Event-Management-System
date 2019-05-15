@@ -42,7 +42,7 @@ public class ScoringServer {
     @OnMessage
     public void onMessage(String message, Session session){
         JSONObject msg = JSON.parseObject(message);
-
+        
     }
 
     @OnClose

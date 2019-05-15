@@ -1,5 +1,6 @@
 package com.cms;
 
+import com.cms.mapper.GroupMapper;
 import com.cms.mapper.ParticipationMapper;
 import com.cms.mapper.RefereeSeviceMapper;
 import com.cms.pojo.Athlete;
@@ -43,5 +44,19 @@ public class Test2 {
         for(int i=0; i<participations.size(); i++){
             System.out.println(participations.get(i).getAthleteNo());
         }
+    }
+
+    @Test
+    public void t3(){
+        Game game = new Game();
+        game.setGameId(1);
+
+        SqlSession sqlSession = MybatiesUtil.getSession();
+        GroupMapper groupMapper = sqlSession.getMapper(GroupMapper.class);
+        List<Athlete> athletes = groupMapper.queryAthletesOrdered(game);
+        for(int i=0; i<athletes.size(); i++){
+            System.out.println(athletes.get(i).getNo() + ": " + athletes.get(i).getName());
+        }
+        sqlSession.close();
     }
 }

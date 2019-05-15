@@ -3,6 +3,7 @@ package com.cms.websocket;
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.cms.mapper.GameMapper;
+import com.cms.mapper.GroupMapper;
 import com.cms.mapper.ParticipationMapper;
 import com.cms.mapper.RefereeSeviceMapper;
 import com.cms.pojo.Athlete;
@@ -22,6 +23,9 @@ public class ScoringSocketManager {
     public static ScoringSocketManager instance = new ScoringSocketManager();
     private Map<String, ScoringServer> clientMap;
     private Game game;
+    private List<Athlete> athletesIn;
+    private int currentAthlete;
+    private List<Referee> relatedReferees;
     public boolean isInProgress;
 
     private ScoringSocketManager(){
@@ -70,11 +74,13 @@ public class ScoringSocketManager {
         SqlSession sqlSession = MybatiesUtil.getSession();
         RefereeSeviceMapper mapper1 = sqlSession.getMapper(RefereeSeviceMapper.class);
         List<Referee> referees = mapper1.queryRelatedReferee(gameId);
+        this.relatedReferees = referees;
         GameMapper mapper2 = sqlSession.getMapper(GameMapper.class);
-        ParticipationMapper mapper3 = sqlSession.getMapper(ParticipationMapper.class);
+        GroupMapper mapper3 = sqlSession.getMapper(GroupMapper.class);
 
         String gname = mapper2.queryNameById(gameId);
-        List<Athlete> athletes = mapper3.queryAthletesByGameID(gameId);
+        List<Athlete> athletes = mapper3.queryAthletesOrdered(game);
+        this.athletesIn = athletes;
 
         JSONObject msg = new JSONObject();
         JSONObject g = new JSONObject();
@@ -98,19 +104,46 @@ public class ScoringSocketManager {
         msg.put("game", g);
         msg.put("athletes", aths);
 
+        publish2AllReferees(msg);
+        this.isInProgress = true;
+        this.currentAthlete = 0;
+
+    }
+
+    private void nextAthleteToScore() {
+        JSONObject msg = new JSONObject();
+        msg.put("type", 1);
+        msg.put("no", athletesIn.get(currentAthlete).getNo());
+        msg.put("revise", false);
+
+        publish2AllReferees(msg);
+        currentAthlete++;
+    }
+
+    private void publish2AllReferees(JSONObject msg){
         synchronized (clientMap) {
-            for (Referee r : referees) {
+            for (Referee r : this.relatedReferees) {
                 ScoringServer server = clientMap.get(r.getIdNum());
                 try {
-                    server.send(msg.toJSONString());
+                    if(server!=null)
+                        server.send(msg.toJSONString());
                 } catch (IOException e) {
                     e.printStackTrace();
                     System.out.println("发送失败");
                 }
             }
         }
-        this.isInProgress = true;
+    }
 
+    private void endGame(){
+        JSONObject msg = new JSONObject();
+        msg.put("type", 2);
+        publish2AllReferees(msg);
+
+        this.game = null;
+        this.athletesIn = null;
+        this.relatedReferees = null;
+        this.isInProgress = false;
     }
 
     private boolean refereesAllReady(){
@@ -129,5 +162,9 @@ public class ScoringSocketManager {
         }
 
         return true;
+    }
+
+    private void transitMessage() {
+        
     }
 }

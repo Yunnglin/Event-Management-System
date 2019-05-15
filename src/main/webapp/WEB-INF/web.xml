@@ -5,7 +5,7 @@
          version="4.0">
     <context-param>
         <param-name>javax.faces.CONFIG_FILES</param-name>
-        <param-value>/com/cms/mapper/RefereeSeviceMapper.xml</param-value>
+        <param-value>/com/cms/mapper/RefereeSeviceMapper.xml,/com/cms/mapper/GroupMapper.xml</param-value>
     </context-param>
     <servlet>
     <!--别名-->

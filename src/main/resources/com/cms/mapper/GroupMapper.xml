@@ -1,0 +1,24 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cms.mapper.GroupMapper">
+    
+    <select id="queryAthletesOrdered" resultType="com.cms.pojo.Athlete">
+        select ATH.name, ATH.idnum, ATH.sex, ATH.age, ATH.ac_record, ATH.team_no, ATH.no
+          from athletes ATH, participation part, game_group gg
+          where part.game_id = #{gameId} and
+          ath.no = part.athlete_no and
+          ath.no = gg.ano and
+          part.game_id = gg.gid
+          order by gg.groupid, gg.turn
+    </select>
+
+    <select id="queryAthletesOrderedByGID" resultType="com.cms.pojo.Athlete">
+        select ATH.name, ATH.idnum, ATH.sex, ATH.age, ATH.ac_record, ATH.team_no, ATH.no
+          from athletes ATH, participation part, game_group gg
+          where part.game_id = #{id} and
+          ath.no = part.athlete_no and
+          ath.no = gg.ano and
+          part.game_id = gg.gid
+          order by gg.groupid, gg.turn
+    </select>
+
+</mapper>
