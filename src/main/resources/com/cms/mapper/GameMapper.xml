@@ -34,5 +34,18 @@
             ON g.EVENT_ID=e.ID
     ORDER BY g.ID ASC
     </select>
+    <select id="queryById" resultMap="GameResultMap">
+        SELECT * FROM GAMES WHERE ID = #{gameId}
+    </select>
+    <resultMap id="GameResultMap" type="com.cms.pojo.Game">
+        <!-- 用id属性来映射主键字段 -->
+        <id column="ID"  property="gameId" />
+        <!-- 用result属性来映射非主键字段 -->
+        <result column="EVENT_ID"  property="eventId" />
+        <result column="GROUP_AGE"  property="groupAge" />
+        <result column="LV"  property="level" />
+        <result column="RIDNUM"  property="rIdNum" />
+    </resultMap>
+
 
 </mapper>

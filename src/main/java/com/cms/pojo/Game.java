@@ -8,6 +8,17 @@ public class Game {
     private int gameId;
     private String rIdNum;
 
+    @Override
+    public String toString() {
+        return "Game{" +
+                "eventId=" + eventId +
+                ", groupAge='" + groupAge + '\'' +
+                ", level='" + level + '\'' +
+                ", gameId=" + gameId +
+                ", rIdNum='" + rIdNum + '\'' +
+                '}';
+    }
+
     public int getEventId() {
         return eventId;
     }

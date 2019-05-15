@@ -4,6 +4,7 @@ import com.cms.mapper.AthleteMapper;
 import com.cms.mapper.GameMapper;
 import com.cms.mapper.TeamMapper;
 import com.cms.pojo.Athlete;
+import com.cms.pojo.Game;
 import com.cms.pojo.Team;
 import com.cms.util.MybatiesUtil;
 import org.apache.ibatis.binding.BindingException;
@@ -96,6 +97,23 @@ public class AdminServlet extends HttpServlet {
                 GameMapper mapper = sqlSession.getMapper(GameMapper.class);
                 List<HashMap> hashMaps=mapper.queryAll();
                 JSONArray jsonArray= new JSONArray(hashMaps);
+                String head="{\"code\":0,\"msg\":\"\",\"count\":1000,\"data\":";
+                String json=head+jsonArray+"}";
+                out.print(json);
+                out.flush();
+                out.close();
+            }else if(method.equals("addReferee")){
+                String gameJson = request.getParameter("gameJson");
+                JSONObject jsonObject =new JSONObject(gameJson);
+                GameMapper mapper = sqlSession.getMapper(GameMapper.class);
+                int id=jsonObject.getInt("GAMEID");
+                Game game = mapper.queryById(id);
+                String rid=jsonObject.getString("REFEREENUM");
+
+                game.setrIdNum(rid);
+                mapper.updateRId(game);
+                sqlSession.commit();
+                response.sendRedirect("/cms/gameManage.jsp");
             }
         } catch (BindingException e) {
             sqlSession.rollback();
@@ -115,17 +133,5 @@ public class AdminServlet extends HttpServlet {
         response.setCharacterEncoding("UTF-8");
         String CONTENT_TYPE = "text/html; charset=GBK";
         response.setContentType(CONTENT_TYPE);
-
-        SqlSession sqlSession = MybatiesUtil.getSession();
-        GameMapper mapper = sqlSession.getMapper(GameMapper.class);
-        List<HashMap> hashMaps=mapper.queryAll();
-        JSONArray jsonArray= new JSONArray(hashMaps);
-        PrintWriter out = response.getWriter();
-        String head="{\"code\":0,\"msg\":\"\",\"count\":1000,\"data\":";
-        String json=head+jsonArray+"}";
-        System.out.println(json);
-        out.print(json);
-        out.flush();
-        out.close();
     }
 }

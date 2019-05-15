@@ -159,9 +159,13 @@ public class Test1 {
     public void m8(){
         SqlSession sqlSession = MybatiesUtil.getSession();
         GameMapper mapper=sqlSession.getMapper(GameMapper.class);
-        List<HashMap> hashMaps=mapper.queryAll();
-        JSONArray jsonArray= new JSONArray(hashMaps);
-        System.out.println(jsonArray.toString());
+//        List<HashMap> hashMaps=mapper.queryAll();
+//        JSONArray jsonArray= new JSONArray(hashMaps);
+//        System.out.println(jsonArray.toString());
+        Game game=mapper.queryById(3);
+        game.setrIdNum("577332460093214327");
+        mapper.updateRId(game);
+        System.out.println(game.toString());
     }
     @Test
     public void m9(){
@@ -169,6 +173,11 @@ public class Test1 {
         TeamMapper mapper = sqlSession.getMapper(TeamMapper.class);
         Team team = mapper.queryById(1);
         System.out.println(team.toString());
+    }
+    @Test
+    public void m10(){
+        SqlSession sqlSession = MybatiesUtil.getSession();
+        RefereeMapper mapper = sqlSession.getMapper(RefereeMapper.class);
     }
 
 }
