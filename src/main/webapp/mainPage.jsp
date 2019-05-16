@@ -79,20 +79,20 @@
             <input type="number" class="input_culGrade" placeholder="文化成绩（可空）" name="aCGrade">
             <span  class="event">比赛项目</span>
             <div id="male_event">
-                    单杠<input type="checkbox" value="3" name="event">
-                    双杠<input type="checkbox" value="1" name="event">
-                    吊环<input type="checkbox" value="4" name="event">
-                    跳马<input type="checkbox" value="5" name="event">
-                    自由体操<input type="checkbox" value="7" name="event">
-                    鞍马<input type="checkbox" value="6" name="event">
-                    蹦床<input type="checkbox" value="8" name="event">
+                    单杠<input type="checkbox" value="单杠" name="event">
+                    双杠<input type="checkbox" value="双杠" name="event">
+                    吊环<input type="checkbox" value="吊环" name="event">
+                    跳马<input type="checkbox" value="男子跳马" name="event">
+                    自由体操<input type="checkbox" value="男子自由体操" name="event">
+                    鞍马<input type="checkbox" value="鞍马" name="event">
+                    蹦床<input type="checkbox" value="男子蹦床" name="event">
             </div>
             <div id="female_event">
-                    高低杠<input type="checkbox" value="10" name="event">
-                    平衡木<input type="checkbox" value="11" name="event">
-                    跳马<input type="checkbox" value="12" name="event">
-                    自由体操<input type="checkbox" value="2" name="event">
-                    蹦床<input type="checkbox" value="9" name="event">
+                    高低杠<input type="checkbox" value="高低杠" name="event">
+                    平衡木<input type="checkbox" value="平衡木" name="event">
+                    跳马<input type="checkbox" value="女子跳马" name="event">
+                    自由体操<input type="checkbox" value="女子自由体操" name="event">
+                    蹦床<input type="checkbox" value="女子蹦床" name="event">
             </div>
             <button type="submit" class="submit_button" id="athlete_submit" name="submitB" value="A">提交</button>
         </form>

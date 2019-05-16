@@ -12,7 +12,7 @@ public interface GameMapper {
 
     int queryGameCount();
 
-    int queryIsExist(Game game);
+    Integer queryIsExist(Game game);
 
     List<HashMap> queryAll();
 }

@@ -166,9 +166,9 @@ public class Test1 {
     @Test
     public void m9(){
         SqlSession sqlSession = MybatiesUtil.getSession();
-        TeamMapper mapper = sqlSession.getMapper(TeamMapper.class);
-        Team team = mapper.queryById(1);
-        System.out.println(team.toString());
+        EventMapper mapper = sqlSession.getMapper(EventMapper.class);
+        int a = mapper.queryIDbyName("双杠");
+        System.out.println(a);
     }
 
 }

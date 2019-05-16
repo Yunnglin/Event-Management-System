@@ -59,7 +59,6 @@ public class AddServlet extends HttpServlet {
                 a.setAge(Integer.parseInt(req.getParameter("aAge")));
                 a.setSex(req.getParameter("aSex"));
                 g.setGroupAge(req.getParameter("ageGroup"));
-                System.out.println(g.getGroupAge());
                 g.setLevel("初赛");
                 if (req.getParameter("aCGrade").equals("")){
                     a.setAc_record(0);
@@ -68,10 +67,10 @@ public class AddServlet extends HttpServlet {
                 }
                 a.setTeam_No(tNo);
 
-                boolean add1 = addGame(g,req,resp);
                 boolean add2 = addAthlete(a,req,resp);
-                boolean add3 = addParticipation(p);
-                flag = add1 && add2 && add3;
+                boolean add1 = addGame(g,req,resp);
+
+                flag = add1 && add2 ;
                 break;
             case "C":
                 c.setName(req.getParameter("cName"));
@@ -340,6 +339,7 @@ public class AddServlet extends HttpServlet {
             GameMapper mapper = sqlSession.getMapper(GameMapper.class);
             Game game = new Game();
             String[] events = req.getParameterValues("event");
+            EventMapper mapper2 = sqlSession.getMapper(EventMapper.class);
             game.setLevel(g.getLevel());
             game.setGroupAge(g.getGroupAge());
 
@@ -347,15 +347,15 @@ public class AddServlet extends HttpServlet {
                 out.print("<script>alert('比赛项目为空，请选择至少一门比赛');window.location.href = 'http://localhost:8080/cms/mainPage.jsp'</script>");
             }else {
                 for (int i=0;i<events.length;i++){
-                    System.out.println(Integer.parseInt(events[i]));
+                    int eID = mapper2.queryIDbyName(events[i]);
                     game.setGameId(mapper.queryGameCount()+1);
-                    game.setEventId(Integer.parseInt(events[i]));
-                    System.out.println(game.getGameId());
+                    game.setEventId(eID);
                     int exist = 0;
                     try {
                         exist = mapper.queryIsExist(game);
-                    } catch (Exception e) {
+                    } catch (NullPointerException e) {
                         e.printStackTrace();
+                        exist = 0;
                     }
                     if (exist == 0){
                         try {
@@ -368,7 +368,7 @@ public class AddServlet extends HttpServlet {
                     }else {
                         p.setGameId(exist);
                     }
-
+                    addParticipation(p);
                 }
             }
 
