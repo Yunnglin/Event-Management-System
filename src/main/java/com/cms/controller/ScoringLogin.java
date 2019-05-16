@@ -2,9 +2,11 @@ package com.cms.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import com.cms.mapper.RefereeMapper;
+import com.cms.mapper.TeamMapper;
 import com.cms.pojo.Referee;
 import com.cms.util.MybatiesUtil;
 import com.cms.websocket.ScoringSocketManager;
+import org.apache.ibatis.binding.BindingException;
 import org.apache.ibatis.session.SqlSession;
 
 import javax.servlet.ServletException;
@@ -15,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.Writer;
 
-@WebServlet
+@WebServlet("/scorelogin")
 public class ScoringLogin extends HttpServlet {
 
     @Override
@@ -29,16 +31,25 @@ public class ScoringLogin extends HttpServlet {
         String name = req.getParameter("name");
         SqlSession sqlSession = MybatiesUtil.getSession();
         RefereeMapper mapper = sqlSession.getMapper(RefereeMapper.class);
+        TeamMapper teamMapper = sqlSession.getMapper(TeamMapper.class);
         Referee referee = mapper.queryByAccountName(account, name);
 
         Writer out = resp.getWriter();
         JSONObject res = new JSONObject();
         if(referee==null){
             res.put("flag", false);
+            res.put("account", true);
+            try{
+                int tno = teamMapper.queryIdByAccount(account);
+            } catch (BindingException be){
+                System.out.println(be.getMessage());
+                res.put("account", false);
+            }
         }else{
             res.put("flag", true);
             res.put("idnum", referee.getIdNum());
-            if(referee.getIdNum().equals(ScoringSocketManager.instance.getScoringGame().getrIdNum())){
+            if(ScoringSocketManager.instance.isInProgress &&
+                    referee.getIdNum().equals(ScoringSocketManager.instance.getScoringGame().getrIdNum())){
                 res.put("leader", true);
             }else{
                 res.put("leader", false);
@@ -46,11 +57,13 @@ public class ScoringLogin extends HttpServlet {
         }
         out.write(res.toJSONString());
         out.flush();
+
+        sqlSession.close();
     }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        super.doGet(req, resp);
+        doGet(req, resp);
     }
 
 }

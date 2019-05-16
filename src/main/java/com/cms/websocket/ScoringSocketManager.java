@@ -58,6 +58,25 @@ public class ScoringSocketManager {
 
     public void setScoringGame(Game game){
         this.game = game;
+        synchronized (clientMap){
+            if(this.clientMap.get(game.getrIdNum())!=null) {
+                JSONObject msg = new JSONObject();
+                msg.put("type", 4);
+                msg.put("leader", true);
+                try {
+                    this.clientMap.get(game.getrIdNum()).send(msg.toJSONString());
+                } catch (IOException e) {
+                    e.printStackTrace();
+                    System.out.println("发送信息失败");
+                }
+                try {
+                    Thread.sleep(1500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                    System.out.println("睡眠被中断");
+                }
+            }
+        }
         if(refereesAllReady()){
             startGame();
         }
@@ -177,6 +196,12 @@ public class ScoringSocketManager {
     }
 
     public void transitMessage(JSONObject msg) {
+
+        if(!isInProgress){
+            System.out.println("客户端未在比赛期间进行发送信息");
+            return;
+        }
+
         Integer type = msg.getInteger("type");
         JSONObject data = msg.getJSONObject("data");
         switch (type){
@@ -224,6 +249,7 @@ public class ScoringSocketManager {
     }
 
     private void setScore(JSONObject scores) {
+
         int gameId = this.game.getGameId();
         int ano = this.athletesIn.get(currentAthlete).getNo();
         Participation participation = new Participation();

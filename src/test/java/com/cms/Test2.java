@@ -5,11 +5,13 @@ import com.alibaba.fastjson.JSONObject;
 import com.cms.mapper.GroupMapper;
 import com.cms.mapper.ParticipationMapper;
 import com.cms.mapper.RefereeSeviceMapper;
+import com.cms.mapper.TeamMapper;
 import com.cms.pojo.Athlete;
 import com.cms.pojo.Game;
 import com.cms.pojo.Participation;
 import com.cms.pojo.Referee;
 import com.cms.util.MybatiesUtil;
+import org.apache.ibatis.binding.BindingException;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
 
@@ -82,5 +84,21 @@ public class Test2 {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("hhh", 2);
         System.out.println("get double: "+jsonObject.getDouble("hhh"));
+    }
+
+    @Test
+    public void t5(){
+        SqlSession sqlSession = MybatiesUtil.getSession();
+        TeamMapper mapper = sqlSession.getMapper(TeamMapper.class);
+
+        try{
+            int tno = mapper.queryIdByAccount("43243");
+            System.out.println("队号: " + tno);
+        } catch (BindingException be){
+            System.out.println(be.getMessage());
+            System.out.println("查不到");
+        }
+
+        sqlSession.close();
     }
 }
