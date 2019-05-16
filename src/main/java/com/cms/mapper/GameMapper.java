@@ -12,9 +12,14 @@ public interface GameMapper {
 
     int queryGameCount();
 
-    Integer queryIsExist(Game game);
+
 
     List<HashMap> queryAll();
 
     Game queryById(int id);
+
+    int queryIsExist(Game game);
+
+    String queryName(Game game);
+    String queryNameById(int gid);
 }
