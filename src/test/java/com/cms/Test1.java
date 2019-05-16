@@ -167,24 +167,5 @@ public class Test1 {
         mapper.updateRId(game);
         System.out.println(game.toString());
     }
-    @Test
-    public void m9(){
-        SqlSession sqlSession = MybatiesUtil.getSession();
-<<<<<<< HEAD
-        EventMapper mapper = sqlSession.getMapper(EventMapper.class);
-        int a = mapper.queryIDbyName("双杠");
-        System.out.println(a);
-=======
-        TeamMapper mapper = sqlSession.getMapper(TeamMapper.class);
-        List<Team> team = mapper.queryByName("湖北");
-
-    }
-    @Test
-    public void m10(){
-        SqlSession sqlSession = MybatiesUtil.getSession();
-        RefereeMapper mapper = sqlSession.getMapper(RefereeMapper.class);
-        System.out.println(mapper.queryById("123"));
->>>>>>> c3e96fe3e50415d81f3fcbc254a21e6d6c82e7fc
-    }
 
 }

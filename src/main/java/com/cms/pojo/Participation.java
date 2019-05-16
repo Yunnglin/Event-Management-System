@@ -4,9 +4,9 @@ public class Participation {
 
     private int athleteNo;
     private int gameId;
-    private int score;
-    private int penalty;
-    private int bonus;
+    private double score;
+    private double penalty;
+    private double bonus;
 
     public int getAthleteNo() {
         return athleteNo;
@@ -24,27 +24,27 @@ public class Participation {
         this.gameId = gameId;
     }
 
-    public int getScore() {
+    public double getScore() {
         return score;
     }
 
-    public void setScore(int score) {
+    public void setScore(double score) {
         this.score = score;
     }
 
-    public int getPenalty() {
+    public double getPenalty() {
         return penalty;
     }
 
-    public void setPenalty(int penalty) {
+    public void setPenalty(double penalty) {
         this.penalty = penalty;
     }
 
-    public int getBonus() {
+    public double getBonus() {
         return bonus;
     }
 
-    public void setBonus(int bonus) {
+    public void setBonus(double bonus) {
         this.bonus = bonus;
     }
 
