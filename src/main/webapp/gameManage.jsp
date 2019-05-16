@@ -86,7 +86,19 @@
                 document.body.appendChild(tmp);
                 tmp.submit();
             }else if(layEvent === 'addGroup'){
-
+                sessionStorage.setItem('gameId',data.GAMEID);
+                var tmp = document.createElement('form');
+                var action = '<%=request.getContextPath()%>/AdminServlet?method=gameGroup';
+                tmp.action = action;
+                tmp.method = 'post';
+                tmp.style.display = 'none';
+                var input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'gameId';
+                input.value = data.GAMEID;
+                tmp.appendChild(input);
+                document.body.appendChild(tmp);
+                tmp.submit();
             }else if(layEvent === 'refereeGroup'){
                 sessionStorage.setItem('gameId',data.GAMEID);
                 var tmp = document.createElement('form');

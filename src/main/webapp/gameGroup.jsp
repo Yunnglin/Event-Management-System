@@ -21,15 +21,48 @@
             <h2>当前所查看赛事编号：<span id="gameId"></span></h2>
             <hr/>
 
+            <form class="layui-form" action="<%=request.getContextPath()%>/AdminServlet?method=addRefereeService"
+                  method="post">
+                <div class="layui-form-item layui-col-md3">
+                    <label class="layui-form-label">小组编号</label>
+                    <div class="layui-input-block ">
+                        <input type="number" name="input" lay-verify="" autocomplete="off"
+                               required class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item layui-col-md3">
+                    <label class="layui-form-label">队员编号</label>
+                    <div class="layui-input-block ">
+                        <select name="city" lay-verify="required">
+                            <option value=""></option>
+                            <option value="0">北京</option>
+                            <option value="1">上海</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item layui-col-md3">
+                    <label class="layui-form-label">出场顺序</label>
+                    <div class="layui-input-block ">
+                        <input type="number" name="input" lay-verify=""  autocomplete="off"
+                               required class="layui-input">
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit lay-filter="formDemo">添加小组队员</button>
+                        <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+                    </div>
+                </div>
+            </form>
             <table id="teamTable" class="layui-table"
                    lay-data="{height:400, url:'<%=request.getContextPath()%>/AdminServlet?method=queryGameGroup',method:'post'}"
                    lay-filter="test">
                 <thead>
                 <tr>
-                    <th lay-data="{field: 'team_No',  align:'center', width:200,sort:true}">小组编号</th>
-                    <th lay-data="{field: 'team_No',  align:'center', width:200,sort:true}">队员编号</th>
-                    <th lay-data="{field: 'idNum', align:'center',  width:200, sort: true}">队员姓名</th>
-                    <th lay-data="{field: 'name',  align:'center', width:200}">裁判姓名</th>
+                    <th lay-data="{field: 'GROUPID',  align:'center', width:200,sort:true}">小组编号</th>
+                    <th lay-data="{field: 'ANO',  align:'center', width:200,sort:true}">队员编号</th>
+                    <th lay-data="{field: 'NAME', align:'center',  width:200}">队员姓名</th>
+                    <th lay-data="{field: 'TURN',  align:'center', width:200, sort: true}">出场顺序</th>
                     <th lay-data="{fixed: 'right', width:250, align:'center', toolbar: '#toolBar'}">操作</th>
                 </tr>
                 </thead>
@@ -42,9 +75,21 @@
 <script src="plugins/layui/layui.js"></script>
 <script>
     //JavaScript代码区域
-    layui.use('element', function(){
+    document.getElementById("gameId").innerText = sessionStorage.getItem('gameId');
+    layui.use('element', function () {
         var element = layui.element;
 
+    });
+    layui.use('table', function () {
+        var table = layui.table;
+    });
+    layui.use('form', function(){
+        var form = layui.form;
+        //监听提交
+        form.on('submit(formDemo)', function(data){
+            layer.msg(JSON.stringify(data.field));
+            return false;
+        });
     });
 </script>
 </body>

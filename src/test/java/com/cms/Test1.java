@@ -183,4 +183,13 @@ public class Test1 {
         mapper.delete("321654987789456185",3);
         sqlSession.commit();
     }
+
+    @Test
+    public void m11(){
+        SqlSession sqlSession=MybatiesUtil.getSession();
+        GameGroupMapper mapper=sqlSession.getMapper(GameGroupMapper.class);
+        List<Map> maps=mapper.queryByGameId(1);
+        JSONArray jsonArray=new JSONArray(maps);
+        System.out.println(jsonArray);
+    }
 }

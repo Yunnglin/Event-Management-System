@@ -4,8 +4,9 @@
 
 <mapper namespace="com.cms.mapper.GameGroupMapper">
 
-
-    <select id="queryAllGameGroup" resultType="java.util.Map">
-        
+    <select id="queryByGameId" resultType="java.util.Map">
+          SELECT g.ANO,g.GROUPID,g.TURN,a.NAME
+           FROM GAME_GROUP g INNER  JOIN  ATHLETES a ON a.NO=g.ANO WHERE  g.GID=#{gid}
+           ORDER BY g.GROUPID asc ,g.TURN asc
     </select>
 </mapper>

@@ -20,6 +20,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class AdminServlet extends HttpServlet {
 
@@ -193,8 +194,20 @@ public class AdminServlet extends HttpServlet {
                     response.sendRedirect("/cms/refereeGroup.jsp");
                     break;
                 }
+                case "gameGroup":{
+                    gameId = Integer.valueOf(request.getParameter("gameId"));
+                    response.sendRedirect("/cms/gameGroup.jsp");
+                    break;
+                }
                 case "queryGameGroup":{
-
+                    GameGroupMapper mapper=sqlSession.getMapper(GameGroupMapper.class);
+                    List<Map> maps=mapper.queryByGameId(gameId);
+                    JSONArray jsonArray=new JSONArray(maps);
+                    String head = "{\"code\":0,\"msg\":\"\",\"count\":1000,\"data\":";
+                    String json = head + jsonArray + "}";
+                    out.print(json);
+                    out.flush();
+                    out.close();
                     break;
                 }
 
@@ -209,6 +222,7 @@ public class AdminServlet extends HttpServlet {
             sqlSession.close();
         }
     }
+
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("get");
