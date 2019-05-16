@@ -186,28 +186,35 @@ public class AdminServlet extends HttpServlet {
                     }
                     break;
                 }
-                case "delRefereeService":{
+                case "delRefereeService": {
                     String rId = request.getParameter("rId");
                     RefereeSeviceMapper mapper = sqlSession.getMapper(RefereeSeviceMapper.class);
-                    mapper.delete(rId,gameId);
+                    mapper.delete(rId, gameId);
                     sqlSession.commit();
                     response.sendRedirect("/cms/refereeGroup.jsp");
                     break;
                 }
-                case "gameGroup":{
+                case "gameGroup": {
                     gameId = Integer.valueOf(request.getParameter("gameId"));
-                    response.sendRedirect("/cms/gameGroup.jsp");
+                    ParticipationMapper participationMapper=sqlSession.getMapper(ParticipationMapper.class);
+                    List<Athlete> athletes= participationMapper.queryAthletesByGameID(gameId);
+                    request.setAttribute("athletes", athletes);
+                    request.getRequestDispatcher("/gameGroup.jsp").forward(request, response);
                     break;
                 }
-                case "queryGameGroup":{
-                    GameGroupMapper mapper=sqlSession.getMapper(GameGroupMapper.class);
-                    List<Map> maps=mapper.queryByGameId(gameId);
-                    JSONArray jsonArray=new JSONArray(maps);
+                case "queryGameGroup": {
+                    GameGroupMapper mapper = sqlSession.getMapper(GameGroupMapper.class);
+                    List<Map> maps = mapper.queryByGameId(gameId);
+                    JSONArray jsonArray = new JSONArray(maps);
                     String head = "{\"code\":0,\"msg\":\"\",\"count\":1000,\"data\":";
                     String json = head + jsonArray + "}";
                     out.print(json);
                     out.flush();
                     out.close();
+                    break;
+                }
+                case "addGameGroup": {
+
                     break;
                 }
 

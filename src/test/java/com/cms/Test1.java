@@ -9,14 +9,10 @@ import org.json.JSONObject;
 import org.junit.Test;
 
 import java.io.*;
-<<<<<<< HEAD
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.Map.Entry;
-=======
-import java.util.*;
 
->>>>>>> 6797d14c0e346a8b63523567eb7ecfa0d53c567a
 public class Test1 {
 
     @Test
@@ -163,7 +159,6 @@ public class Test1 {
         sqlSession.close();
     }
     @Test
-<<<<<<< HEAD
     public void m10() {
         SqlSession sqlSession = MybatiesUtil.getSession();
         GameMapper mapper = sqlSession.getMapper(GameMapper.class);
@@ -342,42 +337,6 @@ public class Test1 {
             }
             PersonsSum.add(gr);
         }
-=======
-    public void m8(){
-        SqlSession sqlSession = MybatiesUtil.getSession();
-        GameMapper mapper=sqlSession.getMapper(GameMapper.class);
-//        List<HashMap> hashMaps=mapper.queryAll();
-//        JSONArray jsonArray= new JSONArray(hashMaps);
-//        System.out.println(jsonArray.toString());
-        Game game=mapper.queryById(3);
-        game.setrIdNum("577332460093214327");
-        mapper.updateRId(game);
-        System.out.println(game.toString());
     }
 
-    @Test
-    public void m9(){
-        SqlSession sqlSession=MybatiesUtil.getSession();
-        RefereeSeviceMapper mapper=sqlSession.getMapper(RefereeSeviceMapper.class);
-       List<Referee> referees= mapper.queryRelatedReferee(2);
-       JSONArray jsonArray=new JSONArray(referees);
-        System.out.println(jsonArray);
-    }
-    @Test
-    public void m10(){
-        SqlSession sqlSession=MybatiesUtil.getSession();
-        RefereeSeviceMapper mapper=sqlSession.getMapper(RefereeSeviceMapper.class);
-        mapper.delete("321654987789456185",3);
-        sqlSession.commit();
-    }
-
-    @Test
-    public void m11(){
-        SqlSession sqlSession=MybatiesUtil.getSession();
-        GameGroupMapper mapper=sqlSession.getMapper(GameGroupMapper.class);
-        List<Map> maps=mapper.queryByGameId(1);
-        JSONArray jsonArray=new JSONArray(maps);
-        System.out.println(jsonArray);
->>>>>>> 6797d14c0e346a8b63523567eb7ecfa0d53c567a
-    }
 }

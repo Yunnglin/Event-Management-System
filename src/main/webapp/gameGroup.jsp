@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -21,7 +22,7 @@
             <h2>当前所查看赛事编号：<span id="gameId"></span></h2>
             <hr/>
 
-            <form class="layui-form" action="<%=request.getContextPath()%>/AdminServlet?method=addRefereeService"
+            <form class="layui-form" action="<%=request.getContextPath()%>/AdminServlet?method=addGameGroup"
                   method="post">
                 <div class="layui-form-item layui-col-md3">
                     <label class="layui-form-label">小组编号</label>
@@ -34,9 +35,9 @@
                     <label class="layui-form-label">队员编号</label>
                     <div class="layui-input-block ">
                         <select name="city" lay-verify="required">
-                            <option value=""></option>
-                            <option value="0">北京</option>
-                            <option value="1">上海</option>
+                            <c:forEach items="${athletes}" var="athlete">
+                                <option value="${athlete.getNo()}">${athlete.getNo()}${athlete.getName()}</option>
+                            </c:forEach>
                         </select>
                     </div>
                 </div>
@@ -88,7 +89,7 @@
         //监听提交
         form.on('submit(formDemo)', function(data){
             layer.msg(JSON.stringify(data.field));
-            return false;
+            return true;
         });
     });
 </script>
