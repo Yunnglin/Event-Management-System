@@ -48,6 +48,8 @@
 <script src="js/jquery-3.3.1.min.js"></script>
 <script>
     //JavaScript代码区域
+    var wsUri ="ws://localhost:8080/cms/score_admin";
+    var scoreSocket;
     layui.use('element', function(){
         var element = layui.element;
 
@@ -67,11 +69,23 @@
             var data = obj.data; //获得当前行数据
             var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
             var tr = obj.tr; //获得当前行 tr 的DOM对象
-            let wsUri ="ws://localhost:8080/cms/"
 
             if(layEvent === 'start'){//点击开始比赛后的操作
                 //start the game
                 console.log("start"+data.GAMEID);
+                scoreSocket = new WebSocket(wsUri);
+                scoreSocket.onopen = function(evt) {
+                    console.log(evt);
+                    scoreSocket.send(JSON.stringify({
+                        //发送开始消息
+                    }))
+                }
+                scoreSocket.onclose = function (evt) {
+                    console.log(evt);
+                }
+                scoreSocket.onerror = function (evt) {
+                    console.error(evt);
+                }
 
             }else if(layEvent === 'update'){
                 var tmp = document.createElement('form');
