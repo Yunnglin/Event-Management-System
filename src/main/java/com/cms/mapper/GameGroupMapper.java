@@ -7,4 +7,5 @@ import java.util.Map;
 
 public interface GameGroupMapper {
     List<Map> queryByGameId(@Param("gid") int gameId);
+    int insert(@Param("ano") int ano,@Param("groupId") int groupId,@Param("gId") int gId,@Param("turn") int turn);
 }

@@ -196,6 +196,8 @@ public class AdminServlet extends HttpServlet {
                 }
                 case "gameGroup": {
                     gameId = Integer.valueOf(request.getParameter("gameId"));
+                    //
+                    //js中传参
                     ParticipationMapper participationMapper=sqlSession.getMapper(ParticipationMapper.class);
                     List<Athlete> athletes= participationMapper.queryAthletesByGameID(gameId);
                     request.setAttribute("athletes", athletes);
@@ -214,7 +216,15 @@ public class AdminServlet extends HttpServlet {
                     break;
                 }
                 case "addGameGroup": {
-
+                    //String groupJson=request.getParameter("groupJson");
+                    int groupId=Integer.valueOf(request.getParameter("groupId"));
+                    int athleteNo=Integer.valueOf(request.getParameter("athleteNo"));
+                    int turn=Integer.valueOf(request.getParameter("turn"));
+                    //JSONObject jsonObject=new JSONObject(groupJson);
+                    GameGroupMapper gameGroupMapper=sqlSession.getMapper(GameGroupMapper.class);
+                    gameGroupMapper.insert(athleteNo,groupId,gameId,turn);
+                    sqlSession.commit();
+                    response.sendRedirect("/cms/gameGroup.jsp");
                     break;
                 }
 

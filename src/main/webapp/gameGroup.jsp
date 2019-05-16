@@ -22,19 +22,19 @@
             <h2>当前所查看赛事编号：<span id="gameId"></span></h2>
             <hr/>
 
-            <form class="layui-form" action="<%=request.getContextPath()%>/AdminServlet?method=addGameGroup"
+            <form id="groupForm" class="layui-form" action="<%=request.getContextPath()%>/AdminServlet?method=addGameGroup"
                   method="post">
                 <div class="layui-form-item layui-col-md3">
                     <label class="layui-form-label">小组编号</label>
                     <div class="layui-input-block ">
-                        <input type="number" name="input" lay-verify="" autocomplete="off"
+                        <input type="number" name="groupId" lay-verify="" autocomplete="off"
                                required class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item layui-col-md3">
                     <label class="layui-form-label">队员编号</label>
                     <div class="layui-input-block ">
-                        <select name="city" lay-verify="required">
+                        <select name="athleteNo" lay-verify="required">
                             <c:forEach items="${athletes}" var="athlete">
                                 <option value="${athlete.getNo()}">${athlete.getNo()}${athlete.getName()}</option>
                             </c:forEach>
@@ -44,7 +44,7 @@
                 <div class="layui-form-item layui-col-md3">
                     <label class="layui-form-label">出场顺序</label>
                     <div class="layui-input-block ">
-                        <input type="number" name="input" lay-verify=""  autocomplete="off"
+                        <input type="number" name="turn" lay-verify=""  autocomplete="off"
                                required class="layui-input">
                     </div>
                 </div>
@@ -76,6 +76,15 @@
 <script src="plugins/layui/layui.js"></script>
 <script>
     //JavaScript代码区域
+
+    var tmp = document.createElement('form');
+    var action = '<%=request.getContextPath()%>/AdminServlet?method=gameGroup';
+    tmp.action = action;
+    tmp.method = 'post';
+    tmp.style.display = 'none';
+    document.body.appendChild(tmp);
+    tmp.submit();
+
     document.getElementById("gameId").innerText = sessionStorage.getItem('gameId');
     layui.use('element', function () {
         var element = layui.element;
