@@ -3,4 +3,26 @@
     <insert id="inserP">
         insert into PARTICIPATION (ATHLETE_NO, GAME_ID) values (#{athleteNo}, #{gameId})
     </insert>
+
+    <select id="queryAthletesByGame" resultType="com.cms.pojo.Athlete">
+        select * from athletes
+        where athletes.no in
+        (select athlete_no from participation where game_id = #{gameId})
+    </select>
+
+    <select id="queryAthletesByGameID" resultType="com.cms.pojo.Athlete">
+        select * from athletes
+        where athletes.no in
+        (select athlete_no from participation where game_id = #{id})
+    </select>
+
+    <select id="queryParticipationByGame" resultType="com.cms.pojo.Participation">
+        select athlete_no "athleteNo", game_id "gameId", score, penalty, bonus from participation
+        where game_id = #{gameId}
+    </select>
+
+    <select id="queryParticipationByGameID" resultType="com.cms.pojo.Participation">
+        select athlete_no athleteNo, game_id gameId, score, penalty, bonus from participation
+        where gameId = #{id}
+    </select>
 </mapper>

@@ -21,7 +21,12 @@
     <select id="queryByAccount" resultType="com.cms.pojo.Team">
         SELECT * FROM TEAMS WHERE ACCOUNT = #{account}
     </select>
-
+    <select id="queryByMyId" resultType="com.cms.pojo.Team">
+        SELECT * FROM TEAMS WHERE TNO = #{tno}
+    </select>
+    <select id="queryByName" resultType="com.cms.pojo.Team">
+        SELECT *FROM  TEAMS WHERE NAME LIKE concat(concat('%',#{name}),'%')
+    </select>
 
     <update id="insertAttachment">
         update TEAMS set ATTACHMENT = #{attachment}
@@ -32,4 +37,14 @@
         update TEAMS set PASSWORD = #{password}
         where TNO=#{tNo}
     </update>
+    <update id="updateNameAndPassword">
+        UPDATE TEAMS SET
+        NAME =#{name},
+        PASSWORD = #{password}
+        WHERE TNO=#{tNo}
+    </update>
+    <delete id="deleteByTNo">
+      DELETE FROM TEAMS WHERE TNO = #{tNo}
+    </delete>
+
 </mapper>

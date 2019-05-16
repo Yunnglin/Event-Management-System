@@ -3,6 +3,7 @@ package com.cms.mapper;
 import com.cms.pojo.Athlete;
 
 import java.util.List;
+import java.util.Map;
 
 public interface AthleteMapper {
 
@@ -17,4 +18,6 @@ public interface AthleteMapper {
     int queryAthleteCount();
 
     List<Athlete> queryAll();
+
+    int deleteByIdNum(String id);
 }

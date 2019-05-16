@@ -18,21 +18,15 @@
     <ul class="layui-nav layui-layout-left">
         <li class="layui-nav-item"><a href="javascript:;"><i class="layui-icon layui-icon-list"></i>赛事相关</a>
             <dl class="layui-nav-child">
-                <dd><a href="javascript:;">比赛项目</a></dd>
-                <dd><a href="javascript:;">比赛安排</a></dd>
+                <dd><a href="gameManage.jsp">比赛安排</a></dd>
             </dl>
 
         </li>
-        <%--<li class="layui-nav-item"><a href="javascript:;">比赛成绩</a></li>--%>
     </ul>
 
     <ul class="layui-nav layui-layout-right">
         <li class="layui-nav-item">
             <a href="javascript:;"><i class="layui-icon layui-icon-username"></i>管理员</a>
-            <%--<dl class="layui-nav-child">--%>
-                <%--<dd><a href="javascript:;">基本资料</a></dd>--%>
-                <%--<dd><a href="javascript:;">安全设置</a></dd>--%>
-            <%--</dl>--%>
         </li>
         <li class="layui-nav-item"><a href="index.jsp">退出</a></li>
     </ul>
@@ -45,8 +39,8 @@
             <li class="layui-nav-item layui-nav-itemed">
                 <a class="" href="javascript:;">人员管理</a>
                 <dl class="layui-nav-child">
-                    <dd><a id="team" href="team.jsp"><i class="layui-icon layui-icon-group"></i> 队 伍</a></dd>
-                    <dd><a href="athlete.jsp"><i class="layui-icon layui-icon-friends"></i>&nbsp&nbsp&nbsp队 员</a></dd>
+                    <dd><a id="team" href="javascript:;" onclick="queryTeam()"><i class="layui-icon layui-icon-group"></i> 队 伍</a></dd>
+                    <dd><a href="javascript:;" onclick="queryAthlete()"><i class="layui-icon layui-icon-friends"></i>&nbsp&nbsp&nbsp队 员</a></dd>
                 </dl>
             </li>
             <li class="layui-nav-item" >
@@ -60,4 +54,28 @@
     </div>
 </div>
 
-
+<script>
+    function queryTeam(){
+        var tmp = document.createElement('form');
+        var action = '<%=request.getContextPath()%>/AdminServlet?method=queryTeam';
+        tmp.action = action;
+        tmp.method = 'post';
+        tmp.style.display = 'none';
+        var input = document.createElement('input');
+        input.type = 'hidden';
+        input.name = 'select';
+        input.value = 'all';
+        tmp.appendChild(input);
+        document.body.appendChild(tmp);
+        tmp.submit();
+    }
+    function queryAthlete() {
+        var tmp = document.createElement('form');
+        var action = '<%=request.getContextPath()%>/AdminServlet?method=queryAthlete';
+        tmp.action = action;
+        tmp.method = 'post';
+        tmp.style.display = 'none';
+        document.body.appendChild(tmp);
+        tmp.submit();
+    }
+</script>
