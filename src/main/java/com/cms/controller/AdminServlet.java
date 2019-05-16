@@ -10,12 +10,10 @@ import com.cms.pojo.Team;
 import com.cms.util.MybatiesUtil;
 import org.apache.ibatis.binding.BindingException;
 import org.apache.ibatis.session.SqlSession;
-import org.apache.ibatis.session.SqlSessionFactory;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -166,7 +164,7 @@ public class AdminServlet extends HttpServlet {
             sqlSession.close();
         }
     }
-    
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("get");
         request.setCharacterEncoding("UTF-8");
