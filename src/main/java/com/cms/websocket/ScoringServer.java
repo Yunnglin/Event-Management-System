@@ -42,7 +42,7 @@ public class ScoringServer {
     @OnMessage
     public void onMessage(String message, Session session){
         JSONObject msg = JSON.parseObject(message);
-        
+        ScoringSocketManager.instance.transitMessage(msg);
     }
 
     @OnClose
@@ -52,6 +52,11 @@ public class ScoringServer {
     }
 
     public void send(String data) throws IOException {
+        try {
+            Thread.sleep(1500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         this.session.getBasicRemote().sendText(data);
     }
 

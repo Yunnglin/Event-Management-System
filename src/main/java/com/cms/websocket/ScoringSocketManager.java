@@ -109,20 +109,25 @@ public class ScoringSocketManager {
 
         publish2AllReferees(msg);
         this.isInProgress = true;
-        this.currentAthlete = 0;
-
+        this.currentAthlete = -1;
         sqlSession.close();
+
+        if(athletesIn!=null && athletesIn.size()!=0){
+            nextAthleteToScore();
+        }else {
+            endGame();
+        }
 
     }
 
     private void nextAthleteToScore() {
+        currentAthlete++;
         JSONObject msg = new JSONObject();
         msg.put("type", 1);
         msg.put("no", athletesIn.get(currentAthlete).getNo());
         msg.put("revise", false);
 
         publish2AllReferees(msg);
-        currentAthlete++;
     }
 
     private void publish2AllReferees(JSONObject msg){
@@ -171,8 +176,20 @@ public class ScoringSocketManager {
         return true;
     }
 
-    public void transitMessage() {
-
+    public void transitMessage(JSONObject msg) {
+        Integer type = msg.getInteger("type");
+        JSONObject data = msg.getJSONObject("data");
+        switch (type){
+            case 0:
+                sendScoreToLeader(data);
+                break;
+            case 1:
+                setScore(data);
+                break;
+            case 2:
+                sendRescoreCmdToClient(data);
+                break;
+        }
     }
 
     private void sendScoreToLeader(JSONObject scoreData){
@@ -220,8 +237,14 @@ public class ScoringSocketManager {
         ParticipationMapper participationMapper = sqlSession.getMapper(ParticipationMapper.class);
         participationMapper.updateScores(participation);
         sqlSession.commit();
-
         sqlSession.close();
+
+        if(currentAthlete < athletesIn.size()-1) {
+            nextAthleteToScore();
+        } else {
+            endGame();
+        }
+
 
     }
 }
