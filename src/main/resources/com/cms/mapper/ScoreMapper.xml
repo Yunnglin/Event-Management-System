@@ -1,0 +1,36 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cms.mapper.ScoreMapper">
+
+    <select id="TeamScore" resultType="java.util.HashMap">
+    SELECT
+       t.name as teamName,
+       t.tno as teamId,
+      sum (score)as teamScore
+    from
+        ATHLETES a,TEAMS t,PARTICIPATION p
+    where a.team_no = t.tno and a.no=p.athlete_no
+    group by t.tno,t.name
+    ORDER BY teamScore desc
+    </select>
+
+
+    <select id="Competition1" resultType="java.util.HashMap">
+    select a.no as PersonId,a.name as Name,t.name as TeamName,p.score as Score
+    from PARTICIPATION p,TEAMS t,Athletes a
+    where a.team_no=t.tno and p.athlete_no = a.no and p.game_id=1
+    order by p.score desc
+    </select>
+    <select id="Competition2" resultType="java.util.HashMap">
+    select a.no as PersonId,a.name as Name,t.name as TeamName,p.score as Score
+    from PARTICIPATION p,TEAMS t,Athletes a
+    where a.team_no=t.tno and p.athlete_no = a.no and p.game_id=2
+    order by p.score desc
+    </select>
+    <select id="PersonSum"  resultType="java.util.HashMap">
+    select a.no as PersonId,a.name as Name,t.name as TeamName,SUM(score)  as SumScore
+    from PARTICIPATION p,TEAMS t,Athletes a
+    where a.team_no=t.tno and p.athlete_no = a.no
+    Group by a.name,a.no,t.name
+    order by SumScore desc
+   </select>
+</mapper>
