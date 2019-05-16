@@ -16,5 +16,5 @@ public interface ParticipationMapper {
     List<Participation> queryParticipationByGame(Game game);
     List<Participation> queryParticipationByGameID(int id);
 
-    int updateScores(@Param("ano") int ano, @Param("gid") int gid, @Param("score") double score, @Param("p") double penalty, @Param("b") double bonus);
+    int updateScores(Participation participation);
 }

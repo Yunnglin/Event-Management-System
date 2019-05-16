@@ -1,5 +1,7 @@
 package com.cms;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.cms.mapper.GroupMapper;
 import com.cms.mapper.ParticipationMapper;
 import com.cms.mapper.RefereeSeviceMapper;
@@ -58,5 +60,27 @@ public class Test2 {
             System.out.println(athletes.get(i).getNo() + ": " + athletes.get(i).getName());
         }
         sqlSession.close();
+    }
+
+    @Test
+    public void t4(){
+        Game game = new Game();
+        game.setGameId(2);
+
+        SqlSession sqlSession = MybatiesUtil.getSession();
+        ParticipationMapper mapper = sqlSession.getMapper(ParticipationMapper.class);
+        List<Participation> participations = mapper.queryParticipationByGame(game);
+        System.out.println(participations.size());
+        for(int i=0; i<participations.size(); i++){
+            System.out.println(participations.get(i).getAthleteNo());
+        }
+
+        mapper.updateScores(participations.get(1));
+        sqlSession.commit();
+        System.out.println(JSON.toJSONString(participations.get(0)));
+
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("hhh", 2);
+        System.out.println("get double: "+jsonObject.getDouble("hhh"));
     }
 }

@@ -5,8 +5,8 @@
     </insert>
 
     <update id="updateScores">
-        update participation set score = #{score}, penalty = #{p}, bonus = #{b}
-        where athlete_no = #{ano} and game_id = #{gid};
+        update participation set score = #{score}, penalty = #{penalty}, bonus = #{bonus}
+        where athlete_no = #{athleteNo} and game_id = #{gameId}
     </update>
 
     <select id="queryAthletesByGame" resultType="com.cms.pojo.Athlete">

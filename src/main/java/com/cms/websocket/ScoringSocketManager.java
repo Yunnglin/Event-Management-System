@@ -9,6 +9,7 @@ import com.cms.mapper.ParticipationMapper;
 import com.cms.mapper.RefereeSeviceMapper;
 import com.cms.pojo.Athlete;
 import com.cms.pojo.Game;
+import com.cms.pojo.Participation;
 import com.cms.pojo.Referee;
 import com.cms.util.MybatiesUtil;
 import org.apache.ibatis.session.SqlSession;
@@ -104,10 +105,13 @@ public class ScoringSocketManager {
         msg.put("type", 0);
         msg.put("game", g);
         msg.put("athletes", aths);
+        msg.put("refereeNum", referees.size());
 
         publish2AllReferees(msg);
         this.isInProgress = true;
         this.currentAthlete = 0;
+
+        sqlSession.close();
 
     }
 
@@ -160,6 +164,8 @@ public class ScoringSocketManager {
                         return false;
                 }
             }
+
+            sqlSession.close();
         }
 
         return true;
@@ -201,6 +207,21 @@ public class ScoringSocketManager {
     }
 
     private void setScore(JSONObject scores) {
-        
+        int gameId = this.game.getGameId();
+        int ano = this.athletesIn.get(currentAthlete).getNo();
+        Participation participation = new Participation();
+        participation.setAthleteNo(ano);
+        participation.setGameId(gameId);
+        participation.setScore(scores.getDouble("score"));
+        participation.setPenalty(scores.getDouble("penalty"));
+        participation.setBonus(scores.getDouble("bonus"));
+
+        SqlSession sqlSession = MybatiesUtil.getSession();
+        ParticipationMapper participationMapper = sqlSession.getMapper(ParticipationMapper.class);
+        participationMapper.updateScores(participation);
+        sqlSession.commit();
+
+        sqlSession.close();
+
     }
 }
