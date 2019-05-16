@@ -168,4 +168,19 @@ public class Test1 {
         System.out.println(game.toString());
     }
 
+    @Test
+    public void m9(){
+        SqlSession sqlSession=MybatiesUtil.getSession();
+        RefereeSeviceMapper mapper=sqlSession.getMapper(RefereeSeviceMapper.class);
+       List<Referee> referees= mapper.queryRelatedReferee(2);
+       JSONArray jsonArray=new JSONArray(referees);
+        System.out.println(jsonArray);
+    }
+    @Test
+    public void m10(){
+        SqlSession sqlSession=MybatiesUtil.getSession();
+        RefereeSeviceMapper mapper=sqlSession.getMapper(RefereeSeviceMapper.class);
+        mapper.delete("321654987789456185",3);
+        sqlSession.commit();
+    }
 }

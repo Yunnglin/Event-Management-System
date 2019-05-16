@@ -1,11 +1,9 @@
 package com.cms.controller;
 
-import com.cms.mapper.AthleteMapper;
-import com.cms.mapper.GameMapper;
-import com.cms.mapper.RefereeMapper;
-import com.cms.mapper.TeamMapper;
+import com.cms.mapper.*;
 import com.cms.pojo.Athlete;
 import com.cms.pojo.Game;
+import com.cms.pojo.Referee;
 import com.cms.pojo.Team;
 import com.cms.util.MybatiesUtil;
 import org.apache.ibatis.binding.BindingException;
@@ -17,12 +15,15 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.xml.ws.Response;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
 import java.util.List;
 
 public class AdminServlet extends HttpServlet {
+
+    private int gameId = 0;
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -150,6 +151,50 @@ public class AdminServlet extends HttpServlet {
                             out.print("<script>alert('未查询到此裁判编号');window.location.href = 'http://localhost:8080/cms/gameManage.jsp'</script>");
                         }
                     }
+                    break;
+                }
+                case "refereeGroup": {
+                    gameId = Integer.valueOf(request.getParameter("gameId"));
+                    response.sendRedirect("/cms/refereeGroup.jsp");
+                    break;
+                }
+                case "queryRefereeGroup": {
+                    RefereeSeviceMapper mapper = sqlSession.getMapper(RefereeSeviceMapper.class);
+                    List<Referee> referees = mapper.queryRelatedReferee(gameId);
+                    JSONArray jsonArray = new JSONArray(referees);
+                    String head = "{\"code\":0,\"msg\":\"\",\"count\":1000,\"data\":";
+                    String json = head + jsonArray + "}";
+                    out.print(json);
+                    out.flush();
+                    out.close();
+                    break;
+                }
+                case "addRefereeService": {
+                    RefereeSeviceMapper mapper = sqlSession.getMapper(RefereeSeviceMapper.class);
+                    RefereeMapper refereeMapper = sqlSession.getMapper(RefereeMapper.class);
+
+                    String input = request.getParameter("input");
+                    if (refereeMapper.queryById(input) == null) {
+                        out.print("<script>alert('添加失败，未查询到此裁判编号！');window.location.href = 'http://localhost:8080/cms/refereeGroup.jsp'</script>");
+                    } else if (mapper.isExit(input, gameId) != null) {
+                        out.print("<script>alert('添加失败，此裁判已在该裁判组中！');window.location.href = 'http://localhost:8080/cms/refereeGroup.jsp'</script>");
+                    } else {
+                        mapper.insert(input, gameId);
+                        sqlSession.commit();
+                        response.sendRedirect("/cms/refereeGroup.jsp");
+                    }
+                    break;
+                }
+                case "delRefereeService":{
+                    String rId = request.getParameter("rId");
+                    RefereeSeviceMapper mapper = sqlSession.getMapper(RefereeSeviceMapper.class);
+                    mapper.delete(rId,gameId);
+                    sqlSession.commit();
+                    response.sendRedirect("/cms/refereeGroup.jsp");
+                    break;
+                }
+                case "queryGameGroup":{
+
                     break;
                 }
 

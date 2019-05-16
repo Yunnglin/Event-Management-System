@@ -1,10 +1,21 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cms.mapper.RefereeSeviceMapper">
+    <insert id="insert">
+        INSERT INTO REFEREE_SEVICE (RIDNUM, GID) VALUES (#{ridNum},#{gid})
+    </insert>
+
+    <delete id="delete">
+        DELETE FROM REFEREE_SEVICE WHERE RIDNUM=#{ridNum} and GID = #{gid}
+    </delete>
 
     <select id="queryRelatedReferee" resultType="com.cms.pojo.Referee">
         select * from referees
         where referees.idnum in
-        (select ridnum from referee_sevice where gid = #{gid})
+        (select ridnum from referee_sevice where gid = #{gid}) ORDER BY referees.team_no
+    </select>
+
+    <select id="isExit" resultType="java.lang.Object">
+        SELECT * FROM  REFEREE_SEVICE WHERE RIDNUM=#{ridNum} and GID = #{gid}
     </select>
 
 </mapper>
