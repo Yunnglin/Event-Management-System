@@ -15,4 +15,6 @@ public interface GameMapper {
     Integer queryIsExist(Game game);
 
     List<HashMap> queryAll();
+
+    Game queryById(int id);
 }

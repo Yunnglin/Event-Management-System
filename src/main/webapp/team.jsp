@@ -29,7 +29,7 @@
                    <div class="layui-input-block layui-col-md3">
                        <select name="select" lay-verify="" lay-search>
                            <option value="all" selected>--全部--</option>
-                           <option value="number">队号</option>
+                           <option value="tNo">队号</option>
                            <option value="name">队名</option>
                        </select>
                    </div>
@@ -37,8 +37,9 @@
                 <div class="layui-form-item">
                     <label class="layui-form-label">查询内容</label>
                     <div class="layui-input-block layui-col-md3">
-                        <input type="text" name="input"  lay-verify="" placeholder="请输入" autocomplete="off" class="layui-input">
+                        <input type="text" name="input"  lay-verify="" placeholder="请输入..." autocomplete="off" class="layui-input">
                     </div>
+                    <br>
                     <div class="layui-input-block layui-col-md3">
                         <button type="submit" class="layui-btn">查询</button>
                         <button type="reset" class="layui-btn layui-btn-primary">重置</button>

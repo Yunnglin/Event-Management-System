@@ -17,7 +17,7 @@
     <div class="layui-body" style="background-color: #eeeeee;  ">
         <!-- 内容主体区域 -->
         <div style="padding: 15px;">
-            <table id="teamTable" class="layui-table" lay-data="{height:400, page:true, url:'<%=request.getContextPath()%>/AdminServlet'}" lay-filter="test">
+            <table id="teamTable" class="layui-table" lay-data="{height:400, page:true, url:'<%=request.getContextPath()%>/AdminServlet?method=queryGame',method:'post'}" lay-filter="test">
                 <thead>
                 <tr>
                     <th lay-data="{field: 'GAMEID', align:'center',  width:150, sort: true}">编号</th>
@@ -25,7 +25,7 @@
                     <th lay-data="{field: 'GAMEAGE', align:'center',  width:150, sort: true}">年龄组</th>
                     <th lay-data="{field: 'REFEREENUM', align:'center',  width:200,edit:'text'}">裁判编号</th>
                     <th lay-data="{field: 'GAMELEVEL',  align:'center', width: 200}">等级</th>
-                    <th lay-data="{fixed: 'right', width:150, align:'center', toolbar: '#toolBar'}">操作</th>
+                    <th lay-data="{fixed: 'right', width:250, align:'center', toolbar: '#toolBar'}">操作</th>
                 </tr>
                 </thead>
             </table>
@@ -36,7 +36,10 @@
 </div>
 <script type="text/html" id="toolBar">
     <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="update">更新</button>
+        <button class="layui-btn layui-btn-sm" lay-event="group">添加小组</button>
         <button class="layui-btn layui-btn-sm" lay-event="start">开始比赛</button>
+
     </div>
 </script>
 <script src="plugins/layui/layui.js"></script>
@@ -66,6 +69,20 @@
             if(layEvent === 'start'){//点击开始比赛后的操作
                 //do somehing
                 console.log("start"+data.GAMEID);
+            }else if(layEvent === 'update'){
+                var tmp = document.createElement('form');
+                var action = '<%=request.getContextPath()%>/AdminServlet?method=addReferee';
+                tmp.action = action;
+                tmp.method = 'post';
+                tmp.style.display = 'none';
+                var input = document.createElement('input');
+                input.type = 'hidden';
+                input.name = 'gameJson';
+                input.value = JSON.stringify(data);
+                console.log(data);
+                tmp.appendChild(input);
+                document.body.appendChild(tmp);
+                tmp.submit();
             }
         });
 

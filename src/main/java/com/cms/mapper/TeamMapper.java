@@ -25,4 +25,7 @@ public interface TeamMapper {
 
     int updateNameAndPassword(Team team);
 
+    List<Team> queryByMyId(int tno);
+
+    List<Team> queryByName(String name);
 }
