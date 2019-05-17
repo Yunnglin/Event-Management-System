@@ -6,15 +6,15 @@ import com.cms.pojo.Game;
 public class JSONUtil {
     public static Game JSONObjtoGame(JSONObject obj){
         Game game = new Game();
-        if(obj.getInteger("eventid")!=null)
-            game.setEventId(obj.getInteger("eventid"));
-        if(obj.getInteger("id")!=null)
-            game.setGameId(obj.getInteger("id"));
+        if(obj.getInteger("eventId")!=null)
+            game.setEventId(obj.getInteger("eventId"));
+        if(obj.getInteger("gameId")!=null)
+            game.setGameId(obj.getInteger("gameId"));
         if(obj.getString("groupAge")!=null)
             game.setGroupAge(obj.getString("groupAge"));
-        if(obj.getString("lv")!=null)
+        if(obj.getString("level")!=null)
             game.setLevel(obj.getString("lv"));
-        if(obj.getString("ridnum")!=null)
+        if(obj.getString("rIdNum")!=null)
             game.setrIdNum(obj.getString("ridnum"));
 
         return game;
