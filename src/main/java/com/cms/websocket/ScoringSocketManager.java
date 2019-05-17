@@ -23,6 +23,7 @@ import java.util.Map;
 public class ScoringSocketManager {
 
     public static ScoringSocketManager instance = new ScoringSocketManager();
+    private ScoringControlServer admin;
     private Map<String, ScoringServer> clientMap;
     private Game game;
     private List<Athlete> athletesIn;
@@ -50,6 +51,10 @@ public class ScoringSocketManager {
             clientMap.remove(node.referee.getIdNum());
         }
         System.out.println("referee " + node.referee.getName() + " out");
+    }
+
+    public void setAdmin(ScoringControlServer admin) {
+        this.admin = admin;
     }
 
     public Game getScoringGame(){
@@ -131,6 +136,16 @@ public class ScoringSocketManager {
         this.currentAthlete = -1;
         sqlSession.close();
 
+        JSONObject msg1 = new JSONObject();
+        msg1.put("started", true);
+        try {
+            if(this.admin!=null)
+                this.admin.feedback(msg1.toJSONString());
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("发送给管理员提示信息失败");
+        }
+
         if(athletesIn!=null && athletesIn.size()!=0){
             nextAthleteToScore();
         }else {
@@ -173,6 +188,17 @@ public class ScoringSocketManager {
         this.athletesIn = null;
         this.relatedReferees = null;
         this.isInProgress = false;
+
+        JSONObject msg1 = new JSONObject();
+        msg1.put("ended", true);
+        if(this.admin!=null){
+            try {
+                this.admin.feedback(msg1.toJSONString());
+            } catch (IOException e) {
+                e.printStackTrace();
+                System.out.println("发送给管理员提示信息失败");
+            }
+        }
     }
 
     private boolean refereesAllReady(){

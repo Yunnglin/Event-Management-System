@@ -5,9 +5,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.cms.pojo.Game;
 import com.cms.util.JSONUtil;
 
-import javax.websocket.OnMessage;
-import javax.websocket.OnOpen;
-import javax.websocket.Session;
+import javax.websocket.*;
 import javax.websocket.server.ServerEndpoint;
 import java.io.IOException;
 
@@ -19,6 +17,12 @@ public class ScoringControlServer {
     public void onOpen(Session session){
         this.session = session;
         System.out.println("评分系统管理员登录");
+        ScoringSocketManager.instance.setAdmin(this);
+    }
+
+    @OnClose
+    public void onClose() {
+        ScoringSocketManager.instance.setAdmin(null);
     }
 
     @OnMessage
@@ -43,7 +47,7 @@ public class ScoringControlServer {
         }
     }
 
-    private void feedback(String info) throws IOException {
+    public void feedback(String info) throws IOException {
         session.getBasicRemote().sendText(info);
     }
 }
