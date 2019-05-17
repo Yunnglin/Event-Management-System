@@ -48,6 +48,8 @@
 <script src="js/jquery-3.3.1.min.js"></script>
 <script>
     //JavaScript代码区域
+
+    //socket连接与监听事件绑定
     var wsUri ="ws://localhost:8080/cms/score_admin";
     var isConn = false;
     var scoreSocket = new WebSocket(wsUri);
@@ -74,7 +76,7 @@
             alert("比赛已结束");
             //maybe remove something about finished game then
         }
-    }
+    };
 
     layui.use('element', function(){
         var element = layui.element;
@@ -98,8 +100,17 @@
 
             if(layEvent === 'start'){//点击开始比赛后的操作
                 //start the game
-                console.log("start"+data.GAMEID);
+                console.log(data);
 
+                //判断裁判人数
+                //不足5个或者比赛未设置主裁判则不可开始
+
+                scoreSocket.send(JSON.stringify({
+                    groupAge: data.GAMEAGE,
+                    level: data.GAMELEVEL,
+                    gameId: data.GAMEID,
+                    rIdNum: data.REFEREENUM
+                }));
 
             }else if(layEvent === 'update'){
                 var tmp = document.createElement('form');
