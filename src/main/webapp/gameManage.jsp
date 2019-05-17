@@ -49,7 +49,26 @@
 <script>
     //JavaScript代码区域
     var wsUri ="ws://localhost:8080/cms/score_admin";
-    var scoreSocket;
+    var isConn = false;
+    var scoreSocket = new WebSocket(wsUri);
+    scoreSocket.onopen = function(evt) {
+        isConn = true;
+        console.log(evt);
+        scoreSocket.send(JSON.stringify({
+            //发送开始消息
+        }))
+    };
+    scoreSocket.onclose = function (evt) {
+        console.log(evt);
+    };
+    scoreSocket.onerror = function (evt) {
+        console.error(evt);
+    };
+    scoreSocket.onmessage = function (evt) {
+        var data = JSON.parse(evt.data);
+
+    }
+
     layui.use('element', function(){
         var element = layui.element;
 
@@ -73,19 +92,7 @@
             if(layEvent === 'start'){//点击开始比赛后的操作
                 //start the game
                 console.log("start"+data.GAMEID);
-                scoreSocket = new WebSocket(wsUri);
-                scoreSocket.onopen = function(evt) {
-                    console.log(evt);
-                    scoreSocket.send(JSON.stringify({
-                        //发送开始消息
-                    }))
-                }
-                scoreSocket.onclose = function (evt) {
-                    console.log(evt);
-                }
-                scoreSocket.onerror = function (evt) {
-                    console.error(evt);
-                }
+
 
             }else if(layEvent === 'update'){
                 var tmp = document.createElement('form');
