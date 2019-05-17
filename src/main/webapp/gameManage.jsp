@@ -50,6 +50,36 @@
 <script src="js/jquery-3.3.1.min.js"></script>
 <script>
     //JavaScript代码区域
+
+    //socket连接与监听事件绑定
+    var wsUri ="ws://localhost:8080/cms/score_admin";
+    var isConn = false;
+    var scoreSocket = new WebSocket(wsUri);
+    scoreSocket.onopen = function(evt) {
+        isConn = true;
+        console.log(evt);
+        scoreSocket.send(JSON.stringify({
+            //发送开始消息
+        }))
+    };
+    scoreSocket.onclose = function (evt) {
+        console.log(evt);
+    };
+    scoreSocket.onerror = function (evt) {
+        console.error(evt);
+    };
+    scoreSocket.onmessage = function (evt) {
+        var data = JSON.parse(evt.data);
+        if(data.started!=undefined && data.started){
+            alert("比赛已开始!");
+        } else if(data.started!=undefined && !data.started){
+            alert("裁判尚未就绪，等待中");
+        } else if(data.ended!=undefined && data.ended){
+            alert("比赛已结束");
+            //maybe remove something about finished game then
+        }
+    };
+
     layui.use('element', function(){
         var element = layui.element;
 
@@ -71,8 +101,19 @@
             var tr = obj.tr; //获得当前行 tr 的DOM对象
 
             if(layEvent === 'start'){//点击开始比赛后的操作
-                //do somehing
-                console.log("start"+data.GAMEID);
+                //start the game
+                console.log(data);
+
+                //判断裁判人数
+                //不足5个或者比赛未设置主裁判则不可开始
+
+                scoreSocket.send(JSON.stringify({
+                    groupAge: data.GAMEAGE,
+                    level: data.GAMELEVEL,
+                    gameId: data.GAMEID,
+                    rIdNum: data.REFEREENUM
+                }));
+
             }else if(layEvent === 'update'){
                 var tmp = document.createElement('form');
                 var action = '<%=request.getContextPath()%>/AdminServlet?method=addReferee';
