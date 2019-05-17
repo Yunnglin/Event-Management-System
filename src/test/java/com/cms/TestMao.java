@@ -1,6 +1,7 @@
 package com.cms;
 
 import com.cms.mapper.GameGroupMapper;
+import com.cms.mapper.RefereeSeviceMapper;
 import com.cms.util.MybatiesUtil;
 import org.apache.ibatis.session.SqlSession;
 import org.junit.Test;
@@ -21,5 +22,11 @@ public class TestMao {
         SqlSession sqlSession= MybatiesUtil.getSession();
         GameGroupMapper gameGroupMapper=sqlSession.getMapper(GameGroupMapper.class);
         System.out.println(gameGroupMapper.isTurnExistis(1,1,1));
+    }
+    @Test
+    public void m3(){
+        SqlSession sqlSession= MybatiesUtil.getSession();
+        RefereeSeviceMapper refereeSeviceMapper=sqlSession.getMapper(RefereeSeviceMapper.class);
+        System.out.println(refereeSeviceMapper.queryRefereeCount(1));
     }
 }

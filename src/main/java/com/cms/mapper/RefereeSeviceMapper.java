@@ -12,4 +12,5 @@ public interface RefereeSeviceMapper {
     int insert(@Param("ridNum") String ridNum,@Param("gid") int gid );
     Object isExit(@Param("ridNum") String ridNum,@Param("gid") int gid );
     int delete(@Param("ridNum") String ridNum,@Param("gid") int gid);
+    int queryRefereeCount(@Param("gid") int gid);
 }

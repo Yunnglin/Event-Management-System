@@ -17,5 +17,8 @@
     <select id="isExit" resultType="java.lang.Object">
         SELECT * FROM  REFEREE_SEVICE WHERE RIDNUM=#{ridNum} and GID = #{gid}
     </select>
+    <select id="queryRefereeCount" resultType="int">
+      SELECT COUNT(*) FROM REFEREE_SEVICE WHERE GID=#{gid}
+    </select>
 
 </mapper>

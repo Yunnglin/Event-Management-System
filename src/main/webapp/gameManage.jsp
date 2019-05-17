@@ -84,7 +84,8 @@
         var element = layui.element;
 
     });
-    layui.use('table', function(){
+    layui.use(['table','jquery'], function(){
+        var $=layui.jquery;
         var table = layui.table;
 
         //监听单元格编辑
@@ -106,13 +107,32 @@
 
                 //判断裁判人数
                 //不足5个或者比赛未设置主裁判则不可开始
-
-                scoreSocket.send(JSON.stringify({
-                    groupAge: data.GAMEAGE,
-                    level: data.GAMELEVEL,
-                    gameId: data.GAMEID,
-                    rIdNum: data.REFEREENUM
-                }));
+                var param={"gameId":data.GAMEID};
+                var referCount=0;
+                $.ajax({
+                    type:"POST",
+                    url:"<%=request.getContextPath()%>/AdminServlet?method=refereeCount",
+                    async:true,
+                    data:param,
+                    dataType:"json",
+                    success:function (res) {
+                        console.log(res.referCount);
+                        referCount=res.referCount;
+                    },
+                    error:function (err) {
+                        console.log(err);
+                    }
+                });
+                if(referCount<5){
+                    alert("裁判数量不足五位！");
+                }else if(referCount=5){
+                    scoreSocket.send(JSON.stringify({
+                        groupAge: data.GAMEAGE,
+                        level: data.GAMELEVEL,
+                        gameId: data.GAMEID,
+                        rIdNum: data.REFEREENUM
+                    }));
+                }
 
             }else if(layEvent === 'update'){
                 var tmp = document.createElement('form');
