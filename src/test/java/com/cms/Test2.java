@@ -10,6 +10,10 @@ public class Test2 {
     public void m1(){
         SqlSession sqlSession= MybatiesUtil.getSession();
         GameGroupMapper gameGroupMapper=sqlSession.getMapper(GameGroupMapper.class);
-        gameGroupMapper.insert(5,2,2,4);
+        gameGroupMapper.delete(5,2);
+        int i=gameGroupMapper.groupMemberCount(1,0);
+        System.out.println(gameGroupMapper.isExists(1,0));
+        System.out.println(i);
+        sqlSession.commit();
     }
 }

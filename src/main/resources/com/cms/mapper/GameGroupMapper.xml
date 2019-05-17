@@ -6,10 +6,19 @@
     <insert id="insert">
         INSERT INTO GAME_GROUP (ANO, GROUPID, GID, TURN) VALUES (#{ano},#{groupId},#{gId},#{turn})
     </insert>
+    <delete id="delete">
+        DELETE FROM GAME_GROUP WHERE ANO=#{ano} AND GID=#{gId}
+    </delete>
 
     <select id="queryByGameId" resultType="java.util.Map">
           SELECT g.ANO,g.GROUPID,g.TURN,a.NAME
            FROM GAME_GROUP g INNER  JOIN  ATHLETES a ON a.NO=g.ANO WHERE  g.GID=#{gid}
            ORDER BY g.GROUPID asc ,g.TURN asc
+    </select>
+    <select id="isExists" resultType="java.lang.Object">
+          SELECT * FROM GAME_GROUP WHERE ANO=#{ano} AND GID=#{gId}
+    </select>
+    <select id="groupMemberCount" resultType="int">
+          SELECT COUNT(*) FROM GAME_GROUP WHERE GID=#{gId} AND GROUPID=#{groupId}
     </select>
 </mapper>
