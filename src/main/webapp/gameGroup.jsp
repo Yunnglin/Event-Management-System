@@ -22,19 +22,19 @@
             <h2>当前所查看赛事编号：<span id="gameId"></span></h2>
             <hr/>
 
-            <form class="layui-form" action="<%=request.getContextPath()%>/AdminServlet?method=addGameGroup"
+            <form id="groupForm" class="layui-form" action="<%=request.getContextPath()%>/AdminServlet?method=addGameGroup"
                   method="post">
                 <div class="layui-form-item layui-col-md3">
                     <label class="layui-form-label">小组编号</label>
                     <div class="layui-input-block ">
-                        <input type="number" name="input" lay-verify="" autocomplete="off"
+                        <input type="number" name="groupId" lay-verify="" autocomplete="off"
                                required class="layui-input">
                     </div>
                 </div>
                 <div class="layui-form-item layui-col-md3">
                     <label class="layui-form-label">队员编号</label>
                     <div class="layui-input-block ">
-                        <select name="city" lay-verify="required">
+                        <select name="athleteNo" lay-verify="required">
                             <c:forEach items="${athletes}" var="athlete">
                                 <option value="${athlete.getNo()}">${athlete.getNo()}${athlete.getName()}</option>
                             </c:forEach>
@@ -44,7 +44,7 @@
                 <div class="layui-form-item layui-col-md3">
                     <label class="layui-form-label">出场顺序</label>
                     <div class="layui-input-block ">
-                        <input type="number" name="input" lay-verify=""  autocomplete="off"
+                        <input type="number" name="turn" lay-verify=""  autocomplete="off"
                                required class="layui-input">
                     </div>
                 </div>
@@ -73,9 +73,15 @@
 
     <jsp:include page="footer.jsp"/>
 </div>
+<script type="text/html" id="toolBar">
+    <div class="layui-btn-container">
+        <button class="layui-btn layui-btn-sm" lay-event="delete">删除</button>
+    </div>
+</script>
 <script src="plugins/layui/layui.js"></script>
 <script>
     //JavaScript代码区域
+
     document.getElementById("gameId").innerText = sessionStorage.getItem('gameId');
     layui.use('element', function () {
         var element = layui.element;
@@ -83,15 +89,45 @@
     });
     layui.use('table', function () {
         var table = layui.table;
+
+        table.on('tool(test)', function (obj) { //注：tool是工具条事件名，test是table原始容器的属性 lay-filter="对应的值"
+            var data = obj.data; //获得当前行数据
+            var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
+            var tr = obj.tr; //获得当前行 tr 的DOM对象
+
+            if (layEvent === 'delete') {
+                layer.confirm('确定删除吗？', function (index) {
+                    obj.del(); //删除对应行（tr）的DOM结构，并更新缓存
+                    layer.close(index);
+                    //向服务端发送删除指令
+                    var tmp = document.createElement('form');
+                    var action = '<%=request.getContextPath()%>/AdminServlet?method=delGameGroup';
+                    tmp.action = action;
+                    tmp.method = 'post';
+                    tmp.style.display = 'none';
+                    var input = document.createElement('input');
+                    input.type = 'hidden';
+                    input.name = 'ano';
+                    //var json= JSON.stringify(data);
+                    input.value = data.ANO;
+                    tmp.appendChild(input);
+                    document.body.appendChild(tmp);
+                    tmp.submit();
+
+                });
+            }
+
+        });
     });
     layui.use('form', function(){
         var form = layui.form;
         //监听提交
         form.on('submit(formDemo)', function(data){
-            layer.msg(JSON.stringify(data.field));
+            //layer.msg(JSON.stringify(data.field));
             return true;
         });
     });
+
 </script>
 </body>
 </html>
