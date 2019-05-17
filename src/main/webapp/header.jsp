@@ -18,7 +18,7 @@
     <ul class="layui-nav layui-layout-left">
         <li class="layui-nav-item"><a href="javascript:;"><i class="layui-icon layui-icon-list"></i>赛事相关</a>
             <dl class="layui-nav-child">
-                <dd><a href="gameManage.jsp">比赛安排</a></dd>
+                <dd><a href="gameManage.jsp">赛事安排</a></dd>
             </dl>
 
         </li>

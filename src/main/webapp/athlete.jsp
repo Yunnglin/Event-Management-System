@@ -22,7 +22,8 @@
     <div class="layui-body" style="background-color: #eeeeee;  ">
         <!-- 内容主体区域 -->
         <div style="padding: 15px;">
-
+            <h1>队员信息</h1>
+            <hr/>
             <table lay-filter="test" id="teamTable">
                 <thead>
                 <tr>

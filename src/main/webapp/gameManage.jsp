@@ -17,7 +17,9 @@
     <div class="layui-body" style="background-color: #eeeeee;  ">
         <!-- 内容主体区域 -->
         <div style="padding: 15px;">
-            <table id="teamTable" class="layui-table" lay-data="{height:400, page:true, url:'<%=request.getContextPath()%>/AdminServlet?method=queryGame',method:'post'}" lay-filter="test">
+            <h1>赛事安排</h1>
+            <hr/>
+            <table id="teamTable" class="layui-table" lay-data="{height:400, url:'<%=request.getContextPath()%>/AdminServlet?method=queryGame',method:'post'}" lay-filter="test">
                 <thead>
                 <tr>
                     <th lay-data="{field: 'GAMEID', align:'center',  width:150, sort: true}">赛事编号</th>

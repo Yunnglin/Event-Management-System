@@ -16,6 +16,8 @@
     <div class="layui-body" style="background-color: #eeeeee;  ">
         <!-- 内容主体区域 -->
         <div style="padding: 15px;">
+            <h1>添加队伍</h1>
+            <hr/>
             <form class="layui-form" action="<%=request.getContextPath()%>/AdminServlet?method=addTeam" method="post">
                 <input style="display:none">
                 <div class="layui-form-item">

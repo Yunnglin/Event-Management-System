@@ -17,7 +17,8 @@
     <div class="layui-body" style="background-color: #eeeeee;  ">
         <!-- 内容主体区域 -->
         <div style="padding: 15px;">
-
+            <h1>队伍信息</h1>
+            <hr/>
             <form class="layui-form" action="<%=request.getContextPath()%>/AdminServlet?method=queryTeam" method="post">
                <div class="layui-form-item layui-row">
                    <label class="layui-form-label">查询方式</label>
