@@ -1,6 +1,0 @@
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.cms.mapper.EventMapper">
-    <select id="queryIDbyName" resultType="int">
-        select ID from EVENTS where NAME=#{s}
-    </select>
-</mapper>
