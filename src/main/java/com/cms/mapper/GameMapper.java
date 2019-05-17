@@ -18,8 +18,7 @@ public interface GameMapper {
 
     Game queryById(int id);
 
-    int queryIsExist(Game game);
-
+    String queryIsExist(Game game);
 
     List<Game> getGamesList();
 
@@ -28,6 +27,4 @@ public interface GameMapper {
 
     String queryName(Game game);
     String queryNameById(int gid);
-
-
 }

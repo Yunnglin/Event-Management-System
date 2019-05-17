@@ -20,4 +20,8 @@ public interface AthleteMapper {
     List<Athlete> queryAll();
 
     int deleteByIdNum(String id);
+
+    int queryGirlCount();
+
+    int queryBoyCount();
 }

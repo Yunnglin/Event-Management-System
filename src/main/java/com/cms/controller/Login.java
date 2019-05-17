@@ -16,7 +16,7 @@ import java.util.Enumeration;
 
 public class Login extends HttpServlet {
 
-    public static String account;
+    private String account;
     private String password;
     public static int tNo;
 

@@ -1,13 +1,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.cms.mapper.ParticipationMapper">
-    <insert id="inserP">
+    <insert id="inserPar">
         insert into PARTICIPATION (ATHLETE_NO, GAME_ID) values (#{athleteNo}, #{gameId})
     </insert>
-
-    <update id="updateScores">
-        update participation set score = #{score}, penalty = #{penalty}, bonus = #{bonus}
-        where athlete_no = #{athleteNo} and game_id = #{gameId}
-    </update>
 
     <select id="queryAthletesByGame" resultType="com.cms.pojo.Athlete">
         select * from athletes

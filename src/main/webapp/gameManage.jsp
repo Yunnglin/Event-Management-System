@@ -17,9 +17,7 @@
     <div class="layui-body" style="background-color: #eeeeee;  ">
         <!-- 内容主体区域 -->
         <div style="padding: 15px;">
-            <h1>赛事安排</h1>
-            <hr/>
-            <table id="teamTable" class="layui-table" lay-data="{height:400, url:'<%=request.getContextPath()%>/AdminServlet?method=queryGame',method:'post'}" lay-filter="test">
+            <table id="teamTable" class="layui-table" lay-data="{height:400, page:true, url:'<%=request.getContextPath()%>/AdminServlet?method=queryGame',method:'post'}" lay-filter="test">
                 <thead>
                 <tr>
                     <th lay-data="{field: 'GAMEID', align:'center',  width:150, sort: true}">赛事编号</th>
@@ -50,42 +48,11 @@
 <script src="js/jquery-3.3.1.min.js"></script>
 <script>
     //JavaScript代码区域
-
-    //socket连接与监听事件绑定
-    var wsUri ="ws://localhost:8080/cms/score_admin";
-    var isConn = false;
-    var scoreSocket = new WebSocket(wsUri);
-    scoreSocket.onopen = function(evt) {
-        isConn = true;
-        console.log(evt);
-        scoreSocket.send(JSON.stringify({
-            //发送开始消息
-        }))
-    };
-    scoreSocket.onclose = function (evt) {
-        console.log(evt);
-    };
-    scoreSocket.onerror = function (evt) {
-        console.error(evt);
-    };
-    scoreSocket.onmessage = function (evt) {
-        var data = JSON.parse(evt.data);
-        if(data.started!=undefined && data.started){
-            alert("比赛已开始!");
-        } else if(data.started!=undefined && !data.started){
-            alert("裁判尚未就绪，等待中");
-        } else if(data.ended!=undefined && data.ended){
-            alert("比赛已结束");
-            //maybe remove something about finished game then
-        }
-    };
-
     layui.use('element', function(){
         var element = layui.element;
 
     });
-    layui.use(['table','jquery'], function(){
-        var $=layui.jquery;
+    layui.use('table', function(){
         var table = layui.table;
 
         //监听单元格编辑
@@ -102,38 +69,8 @@
             var tr = obj.tr; //获得当前行 tr 的DOM对象
 
             if(layEvent === 'start'){//点击开始比赛后的操作
-                //start the game
-                console.log(data);
-
-                //判断裁判人数
-                //不足5个或者比赛未设置主裁判则不可开始
-                var param={"gameId":data.GAMEID};
-                var referCount=0;
-                $.ajax({
-                    type:"POST",
-                    url:"<%=request.getContextPath()%>/AdminServlet?method=refereeCount",
-                    async:true,
-                    data:param,
-                    dataType:"json",
-                    success:function (res) {
-                        console.log(res.referCount);
-                        referCount=res.referCount;
-                    },
-                    error:function (err) {
-                        console.log(err);
-                    }
-                });
-                if(referCount<5){
-                    alert("裁判数量不足五位！");
-                }else if(referCount=5){
-                    scoreSocket.send(JSON.stringify({
-                        groupAge: data.GAMEAGE,
-                        level: data.GAMELEVEL,
-                        gameId: data.GAMEID,
-                        rIdNum: data.REFEREENUM
-                    }));
-                }
-
+                //do somehing
+                console.log("start"+data.GAMEID);
             }else if(layEvent === 'update'){
                 var tmp = document.createElement('form');
                 var action = '<%=request.getContextPath()%>/AdminServlet?method=addReferee';
@@ -149,19 +86,7 @@
                 document.body.appendChild(tmp);
                 tmp.submit();
             }else if(layEvent === 'addGroup'){
-                sessionStorage.setItem('gameId',data.GAMEID);
-                var tmp = document.createElement('form');
-                var action = '<%=request.getContextPath()%>/AdminServlet?method=gameGroup';
-                tmp.action = action;
-                tmp.method = 'post';
-                tmp.style.display = 'none';
-                var input = document.createElement('input');
-                input.type = 'hidden';
-                input.name = 'gameId';
-                input.value = data.GAMEID;
-                tmp.appendChild(input);
-                document.body.appendChild(tmp);
-                tmp.submit();
+
             }else if(layEvent === 'refereeGroup'){
                 sessionStorage.setItem('gameId',data.GAMEID);
                 var tmp = document.createElement('form');
