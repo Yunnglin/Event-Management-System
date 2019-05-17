@@ -16,5 +16,7 @@ public interface GameGroupMapper {
 
     int delete(@Param("ano") int ano,@Param("gId") int gId);
 
+    Object isTurnExistis(@Param("groupId") int groupId,@Param("gId") int gId,@Param("turn") int turn);
+
 }
 

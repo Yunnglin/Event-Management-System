@@ -21,4 +21,7 @@
     <select id="groupMemberCount" resultType="int">
           SELECT COUNT(*) FROM GAME_GROUP WHERE GID=#{gId} AND GROUPID=#{groupId}
     </select>
+    <select id="isTurnExistis" resultType="java.lang.Object">
+          SELECT * FROM GAME_GROUP WHERE GROUPID=#{groupId} AND TURN=#{turn} AND GID=#{gId}
+    </select>
 </mapper>

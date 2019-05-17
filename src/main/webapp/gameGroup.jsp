@@ -41,13 +41,13 @@
                         </select>
                     </div>
                 </div>
-                <%--<div class="layui-form-item layui-col-md3">--%>
-                    <%--<label class="layui-form-label">出场顺序</label>--%>
-                    <%--<div class="layui-input-block ">--%>
-                        <%--<input type="number" name="turn" lay-verify=""  autocomplete="off"--%>
-                               <%--required class="layui-input">--%>
-                    <%--</div>--%>
-                <%--</div>--%>
+                <div class="layui-form-item layui-col-md3">
+                    <label class="layui-form-label">出场顺序</label>
+                    <div class="layui-input-block ">
+                        <input type="number" name="turn" lay-verify=""  autocomplete="off"
+                               required class="layui-input">
+                    </div>
+                </div>
                 <div class="layui-form-item">
                     <div class="layui-input-block">
                         <button class="layui-btn" lay-submit lay-filter="formDemo">添加小组队员</button>
