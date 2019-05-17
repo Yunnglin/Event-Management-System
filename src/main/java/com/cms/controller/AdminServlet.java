@@ -15,6 +15,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.HashMap;
@@ -242,6 +243,19 @@ public class AdminServlet extends HttpServlet {
                     List<Athlete> athletes= participationMapper.queryAthletesByGameID(gameId);
                     request.setAttribute("athletes", athletes);
                     request.getRequestDispatcher("/gameGroup.jsp").forward(request, response);
+                    break;
+                }case "refereeCount":{
+//                    BufferedReader in = request.getReader();
+//                    String json=in.readLine();
+//                    JSONObject jsonObject=new JSONObject(json);
+//                    int gameId=jsonObject.getInt("gameId");
+                    int gameId=Integer.valueOf(request.getParameter("gameId"));
+                    RefereeSeviceMapper refereeSeviceMapper=sqlSession.getMapper(RefereeSeviceMapper.class);
+                    int count = refereeSeviceMapper.queryRefereeCount(gameId);
+                    String referCount="{"+"\"referCount\":"+count+"}";
+                    out.print(referCount);
+                    out.flush();
+                    out.close();
                     break;
                 }
 
