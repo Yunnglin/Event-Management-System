@@ -17,9 +17,6 @@ public interface ParticipationMapper {
 
     List<Participation> queryParticipationByGame(Game game);
     List<Participation> queryParticipationByGameID(int id);
-<<<<<<< HEAD
-=======
 
     int updateScores(Participation participation);
->>>>>>> socket
 }
