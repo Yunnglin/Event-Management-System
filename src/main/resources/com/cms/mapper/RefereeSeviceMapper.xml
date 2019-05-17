@@ -8,6 +8,7 @@
         DELETE FROM REFEREE_SEVICE WHERE RIDNUM=#{ridNum} and GID = #{gid}
     </delete>
 
+
     <select id="queryRelatedReferee" resultType="com.cms.pojo.Referee">
         select * from referees
         where referees.idnum in

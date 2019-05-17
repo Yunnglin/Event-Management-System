@@ -54,6 +54,7 @@
         select name from events where events.id = #{eventId}
     </select>
 
+
     <select id="queryNameById" resultType="string">
         select name from events
         where events.id = (select event_id from games where games.id = #{gid})

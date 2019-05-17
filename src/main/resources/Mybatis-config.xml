@@ -9,6 +9,7 @@
 <configuration>
     <!--属性-->
 
+
     <properties resource="jdbc.properties"/>
 
     <!--设置-->

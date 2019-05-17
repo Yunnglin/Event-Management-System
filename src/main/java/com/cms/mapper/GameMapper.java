@@ -29,4 +29,5 @@ public interface GameMapper {
     String queryName(Game game);
     String queryNameById(int gid);
 
+
 }
