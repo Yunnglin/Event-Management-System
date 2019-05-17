@@ -26,6 +26,11 @@
         <servlet-name>login</servlet-name>
         <servlet-class>com.cms.controller.Login</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
 
     <servlet-mapping>
         <!--别名-->
@@ -81,6 +86,7 @@
         <servlet-name>showServlet</servlet-name>
         <url-pattern>/showServlet</url-pattern>
     </servlet-mapping>
+
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.xhtml</url-pattern>

@@ -20,6 +20,7 @@ public interface GameMapper {
 
     int queryIsExist(Game game);
 
+<<<<<<< HEAD
 
     List<Game> getGamesList();
 
@@ -29,4 +30,8 @@ public interface GameMapper {
     String queryName(Game game);
     String queryNameById(int gid);
 
+=======
+    String queryName(Game game);
+    String queryNameById(int gid);
+>>>>>>> socket
 }
