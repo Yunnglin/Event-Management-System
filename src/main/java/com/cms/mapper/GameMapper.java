@@ -18,20 +18,8 @@ public interface GameMapper {
 
     Game queryById(int id);
 
-    int queryIsExist(Game game);
-
-<<<<<<< HEAD
-
-    List<Game> getGamesList();
-
-    List<HashMap> getSpecialGamesList(String teamAccount);
-
+    String queryIsExist(Game game);
 
     String queryName(Game game);
     String queryNameById(int gid);
-
-=======
-    String queryName(Game game);
-    String queryNameById(int gid);
->>>>>>> socket
 }

@@ -27,4 +27,11 @@
     <select id="queryAll" resultType="com.cms.pojo.Athlete">
         SELECT * FROM ATHLETES
     </select>
+    <select id="queryBoyCount" resultType="int">
+        select count(IDNUM) from ATHLETES WHERE SEX='男'
+    </select>
+
+    <select id="queryGirlCount" resultType="int">
+        select count(IDNUM) from ATHLETES WHERE SEX='女'
+    </select>
 </mapper>

@@ -9,9 +9,7 @@ import org.json.JSONObject;
 import org.junit.Test;
 
 import java.io.*;
-import java.math.BigDecimal;
 import java.util.*;
-import java.util.Map.Entry;
 
 public class Test1 {
 
@@ -86,7 +84,6 @@ public class Test1 {
     }
     @Test
     public void m6(){
-
         SqlSession sqlSession = MybatiesUtil.getSession();
         AthleteMapper mapper = sqlSession.getMapper(AthleteMapper.class);
 
@@ -159,184 +156,39 @@ public class Test1 {
         sqlSession.close();
     }
     @Test
-    public void m10() {
+    public void m8(){
         SqlSession sqlSession = MybatiesUtil.getSession();
-        GameMapper mapper = sqlSession.getMapper(GameMapper.class);
-        List<HashMap> hashMaps = mapper.queryAll();
-        List<GameResult> Games = new ArrayList<>();
-        int length = hashMaps.size();
-        GameResult gr;
-        for (int j = 0; j < length; j++)
-        {
-            gr  = new GameResult();
-            Iterator iter = hashMaps.get(j).entrySet().iterator();
-            int i = 1;
-            while (iter.hasNext())
-            {
-                Map.Entry entry = (Map.Entry) iter.next();
-                switch (i) {
-                    case 1:
-                        gr.setrIdNum((String) entry.getValue());
-                        System.out.println(gr.getrIdNum());
-                        break;
-                    case 2:
-                        gr.setEventName((String) entry.getValue());
-                        System.out.println(gr.getEventName());
-                        break;
-                    case 3:
-                        gr.setLevel((String) entry.getValue());
-                        System.out.println(gr.getLevel());
-                        break;
-                    case 4:
-                        BigDecimal ze = (BigDecimal) entry.getValue();
-                        gr.setGameId(ze.intValue());
-                        System.out.println(gr.getGameId());
-                        break;
-                    case 5:
-                        gr.setGroupAge((String) entry.getValue());
-                        System.out.println(gr.getGroupAge());
-                        break;
-                }
-                i = i + 1;
-            }
-            Games.add(gr);
-        }
-        for(int k=0;k<Games.size();k++)
-        {
-            System.out.println(Games.get(k).getGameId());
-            System.out.println(Games.get(k).getGroupAge());
-            System.out.println(Games.get(k).getEventName());
-        }
-        System.out.println();
+        GameMapper mapper=sqlSession.getMapper(GameMapper.class);
+
+        ParticipationMapper mapper1 = sqlSession.getMapper(ParticipationMapper.class);
+//        List<HashMap> hashMaps=mapper.queryAll();
+//        JSONArray jsonArray= new JSONArray(hashMaps);
+//        System.out.println(jsonArray.toString());
+        Game game=mapper.queryById(1);
+        game.setrIdNum("577332460093214327");
+        mapper.updateRId(game);
+        Participation participation =new Participation();
+        participation.setGameId(game.getGameId());
+        participation.setAthleteNo(6);
+        mapper1.inserPar(participation);
+        System.out.println(game.toString());
+        sqlSession.commit();
         sqlSession.close();
+    }
 
+    @Test
+    public void m9(){
+        SqlSession sqlSession=MybatiesUtil.getSession();
+        RefereeSeviceMapper mapper=sqlSession.getMapper(RefereeSeviceMapper.class);
+       List<Referee> referees= mapper.queryRelatedReferee(2);
+       JSONArray jsonArray=new JSONArray(referees);
+        System.out.println(jsonArray);
     }
     @Test
-    public  void m11()
-    {
-        SqlSession sqlSession = MybatiesUtil.getSession();
-        ScoreMapper mapper = sqlSession.getMapper(ScoreMapper.class);
-
-        //本队参赛信息查询
-        List<HashMap> hashMaps = mapper.TeamScore();
-        List<TeamScore> TeamScores = new ArrayList<>();
-
-        int length = hashMaps.size();
-        TeamScore gr;
-        for (int j = 0; j < length; j++) {
-            gr = new TeamScore();
-            Iterator iter = hashMaps.get(j).entrySet().iterator();
-            int i = 1;
-            while (iter.hasNext()) {
-                Map.Entry entry = (Map.Entry) iter.next();
-                switch (i) {
-                case 1:
-                    gr.setTeamName((String) entry.getValue());
-                    System.out.println(gr.getTeamName());
-                    break;
-                    case 2:
-                    BigDecimal ze = (BigDecimal) entry.getValue();
-                    gr.setTeamScore(ze.intValue());
-                    System.out.println(gr.getTeamScore());
-                    break;
-                case 3:
-                    BigDecimal ze2 = (BigDecimal) entry.getValue();
-                    String aa=""+ze2.intValue();
-                    gr.setTeamId(aa);
-                    System.out.println(gr.getTeamId());
-                    break;
-            }
-            i = i + 1;
-        }
-            TeamScores.add(gr);
-        }
+    public void m10(){
+        SqlSession sqlSession=MybatiesUtil.getSession();
+        RefereeSeviceMapper mapper=sqlSession.getMapper(RefereeSeviceMapper.class);
+        mapper.delete("321654987789456185",3);
+        sqlSession.commit();
     }
-    @Test
-    public  void m12()
-    {
-        SqlSession sqlSession = MybatiesUtil.getSession();
-        ScoreMapper mapper = sqlSession.getMapper(ScoreMapper.class);
-
-        //本队参赛信息查询
-        List<HashMap> hashMaps = mapper.Competition1();
-        List<PersonScore> Com1Persons = new ArrayList<>();
-
-        int length = hashMaps.size();
-        PersonScore gr;
-        for (int j = 0; j < length; j++) {
-            gr = new PersonScore();
-            Iterator iter = hashMaps.get(j).entrySet().iterator();
-            int i = 1;
-            while (iter.hasNext()) {
-                Map.Entry entry = (Map.Entry) iter.next();
-                switch (i) {
-                    case 1:
-                        BigDecimal ze2 = (BigDecimal) entry.getValue();
-                        gr.setPersonId(""+ze2.intValue());
-                        System.out.println(gr.getPersonId());
-                        break;
-
-                    case 2:
-                        BigDecimal ze1=(BigDecimal)entry.getValue();
-                        gr.setScore(ze1.intValue());
-                        System.out.println(gr.getScore());
-                        break;
-                    case 3:
-                        gr.setTeamName((String)entry.getValue());
-                        System.out.println(gr.getTeamName());
-                        break;
-                    case 4:
-                        gr.setName((String) entry.getValue());
-                        System.out.println(gr.getName());
-                        break;
-                }
-                i = i + 1;
-            }
-            Com1Persons.add(gr);
-        }
-    }
-    @Test
-    public void m15() {
-        SqlSession sqlSession = MybatiesUtil.getSession();
-        ScoreMapper mapper = sqlSession.getMapper(ScoreMapper.class);
-
-
-        List<HashMap> hashMaps = mapper.PersonSum();
-     List<PersonScore>   PersonsSum = new ArrayList<>();
-
-        int length = hashMaps.size();
-        PersonScore gr;
-        for (int j = 0; j < length; j++) {
-            gr = new PersonScore();
-            Iterator iter = hashMaps.get(j).entrySet().iterator();
-            int i = 1;
-            while (iter.hasNext()) {
-                Map.Entry entry = (Map.Entry) iter.next();
-                switch (i) {
-                    case 1:
-                        BigDecimal ze2 = (BigDecimal) entry.getValue();
-                        gr.setPersonId("" + ze2.intValue());
-                        System.out.println(gr.getPersonId());
-                        break;
-
-                    case 2:
-                        gr.setTeamName((String)entry.getValue());
-                        System.out.println(gr.getTeamName());
-                        break;
-                    case 3:
-                        BigDecimal ze1 = (BigDecimal) entry.getValue();
-                        gr.setScore(ze1.intValue());
-                        System.out.println(gr.getScore());
-                        break;
-                    case 4:
-                        gr.setName((String) entry.getValue());
-                        System.out.println(gr.getName());
-                        break;
-                }
-                i = i + 1;
-            }
-            PersonsSum.add(gr);
-        }
-    }
-
 }

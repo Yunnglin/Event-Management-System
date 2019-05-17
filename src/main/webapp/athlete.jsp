@@ -22,17 +22,15 @@
     <div class="layui-body" style="background-color: #eeeeee;  ">
         <!-- 内容主体区域 -->
         <div style="padding: 15px;">
-            <h1>队员信息</h1>
-            <hr/>
+
             <table lay-filter="test" id="teamTable">
                 <thead>
                 <tr>
-                    <th lay-data="{field:'ID',align:'center', width:200, sort:true}">身份证号</th>
-                    <th lay-data="{field:'no', align:'center',width:200, sort:true}">运动员编号</th>
-                    <th lay-data="{field:'name', align:'center',width:100}">姓名</th>
-                    <th lay-data="{field:'age',align:'center', minWidth: 100, sort:true}">年龄</th>
-                    <th lay-data="{field:'sex', align:'center',minWidth: 100}">性别</th>
-                    <th lay-data="{field:'team',align:'center', minWidth: 200,sort:true}">所属队伍</th>
+                    <th lay-data="{field:'ID', width:200, sort:true}">ID</th>
+                    <th lay-data="{field:'name', width:100}">姓名</th>
+                    <th lay-data="{field:'age', minWidth: 100, sort:true}">年龄</th>
+                    <th lay-data="{field:'sex', minWidth: 100}">性别</th>
+                    <th lay-data="{field:'team', minWidth: 200,sort:true}">所属队伍</th>
                     <th lay-data="{fixed: 'right', width:250, align:'center', toolbar: '#toolBar'}">操作</th>
                 </tr>
                 </thead>
@@ -40,7 +38,6 @@
                 <c:forEach items="${athletes}" var="a">
                     <tr>
                         <td align="center">${a.getId()}</td>
-                        <td align="center">${a.getNo()}</td>
                         <td align="center">${a.getName()}</td>
                         <td align="center">${a.getAge()}</td>
                         <td align="center">${a.getSex()}</td>
