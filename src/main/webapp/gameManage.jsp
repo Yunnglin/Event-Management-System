@@ -66,7 +66,11 @@
     };
     scoreSocket.onmessage = function (evt) {
         var data = JSON.parse(evt.data);
-
+        if(data.started){
+            alert("比赛已开始!");
+        } else {
+            alert("裁判尚未就绪，等待中");
+        }
     }
 
     layui.use('element', function(){
