@@ -66,10 +66,13 @@
     };
     scoreSocket.onmessage = function (evt) {
         var data = JSON.parse(evt.data);
-        if(data.started){
+        if(data.started!=undefined && data.started){
             alert("比赛已开始!");
-        } else {
+        } else if(data.started!=undefined && !data.started){
             alert("裁判尚未就绪，等待中");
+        } else if(data.ended!=undefined && data.ended){
+            alert("比赛已结束");
+            //maybe remove something about finished game then
         }
     }
 
