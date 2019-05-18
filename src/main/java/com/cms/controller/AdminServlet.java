@@ -196,8 +196,8 @@ public class AdminServlet extends HttpServlet {
                 }
                 case "gameGroup": {
                     gameId = Integer.valueOf(request.getParameter("gameId"));
-                    ParticipationMapper participationMapper=sqlSession.getMapper(ParticipationMapper.class);
-                    List<Athlete> athletes= participationMapper.queryAthletesByGameID(gameId);
+                    ParticipationMapper participationMapper = sqlSession.getMapper(ParticipationMapper.class);
+                    List<Athlete> athletes = participationMapper.queryAthletesByGameID(gameId);
                     request.setAttribute("athletes", athletes);
                     request.getRequestDispatcher("/gameGroup.jsp").forward(request, response);
                     break;
@@ -215,44 +215,46 @@ public class AdminServlet extends HttpServlet {
                 }
                 case "addGameGroup": {
                     //String groupJson=request.getParameter("groupJson");
-                    int groupId=Integer.valueOf(request.getParameter("groupId"));
-                    int athleteNo=Integer.valueOf(request.getParameter("athleteNo"));
-                   int turn=Integer.valueOf(request.getParameter("turn"));
+                    int groupId = Integer.valueOf(request.getParameter("groupId"));
+                    int athleteNo = Integer.valueOf(request.getParameter("athleteNo"));
+                    int turn = Integer.valueOf(request.getParameter("turn"));
                     //JSONObject jsonObject=new JSONObject(groupJson);
-                    GameGroupMapper gameGroupMapper=sqlSession.getMapper(GameGroupMapper.class);
-                    if(gameGroupMapper.isExists(athleteNo,gameId) != null){
+                    GameGroupMapper gameGroupMapper = sqlSession.getMapper(GameGroupMapper.class);
+                    if (gameGroupMapper.isExists(athleteNo, gameId) != null) {
                         out.print("<script>alert('添加失败，该队员已分配小组！');</script>");
-                    }else if(gameGroupMapper.isTurnExistis(groupId,gameId,turn) != null){
+                    } else if (gameGroupMapper.isTurnExistis(groupId, gameId, turn) != null) {
                         out.print("<script>alert('添加失败，出场顺序重复！');</script>");
-                    }else{
-                      //  int count=gameGroupMapper.groupMemberCount(groupId,gameId)+1;
-                        gameGroupMapper.insert(athleteNo,groupId,gameId,turn);
+                    } else {
+                        //  int count=gameGroupMapper.groupMemberCount(groupId,gameId)+1;
+                        gameGroupMapper.insert(athleteNo, groupId, gameId, turn);
                         sqlSession.commit();
                     }
-                    ParticipationMapper participationMapper=sqlSession.getMapper(ParticipationMapper.class);
-                    List<Athlete> athletes= participationMapper.queryAthletesByGameID(gameId);
+                    ParticipationMapper participationMapper = sqlSession.getMapper(ParticipationMapper.class);
+                    List<Athlete> athletes = participationMapper.queryAthletesByGameID(gameId);
                     request.setAttribute("athletes", athletes);
                     request.getRequestDispatcher("/gameGroup.jsp").forward(request, response);
                     break;
-                }case "delGameGroup":{
+                }
+                case "delGameGroup": {
                     int ano = Integer.valueOf(request.getParameter("ano"));
-                    GameGroupMapper gameGroupMapper=sqlSession.getMapper(GameGroupMapper.class);
-                    gameGroupMapper.delete(ano,gameId);
+                    GameGroupMapper gameGroupMapper = sqlSession.getMapper(GameGroupMapper.class);
+                    gameGroupMapper.delete(ano, gameId);
                     sqlSession.commit();
-                    ParticipationMapper participationMapper=sqlSession.getMapper(ParticipationMapper.class);
-                    List<Athlete> athletes= participationMapper.queryAthletesByGameID(gameId);
+                    ParticipationMapper participationMapper = sqlSession.getMapper(ParticipationMapper.class);
+                    List<Athlete> athletes = participationMapper.queryAthletesByGameID(gameId);
                     request.setAttribute("athletes", athletes);
                     request.getRequestDispatcher("/gameGroup.jsp").forward(request, response);
                     break;
-                }case "refereeCount":{
+                }
+                case "refereeCount": {
 //                    BufferedReader in = request.getReader();
 //                    String json=in.readLine();
 //                    JSONObject jsonObject=new JSONObject(json);
 //                    int gameId=jsonObject.getInt("gameId");
-                    int gameId=Integer.valueOf(request.getParameter("gameId"));
-                    RefereeSeviceMapper refereeSeviceMapper=sqlSession.getMapper(RefereeSeviceMapper.class);
+                    int gameId = Integer.valueOf(request.getParameter("gameId"));
+                    RefereeSeviceMapper refereeSeviceMapper = sqlSession.getMapper(RefereeSeviceMapper.class);
                     int count = refereeSeviceMapper.queryRefereeCount(gameId);
-                    String referCount="{"+"\"referCount\":"+count+"}";
+                    String referCount = "{" + "\"referCount\":" + count + "}";
                     out.print(referCount);
                     out.flush();
                     out.close();

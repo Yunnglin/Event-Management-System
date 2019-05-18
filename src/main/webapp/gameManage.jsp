@@ -25,7 +25,7 @@
                     <th lay-data="{field: 'GAMEID', align:'center',  width:150, sort: true}">赛事编号</th>
                     <th lay-data="{field: 'EVENTNAME',  align:'center', width:200}">项目名</th>
                     <th lay-data="{field: 'GAMEAGE', align:'center',  width:150, sort: true}">年龄组</th>
-                    <th lay-data="{field: 'REFEREENUM', align:'center',  width:200,edit:'text'}">主裁判编号</th>
+                    <th lay-data="{field: 'REFEREENUM', align:'center',  width:200, edit:'text'}">主裁判编号</th>
                     <th lay-data="{field: 'GAMELEVEL',  align:'center', width: 200}">等级</th>
                     <th lay-data="{fixed: 'right', width:350, align:'center', toolbar: '#toolBar'}">操作</th>
                 </tr>
