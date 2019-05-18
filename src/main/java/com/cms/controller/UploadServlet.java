@@ -33,6 +33,8 @@ public class UploadServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        t.settNo(Login.tNo);
+
         String url = getUploadUrl(req,resp);
         System.out.println(url);
         insetAttach(url,req,resp);
