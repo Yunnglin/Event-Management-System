@@ -68,7 +68,7 @@ public class GameLook extends HttpServlet
         }
 
         //所有比赛信息
-        List<HashMap> hashMapsall = mapper.queryAll();
+        List<HashMap> hashMapsall = mapper.getAllGames();
         List<GameResult> Gamesall = new ArrayList<>();
 
         int length1 = hashMapsall.size();
@@ -83,16 +83,16 @@ public class GameLook extends HttpServlet
                 Map.Entry entry = (Map.Entry) iter.next();
                 switch (i) {
                     case 1:
-                        gr1.setrIdNum((String) entry.getValue());
-                        System.out.println(gr1.getrIdNum());
-                        break;
-                    case 2:
                         gr1.setEventName((String) entry.getValue());
                         System.out.println(gr1.getEventName());
                         break;
-                    case 3:
+                    case 2:
                         gr1.setLevel((String) entry.getValue());
                         System.out.println(gr1.getLevel());
+                        break;
+                    case 3:
+                        gr1.setrIdNum((String) entry.getValue());
+                        System.out.println(gr1.getrIdNum());
                         break;
                     case 4:
                         BigDecimal ze = (BigDecimal) entry.getValue();

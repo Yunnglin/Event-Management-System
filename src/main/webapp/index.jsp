@@ -30,7 +30,6 @@
         <input type="text" id="user_type" name="user_type" value=" " style="visibility: hidden">
         <button class="btn btn-primary" id="login_leader" onclick="loginLeader()">领队登录</button>
         <button class="btn btn-primary" id="login_adm" onclick="loginAdmin()">管理员登录</button>
-        <button class="btn btn-primary" id="login_coach" onclick="loginCoach()">教练登录</button>
     </form>
     <%--<div id="" action="" >--%>
     <%----%>

@@ -33,6 +33,7 @@
                     <th lay-data="{field:'age',align:'center', minWidth: 100, sort:true}">年龄</th>
                     <th lay-data="{field:'sex', align:'center',minWidth: 100}">性别</th>
                     <th lay-data="{field:'team',align:'center', minWidth: 200,sort:true}">所属队伍</th>
+
                     <th lay-data="{fixed: 'right', width:250, align:'center', toolbar: '#toolBar'}">操作</th>
                 </tr>
                 </thead>
@@ -41,6 +42,7 @@
                     <tr>
                         <td align="center">${a.getId()}</td>
                         <td align="center">${a.getNo()}</td>
+
                         <td align="center">${a.getName()}</td>
                         <td align="center">${a.getAge()}</td>
                         <td align="center">${a.getSex()}</td>
@@ -74,6 +76,7 @@
             //转换静态表格
             table.init('test', {
                 height: 500 //设置高度
+
                 , page: true
                 , limit: 10 //注意：请务必确保 limit 参数（默认：10）是与你服务端限定的数据条数一致
             });

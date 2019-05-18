@@ -13,6 +13,13 @@ import java.math.BigDecimal;
 import java.util.*;
 import java.util.Map.Entry;
 
+import java.math.BigDecimal;
+import java.util.*;
+import java.util.Map.Entry;
+
+import java.util.*;
+
+
 public class Test1 {
 
     @Test
@@ -293,49 +300,6 @@ public class Test1 {
                 i = i + 1;
             }
             Com1Persons.add(gr);
-        }
-    }
-    @Test
-    public void m15() {
-        SqlSession sqlSession = MybatiesUtil.getSession();
-        ScoreMapper mapper = sqlSession.getMapper(ScoreMapper.class);
-
-
-        List<HashMap> hashMaps = mapper.PersonSum();
-     List<PersonScore>   PersonsSum = new ArrayList<>();
-
-        int length = hashMaps.size();
-        PersonScore gr;
-        for (int j = 0; j < length; j++) {
-            gr = new PersonScore();
-            Iterator iter = hashMaps.get(j).entrySet().iterator();
-            int i = 1;
-            while (iter.hasNext()) {
-                Map.Entry entry = (Map.Entry) iter.next();
-                switch (i) {
-                    case 1:
-                        BigDecimal ze2 = (BigDecimal) entry.getValue();
-                        gr.setPersonId("" + ze2.intValue());
-                        System.out.println(gr.getPersonId());
-                        break;
-
-                    case 2:
-                        gr.setTeamName((String)entry.getValue());
-                        System.out.println(gr.getTeamName());
-                        break;
-                    case 3:
-                        BigDecimal ze1 = (BigDecimal) entry.getValue();
-                        gr.setScore(ze1.intValue());
-                        System.out.println(gr.getScore());
-                        break;
-                    case 4:
-                        gr.setName((String) entry.getValue());
-                        System.out.println(gr.getName());
-                        break;
-                }
-                i = i + 1;
-            }
-            PersonsSum.add(gr);
         }
     }
 

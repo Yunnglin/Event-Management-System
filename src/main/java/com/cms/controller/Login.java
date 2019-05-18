@@ -1,6 +1,7 @@
 package com.cms.controller;
 
 import com.cms.mapper.TeamMapper;
+import com.cms.pojo.Team;
 import com.cms.util.MybatiesUtil;
 import org.apache.ibatis.binding.BindingException;
 import org.apache.ibatis.session.SqlSession;
@@ -19,7 +20,7 @@ public class Login extends HttpServlet {
     public static String account;
     private String password;
     public static int tNo;
-
+    public static String teamName;
 
 
     @Override
@@ -67,7 +68,10 @@ public class Login extends HttpServlet {
         TeamMapper mapper = sqlSession.getMapper(TeamMapper.class);
 
         try {
+            Team t = new Team();
             tNo=mapper.queryIdByAccount(a);
+            t=mapper.queryByAccount(a);
+            teamName = t.getName();
             String pWord = mapper.queryPassword(a);
             if (!p.equals(pWord)){
                 out.print("<script>alert('密码错误');window.location.href = 'http://localhost:8080/cms/index.jsp'</script>");

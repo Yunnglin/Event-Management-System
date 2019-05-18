@@ -9,8 +9,12 @@ import java.util.List;
 
 import java.util.List;
 
+import java.util.List;
+
 public interface ParticipationMapper {
-    int inserP(Participation participationMapper);
+
+    int inserPar(Participation participationMapper);
+
 
     List<Athlete> queryAthletesByGame(Game game);
     List<Athlete> queryAthletesByGameID(int id);
@@ -19,4 +23,5 @@ public interface ParticipationMapper {
     List<Participation> queryParticipationByGameID(int id);
 
     int updateScores(Participation participation);
+
 }

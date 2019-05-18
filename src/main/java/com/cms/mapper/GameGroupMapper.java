@@ -8,6 +8,7 @@ import java.util.Map;
 public interface GameGroupMapper {
     List<Map> queryByGameId(@Param("gid") int gameId);
 
+
     int insert(@Param("ano") int ano,@Param("groupId") int groupId,@Param("gId") int gId,@Param("turn") int turn);
 
     Object isExists(@Param("ano") int ano,@Param("gId") int gId);
@@ -19,4 +20,3 @@ public interface GameGroupMapper {
     Object isTurnExistis(@Param("groupId") int groupId,@Param("gId") int gId,@Param("turn") int turn);
 
 }
-

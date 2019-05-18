@@ -5,7 +5,7 @@
     SELECT
        t.name as teamName,
        t.tno as teamId,
-      sum (score)as teamScore
+      sum (score-penalty+bonus)as teamScore
     from
         ATHLETES a,TEAMS t,PARTICIPATION p
     where a.team_no = t.tno and a.no=p.athlete_no
@@ -15,19 +15,87 @@
 
 
     <select id="Competition1" resultType="java.util.HashMap">
-    select a.no as PersonId,a.name as Name,t.name as TeamName,p.score as Score
+    select a.no as PersonId,a.name as Name,t.name as TeamName,(p.score+p.bonus-p.penalty) as Score
     from PARTICIPATION p,TEAMS t,Athletes a
     where a.team_no=t.tno and p.athlete_no = a.no and p.game_id=1
-    order by p.score desc
+    order by p.score
     </select>
     <select id="Competition2" resultType="java.util.HashMap">
-    select a.no as PersonId,a.name as Name,t.name as TeamName,p.score as Score
+    select a.no as PersonId,a.name as Name,t.name as TeamName,(p.score+p.bonus-p.penalty) as Score
     from PARTICIPATION p,TEAMS t,Athletes a
     where a.team_no=t.tno and p.athlete_no = a.no and p.game_id=2
-    order by p.score desc
+    order by p.score
     </select>
+    <select id="Competition3" resultType="java.util.HashMap">
+    select a.no as PersonId,a.name as Name,t.name as TeamName,(p.score+p.bonus-p.penalty) as Score
+    from PARTICIPATION p,TEAMS t,Athletes a
+    where a.team_no=t.tno and p.athlete_no = a.no and p.game_id=3
+    order by p.score
+    </select>
+    <select id="Competition4" resultType="java.util.HashMap">
+    select a.no as PersonId,a.name as Name,t.name as TeamName,(p.score+p.bonus-p.penalty) as Score
+    from PARTICIPATION p,TEAMS t,Athletes a
+    where a.team_no=t.tno and p.athlete_no = a.no and p.game_id=4
+    order by p.score
+    </select>
+    <select id="Competition5" resultType="java.util.HashMap">
+    select a.no as PersonId,a.name as Name,t.name as TeamName,(p.score+p.bonus-p.penalty) as Score
+    from PARTICIPATION p,TEAMS t,Athletes a
+    where a.team_no=t.tno and p.athlete_no = a.no and p.game_id=5
+    order by p.score
+    </select>
+    <select id="Competition6" resultType="java.util.HashMap">
+    select a.no as PersonId,a.name as Name,t.name as TeamName,(p.score+p.bonus-p.penalty) as Score
+    from PARTICIPATION p,TEAMS t,Athletes a
+    where a.team_no=t.tno and p.athlete_no = a.no and p.game_id=6
+    order by p.score
+    </select>
+    <select id="Competition7" resultType="java.util.HashMap">
+    select a.no as PersonId,a.name as Name,t.name as TeamName,(p.score+p.bonus-p.penalty) as Score
+    from PARTICIPATION p,TEAMS t,Athletes a
+    where a.team_no=t.tno and p.athlete_no = a.no and p.game_id=7
+    order by p.score
+    </select>
+    <select id="Competition8" resultType="java.util.HashMap">
+    select a.no as PersonId,a.name as Name,t.name as TeamName,(p.score+p.bonus-p.penalty) as Score
+    from PARTICIPATION p,TEAMS t,Athletes a
+    where a.team_no=t.tno and p.athlete_no = a.no and p.game_id=8
+    order by p.score
+    </select>
+    <select id="Competition9" resultType="java.util.HashMap">
+    select a.no as PersonId,a.name as Name,t.name as TeamName,(p.score+p.bonus-p.penalty) as Score
+    from PARTICIPATION p,TEAMS t,Athletes a
+    where a.team_no=t.tno and p.athlete_no = a.no and p.game_id=9
+    order by p.score
+    </select>
+    <select id="Competition10" resultType="java.util.HashMap">
+    select a.no as PersonId,a.name as Name,t.name as TeamName,(p.score+p.bonus-p.penalty) as Score
+    from PARTICIPATION p,TEAMS t,Athletes a
+    where a.team_no=t.tno and p.athlete_no = a.no and p.game_id=10
+    order by p.score
+    </select>
+    <select id="Competition11" resultType="java.util.HashMap">
+    select a.no as PersonId,a.name as Name,t.name as TeamName,(p.score+p.bonus-p.penalty) as Score
+    from PARTICIPATION p,TEAMS t,Athletes a
+    where a.team_no=t.tno and p.athlete_no = a.no and p.game_id=11
+    order by p.score
+    </select>
+    <select id="Competition12" resultType="java.util.HashMap">
+    select a.no as PersonId,a.name as Name,t.name as TeamName,(p.score+p.bonus-p.penalty) as Score
+    from PARTICIPATION p,TEAMS t,Athletes a
+    where a.team_no=t.tno and p.athlete_no = a.no and p.game_id=12
+    order by p.score
+    </select>
+
+    <select id="TeamPerson" resultType="java.util.HashMap">
+    select a.no as PersonId,a.name as Name,t.name as TeamName,a.sex as Sex,p.score + p.bonus- p.penalty as Score,e.name as GameName
+    from PARTICIPATION p,TEAMS t,Athletes a,Events e
+    where a.team_no=t.tno and p.athlete_no = a.no and t.account=#{0} and p.game_id=e.id
+    order by Score desc
+    </select>
+
     <select id="PersonSum"  resultType="java.util.HashMap">
-    select a.no as PersonId,a.name as Name,t.name as TeamName,SUM(score)  as SumScore
+    select a.no as PersonId,a.name as Name,t.name as TeamName,SUM(p.score + p.bonus- p.penalty) as SumScore
     from PARTICIPATION p,TEAMS t,Athletes a
     where a.team_no=t.tno and p.athlete_no = a.no
     Group by a.name,a.no,t.name

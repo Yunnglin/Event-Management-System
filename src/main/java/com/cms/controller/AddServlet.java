@@ -10,10 +10,8 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
-import com.cms.controller.Login;
 
 public class AddServlet extends HttpServlet {
 
@@ -23,7 +21,8 @@ public class AddServlet extends HttpServlet {
     private Coach c = new Coach();
     private Athlete a = new Athlete();
     private Game g = new Game();
-    private Participation p =new Participation();
+
+    private int aTno;
     private String summitType;
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -67,8 +66,8 @@ public class AddServlet extends HttpServlet {
                 }
                 a.setTeam_No(tNo);
 
-                boolean add2 = addAthlete(a,req,resp);
-                boolean add1 = addGame(g,req,resp);
+                boolean add1 = addAthlete(a,req,resp);
+                boolean add2 = addGame(g,req,resp);
 
                 flag = add1 && add2 ;
                 break;
@@ -102,7 +101,7 @@ public class AddServlet extends HttpServlet {
 
     }
 
-    public boolean addDoctor(Doctor d,HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
+    public boolean addDoctor(Doctor d, HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
         String CONTENT_TYPE = "text/html; charset=GBK";
@@ -112,15 +111,10 @@ public class AddServlet extends HttpServlet {
             SqlSession sqlSession = MybatiesUtil.getSession();
             DoctorMapper mapper = sqlSession.getMapper(DoctorMapper.class);
             Doctor doctor = new Doctor();
-
             doctor.setName(d.getName());
-
             doctor.setIdNum(d.getIdNum());
-
             doctor.setPhone(d.getPhone());
-
             doctor.setTeam_No(d.getTeam_No());
-
             try {
                 mapper.insert(doctor);
             } catch (PersistenceException e) {
@@ -132,10 +126,8 @@ public class AddServlet extends HttpServlet {
                 }else if (d.getPhone()==""){
                     out.print("<script>alert('电话不能为空,请重新输入');window.location.href = 'http://localhost:8080/cms/mainPage.jsp'</script>");
                 }
-
             }
             sqlSession.commit();
-
             sqlSession.close();
         } catch (Exception e) {
             e.printStackTrace();
@@ -228,7 +220,7 @@ public class AddServlet extends HttpServlet {
         return true;
     }
     
-    public boolean addCoach(Coach c,HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
+    public boolean addCoach(Coach c, HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
         String CONTENT_TYPE = "text/html; charset=GBK";
@@ -272,7 +264,7 @@ public class AddServlet extends HttpServlet {
         return true;
     }
 
-    public boolean addAthlete(Athlete a,HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
+    public boolean addAthlete(Athlete a, HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
         String CONTENT_TYPE = "text/html; charset=GBK";
@@ -288,8 +280,16 @@ public class AddServlet extends HttpServlet {
             athlete.setSex(a.getSex());
             athlete.setAc_record(a.getAc_record());
             athlete.setTeam_No(a.getTeam_No());
-            athlete.setNo(mapper.queryAthleteCount()+1);
-            p.setAthleteNo(athlete.getNo());
+            System.out.println(athlete.getSex());
+            if (athlete.getSex().equals("女")){
+                int no = (mapper.queryGirlCount()+1) * 2;
+                athlete.setNo(no);
+            }else {
+                int no = (mapper.queryBoyCount()*2)+1;
+                athlete.setNo(no);
+            }
+
+            aTno=athlete.getNo();
 
             if (athlete.getAc_record()==0){
                 try {
@@ -317,6 +317,7 @@ public class AddServlet extends HttpServlet {
                     }else if (a.getAge()==0){
                         out.print("<script>alert('年龄不能为空,请重新输入');window.location.href = 'http://localhost:8080/cms/mainPage.jsp'</script>");
                     }
+                    return false;
                 }
             }
             sqlSession.commit();
@@ -328,7 +329,7 @@ public class AddServlet extends HttpServlet {
         return true;
     }
 
-    public boolean addGame(Game g,HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
+    public boolean addGame(Game g, HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
         String CONTENT_TYPE = "text/html; charset=GBK";
@@ -339,6 +340,7 @@ public class AddServlet extends HttpServlet {
             GameMapper mapper = sqlSession.getMapper(GameMapper.class);
             Game game = new Game();
             String[] events = req.getParameterValues("event");
+            Participation[] participations = new Participation[events.length];
             EventMapper mapper2 = sqlSession.getMapper(EventMapper.class);
             game.setLevel(g.getLevel());
             game.setGroupAge(g.getGroupAge());
@@ -347,33 +349,36 @@ public class AddServlet extends HttpServlet {
                 out.print("<script>alert('比赛项目为空，请选择至少一门比赛');window.location.href = 'http://localhost:8080/cms/mainPage.jsp'</script>");
             }else {
                 for (int i=0;i<events.length;i++){
+                    participations[i]=new Participation();
                     int eID = mapper2.queryIDbyName(events[i]);
                     game.setGameId(mapper.queryGameCount()+1);
                     game.setEventId(eID);
-                    int exist = 0;
+                    participations[i].setAthleteNo(aTno);
+                    String exist ;
                     try {
                         exist = mapper.queryIsExist(game);
                     } catch (NullPointerException e) {
                         e.printStackTrace();
-                        exist = 0;
+                        exist = null;
                     }
-                    if (exist == 0){
+                    if (exist == null){
                         try {
                             mapper.insetGame(game);
-                            p.setGameId(game.getGameId());
+                            participations[i].setGameId(game.getGameId());
                         } catch (PersistenceException e) {
                             e.printStackTrace();
                             return false;
                         }
                     }else {
-                        p.setGameId(exist);
+                        participations[i].setGameId(Integer.parseInt(exist));
                     }
-                    addParticipation(p);
+
                 }
             }
 
             sqlSession.commit();
             sqlSession.close();
+            addParticipation(participations);
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -382,22 +387,22 @@ public class AddServlet extends HttpServlet {
 
     }
     
-    public boolean addParticipation(Participation p){
-        try {
-            SqlSession sqlSession = MybatiesUtil.getSession();
-            ParticipationMapper mapper = sqlSession.getMapper(ParticipationMapper.class);
-            Participation participation = new Participation();
-            participation.setAthleteNo(p.getAthleteNo());
-            participation.setGameId(p.getGameId());
-
-            mapper.inserP(participation);
-
-            sqlSession.commit();
-            sqlSession.close();
-        } catch (Exception e) {
-            e.printStackTrace();
-            return false;
+    public boolean addParticipation(Participation par[]){
+        SqlSession sqlSession = MybatiesUtil.getSession();
+        ParticipationMapper mapper = sqlSession.getMapper(ParticipationMapper.class);
+        for (int i=0;i<par.length;i++){
+            try {
+                System.out.println(par[i].getAthleteNo());
+                System.out.println(par[i].getGameId());
+                mapper.inserPar(par[i]);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
         }
+
+        sqlSession.commit();
+        sqlSession.close();
         return true;
 
     }

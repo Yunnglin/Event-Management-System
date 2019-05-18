@@ -10,6 +10,7 @@
         DELETE FROM GAME_GROUP WHERE ANO=#{ano} AND GID=#{gId}
     </delete>
 
+
     <select id="queryByGameId" resultType="java.util.Map">
           SELECT g.ANO,g.GROUPID,g.TURN,a.NAME
            FROM GAME_GROUP g INNER  JOIN  ATHLETES a ON a.NO=g.ANO WHERE  g.GID=#{gid}
@@ -24,4 +25,5 @@
     <select id="isTurnExistis" resultType="java.lang.Object">
           SELECT * FROM GAME_GROUP WHERE GROUPID=#{groupId} AND TURN=#{turn} AND GID=#{gId}
     </select>
+
 </mapper>

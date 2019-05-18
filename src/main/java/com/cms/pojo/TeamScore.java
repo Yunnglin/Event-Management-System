@@ -6,6 +6,16 @@ public class TeamScore
     private  String teamId;
     private  double teamScore;
 
+    private  int Order;
+
+    public void setOrder(int a)
+    {
+        this.Order = a;
+    }
+    public  int getOrder()
+    {
+        return Order;
+    }
     public String getTeamName() {
         return teamName;
     }

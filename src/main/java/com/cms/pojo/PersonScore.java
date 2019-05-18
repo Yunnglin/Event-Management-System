@@ -7,6 +7,13 @@ public class PersonScore
     private  String PersonId;
     private  String TeamName;
 
+    private  int Order;
+
+    public void setOrder(int a) { this.Order = a; }
+
+    public  int getOrder() { return Order; }
+
+
     public double getScore() {
         return SumScore;
     }

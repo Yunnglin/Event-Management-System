@@ -5,7 +5,7 @@
   Time: 17:12
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" import="java.util.*" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" import="java.util.*" import="com.cms.controller.Login"%>
 <html>
 <head>
     <title>mainPage</title>
@@ -14,13 +14,17 @@
     <script src="js/mainPage.js" type="text/javascript"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Css/mainPage.css" type="text/css">
+    <link rel="stylesheet" href="plugins/layui/css/layui.css">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
+    <ul class="layui-nav layui-bg-cyan" style="z-index: 5">
+        <li class="layui-nav-item  layui-this"><a href="mainPage.jsp">录入信息</a></li>
+        <li class="layui-nav-item"><a  href="showServlet">赛程安排</a></li>
+        <li class="layui-nav-item "><a href="ScoreServlet">成绩查询</a></li>
+        <li class="layui-nav-item layui-layout-right"><a href="index.jsp">退出</a></li>
+    </ul>
 
-    <div id="navigation">
-        <button id="information_entering">信息录入</button>
-    </div>
     <div id="enteringPage">
         <select id="submit_choose" onchange="selectRole()">
             <option value="leader">领队</option>
@@ -37,7 +41,7 @@
             <input type="text" class="input_ID" placeholder="输入身份证" name="dID" onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')">
             <span  class="phone">电话</span>
             <input type="text" class="input_phone" placeholder="输入电话" name="dPhone"  onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')">
-            <button type="submit" class="submit_button" id="L_submit" name="submitB" value="L">提交</button>
+            <button type="submit" class="submit_button layui-btn layui-btn-normal layui-btn-radius" id="L_submit" name="submitB" value="L">提交</button>
         </form>
         <form class="information" id="doctorPage" action="<%=request.getContextPath()%>/AddServlet">
             <span  class="s_name">姓名</span>
@@ -46,7 +50,7 @@
             <input type="text" class="input_ID" placeholder="输入身份证" name="dID" onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')">
             <span  class="phone">电话</span>
             <input type="text" class="input_phone" placeholder="输入电话" name="dPhone"  onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')">
-            <button type="submit" class="submit_button" id="D_submit" name="submitB" value="D">提交</button>
+            <button type="submit" class="submit_button layui-btn layui-btn-normal layui-btn-radius" id="D_submit" name="submitB" value="D">提交</button>
         </form>
         <form class="information" id="refereePage" action="<%=request.getContextPath()%>/AddServlet">
             <span  class="s_name">姓名</span>
@@ -55,7 +59,7 @@
             <input type="text" class="input_ID" placeholder="输入身份证" name="dID" onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')">
             <span  class="phone">电话</span>
             <input type="text" class="input_phone" placeholder="输入电话" name="dPhone"  onkeyup="value=value.replace(/[\u4e00-\u9fa5]/ig,'')">
-            <button type="submit" class="submit_button" id="R_submit" name="submitB" value="R">提交</button>
+            <button type="submit" class="submit_button layui-btn layui-btn-normal layui-btn-radius" id="R_submit" name="submitB" value="R">提交</button>
         </form>
         <form class="information" id="athletePage" action="<%=request.getContextPath()%>/AddServlet">
             <span  class="s_name">姓名</span>
@@ -94,7 +98,7 @@
                     自由体操<input type="checkbox" value="女子自由体操" name="event">
                     蹦床<input type="checkbox" value="女子蹦床" name="event">
             </div>
-            <button type="submit" class="submit_button" id="athlete_submit" name="submitB" value="A">提交</button>
+            <button type="submit" class="submit_button layui-btn layui-btn-normal layui-btn-radius" id="athlete_submit" name="submitB" value="A">提交</button>
         </form>
         <form class="information" id="coachPage" action="<%=request.getContextPath()%>/AddServlet">
             <span  class="s_name">姓名</span>
@@ -108,9 +112,9 @@
                 <option value ="男">男</option>
                 <option value ="女">女</option>
             </select>
-            <button type="submit" class="submit_button" id="coach_submit" name="submitB" value="C">提交</button>
+            <button type="submit" class="submit_button layui-btn layui-btn-normal layui-btn-radius" id="coach_submit" name="submitB" value="C">提交</button>
         </form>
-        <form method="post" action="<%=request.getContextPath()%>/UploadServlet" enctype="multipart/form-data" id="attachment">
+        <form method="post" action="<%=request.getContextPath()%>/UploadServlet" enctype="multipart/form-data" class="attachment">
             选择附件:
             <input type="file" name="uploadFile" />
             <br/>
@@ -118,5 +122,6 @@
         </form>
 
     </div>
+
 </body>
 </html>

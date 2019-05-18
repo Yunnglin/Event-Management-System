@@ -29,10 +29,6 @@ public class UploadServlet extends HttpServlet {
     private static final int MAX_FILE_SIZE      = 1024 * 1024 * 40; // 40MB
     private static final int MAX_REQUEST_SIZE   = 1024 * 1024 * 50; // 50MB
 
-//    @Override
-//    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        super.doGet(req, resp);
-//    }
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -40,44 +36,6 @@ public class UploadServlet extends HttpServlet {
         String url = getUploadUrl(req,resp);
         System.out.println(url);
         insetAttach(url,req,resp);
-//        InputStream is = null;
-//        ByteArrayOutputStream swapStream = null;
-//        is = null;
-//        try {
-//
-//            is = new FileInputStream(uploadDir);
-//            swapStream = new ByteArrayOutputStream();
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//            out.print("<script>alert('读取文件失败');window.location.href = 'http://localhost:8080/cms/mainPage.jsp'</script>");
-//            return;
-//        }
-//        byte[] buff = new byte[100];
-//        int rc = 0;
-//        while ((rc = is.read(buff, 0, 100)) > 0) {
-//            swapStream.write(buff, 0, rc);
-//        }
-//        byte[] att = swapStream.toByteArray();
-//        t.setAttachment(att);
-//        t.settNo(Login.tNo);
-//
-//        SqlSession sqlSession = MybatiesUtil.getSession();
-//        TeamMapper mapper = sqlSession.getMapper(TeamMapper.class);
-//
-//
-//        try {
-//            for (int i = 0; i < att.length; i++) {
-//                System.out.println(att);
-//            }
-//
-//            mapper.insertAttachment(t);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        out.print("<script>alert('附件上传成功');window.location.href = 'http://localhost:8080/cms/mainPage.jsp'</script>");
-//        sqlSession.commit();
-//        sqlSession.close();
-
 
     }
     private String getUploadUrl(HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{

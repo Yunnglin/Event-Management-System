@@ -14,6 +14,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="plugins/layui/css/layui.css">
     <script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js"></script>
     <style>
         .nav {
@@ -36,7 +37,7 @@
         }
         .content{
             border: 1px solid #f4f4f4;
-            height: 180px;
+            height: 880px;
             padding: 10px;
             overflow: hidden;
         }
@@ -44,15 +45,35 @@
     <title>比赛安排</title>
 </head>
 <body>
-<ul class="nav">
+    <ul class="layui-nav layui-bg-cyan" style="z-index: 5">
+        <li class="layui-nav-item"><a href="mainPage.jsp">录入信息</a></li>
+        <li class="layui-nav-item layui-this"><a  href="showServlet">赛程安排</a></li>
+        <li class="layui-nav-item "><a href="ScoreServlet">成绩查询</a></li>
+        <li class="layui-nav-item layui-layout-right"><a href="index.jsp">退出</a></li>
+    </ul>
+<ul class="nav" height="">
     <!--首次选好的 -->
+    <li>        </li>
+    <li>        </li>
+    <li>        </li>
+    <li>        </li>
+    <li>        </li>
+    <li>        </li>
+    <li>        </li>
     <li class="selected">赛程安排</li>
     <li>本队赛程</li>
 
 </ul>
 <div class="content">
+    <div class="list "></div>
+    <div class="list "></div>
+    <div class="list "></div>
+    <div class="list "></div>
+    <div class="list "></div>
+    <div class="list "></div>
+    <div class="list "></div>
     <div class="list ">
-        <table border="3">
+        <table border="3" align="center" width=75%>
             <thead>
             <tr>
                 <th>比赛类别</th>
@@ -77,7 +98,7 @@
     </div>
     <!--本队的比赛信息-->
     <div  class="list" style="display: none">
-        <table border="3">
+        <table border="3" align="center" width=75%>
             <thead>
             <tr>
                 <th>比赛类别</th>

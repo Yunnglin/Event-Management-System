@@ -18,13 +18,12 @@ public interface GameMapper {
 
     Game queryById(int id);
 
-    int queryIsExist(Game game);
 
+    String  queryIsExist(Game game);
 
-    List<Game> getGamesList();
 
     List<HashMap> getSpecialGamesList(String teamAccount);
-
+    List<HashMap> getAllGames();
 
     String queryName(Game game);
     String queryNameById(int gid);
