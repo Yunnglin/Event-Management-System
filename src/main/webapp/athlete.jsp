@@ -73,7 +73,7 @@
             var table = layui.table;
             //转换静态表格
             table.init('test', {
-                height: 800 //设置高度
+                height: 500 //设置高度
                 , page: true
                 , limit: 10 //注意：请务必确保 limit 参数（默认：10）是与你服务端限定的数据条数一致
             });

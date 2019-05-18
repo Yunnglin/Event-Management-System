@@ -25,6 +25,6 @@
         select count(IDNUM) from ATHLETES
     </select>
     <select id="queryAll" resultType="com.cms.pojo.Athlete">
-        SELECT * FROM ATHLETES
+        SELECT * FROM ATHLETES ORDER BY NO asc
     </select>
 </mapper>

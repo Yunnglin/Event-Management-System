@@ -43,42 +43,13 @@
         <button class="layui-btn layui-btn-sm" lay-event="update">更新</button>
         <button class="layui-btn layui-btn-sm" lay-event="refereeGroup">查看裁判组</button>
         <button class="layui-btn layui-btn-sm" lay-event="addGroup">查看比赛小组</button>
-        <button class="layui-btn layui-btn-sm" lay-event="start">开始比赛</button>
+        <button class="layui-btn layui-btn-sm" lay-event="start" id="start">开始比赛</button>
     </div>
 </script>
 <script src="plugins/layui/layui.js"></script>
 <script src="js/jquery-3.3.1.min.js"></script>
 <script>
     //JavaScript代码区域
-
-    //socket连接与监听事件绑定
-    var wsUri ="ws://localhost:8080/cms/score_admin";
-    var isConn = false;
-    var scoreSocket = new WebSocket(wsUri);
-    scoreSocket.onopen = function(evt) {
-        isConn = true;
-        console.log(evt);
-        scoreSocket.send(JSON.stringify({
-            //发送开始消息
-        }))
-    };
-    scoreSocket.onclose = function (evt) {
-        console.log(evt);
-    };
-    scoreSocket.onerror = function (evt) {
-        console.error(evt);
-    };
-    scoreSocket.onmessage = function (evt) {
-        var data = JSON.parse(evt.data);
-        if(data.started!=undefined && data.started){
-            alert("比赛已开始!");
-        } else if(data.started!=undefined && !data.started){
-            alert("裁判尚未就绪，等待中");
-        } else if(data.ended!=undefined && data.ended){
-            alert("比赛已结束");
-            //maybe remove something about finished game then
-        }
-    };
 
     layui.use('element', function(){
         var element = layui.element;
@@ -118,21 +89,22 @@
                     success:function (res) {
                         console.log(res.referCount);
                         referCount=res.referCount;
+                        if(referCount < 2){
+                            alert("裁判数量不足五位！");
+                        }else if(referCount === 3){
+                            console.log(tr);
+                            scoreSocket.send(JSON.stringify({
+                                groupAge: data.GAMEAGE,
+                                level: data.GAMELEVEL,
+                                gameId: data.GAMEID,
+                                rIdNum: data.REFEREENUM
+                            }));
+                        }
                     },
                     error:function (err) {
                         console.log(err);
                     }
                 });
-                if(referCount<5){
-                    alert("裁判数量不足五位！");
-                }else if(referCount === 5){
-                    scoreSocket.send(JSON.stringify({
-                        groupAge: data.GAMEAGE,
-                        level: data.GAMELEVEL,
-                        gameId: data.GAMEID,
-                        rIdNum: data.REFEREENUM
-                    }));
-                }
 
             }else if(layEvent === 'update'){
                 var tmp = document.createElement('form');
@@ -180,6 +152,35 @@
         });
 
     });
+
+    //socket连接与监听事件绑定
+    var wsUri ="ws://localhost:8080/cms/score_admin";
+    var isConn = false;
+    var scoreSocket = new WebSocket(wsUri);
+    scoreSocket.onopen = function(evt) {
+        isConn = true;
+        console.log(evt);
+        // scoreSocket.send(JSON.stringify({
+        //     //发送开始消息
+        // }))
+    };
+    scoreSocket.onclose = function (evt) {
+        console.log(evt);
+    };
+    scoreSocket.onerror = function (evt) {
+        console.error(evt);
+    };
+    scoreSocket.onmessage = function (evt) {
+        var data = JSON.parse(evt.data);
+        if(data.started!=undefined && data.started){
+            alert("比赛已开始!");
+        } else if(data.started!=undefined && !data.started){
+            alert("裁判尚未就绪，等待中");
+        } else if(data.ended!=undefined && data.ended){
+            alert("比赛已结束");
+            //maybe remove something about finished game then
+        }
+    };
 </script>
 </body>
 </html>
