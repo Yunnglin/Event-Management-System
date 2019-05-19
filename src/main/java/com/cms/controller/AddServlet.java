@@ -33,7 +33,7 @@ public class AddServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
-        String CONTENT_TYPE = "text/html; charset=GBK";
+        String CONTENT_TYPE = "text/html; charset=UTF-8";
         int tNo = Login.tNo;
         summitType=req.getParameter("submitB");
         boolean flag = false;
@@ -104,7 +104,7 @@ public class AddServlet extends HttpServlet {
     public boolean addDoctor(Doctor d, HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
-        String CONTENT_TYPE = "text/html; charset=GBK";
+        String CONTENT_TYPE = "text/html; charset=UTF-8";
         resp.setContentType( CONTENT_TYPE);
         PrintWriter out = resp.getWriter();
         try {
@@ -139,7 +139,7 @@ public class AddServlet extends HttpServlet {
     public boolean addLeader(Leader l, HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
-        String CONTENT_TYPE = "text/html; charset=GBK";
+        String CONTENT_TYPE = "text/html; charset=UTF-8";
         resp.setContentType( CONTENT_TYPE);
         PrintWriter out = resp.getWriter();
         try {
@@ -181,7 +181,7 @@ public class AddServlet extends HttpServlet {
     public boolean addReferee(Referee r, HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
-        String CONTENT_TYPE = "text/html; charset=GBK";
+        String CONTENT_TYPE = "text/html; charset=UTF-8";
         resp.setContentType( CONTENT_TYPE);
         PrintWriter out = resp.getWriter();
         try {
@@ -223,7 +223,7 @@ public class AddServlet extends HttpServlet {
     public boolean addCoach(Coach c, HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
-        String CONTENT_TYPE = "text/html; charset=GBK";
+        String CONTENT_TYPE = "text/html; charset=UTF-8";
         resp.setContentType( CONTENT_TYPE);
         PrintWriter out = resp.getWriter();
         try {
@@ -267,7 +267,7 @@ public class AddServlet extends HttpServlet {
     public boolean addAthlete(Athlete a, HttpServletRequest req, HttpServletResponse resp)throws ServletException, IOException{
         req.setCharacterEncoding("UTF-8");
         resp.setCharacterEncoding("UTF-8");
-        String CONTENT_TYPE = "text/html; charset=GBK";
+        String CONTENT_TYPE = "text/html; charset=UTF-8";
         resp.setContentType( CONTENT_TYPE);
         PrintWriter out = resp.getWriter();
         try {
