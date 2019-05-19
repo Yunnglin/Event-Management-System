@@ -1,0 +1,109 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cms.mapper.ScoreMapper">
+
+    <select id="TeamScore" resultType="java.util.HashMap">
+    SELECT
+       t.name as teamName,
+       t.tno as teamId,
+      sum (score-penalty+bonus) as teamScore
+    from
+        ATHLETES a,TEAMS t,PARTICIPATION p
+    where a.team_no = t.tno and a.no=p.athlete_no and p.score is not null
+    group by t.tno,t.name
+    ORDER BY teamScore desc
+    </select>
+
+
+    <select id="Competition1" resultType="java.util.HashMap">
+     select a.no as PersonId,a.name as name,t.name as teamname,(p.score+p.bonus-p.penalty) as score,g.group_age as groupage,g.lv  ,p.bonus ,p.penalty
+    from PARTICIPATION p,TEAMS t,Athletes a,Games g
+    where a.team_no=t.tno and p.athlete_no = a.no and g.event_id=3 and g.id=p.game_id and p.score is not null
+    order by g.lv, g.group_age, p.score
+    </select>
+    <select id="Competition2" resultType="java.util.HashMap">
+   select a.no as PersonId,a.name as name,t.name as teamname,(p.score+p.bonus-p.penalty) as score,g.group_age as groupage,g.lv  ,p.bonus ,p.penalty
+    from PARTICIPATION p,TEAMS t,Athletes a,Games g
+    where a.team_no=t.tno and p.athlete_no = a.no and g.event_id=1 and g.id=p.game_id and p.score is not null
+    order by g.lv, g.group_age, p.score
+    </select>
+    <select id="Competition3" resultType="java.util.HashMap">
+    select a.no as PersonId,a.name as name,t.name as teamname,(p.score+p.bonus-p.penalty) as score,g.group_age as groupage,g.lv  ,p.bonus ,p.penalty
+    from PARTICIPATION p,TEAMS t,Athletes a,Games g
+    where a.team_no=t.tno and p.athlete_no = a.no and g.event_id=4 and g.id=p.game_id and p.score is not null
+    order by g.lv, g.group_age, p.score
+    </select>
+    <select id="Competition4" resultType="java.util.HashMap">
+    select a.no as PersonId,a.name as name,t.name as teamname,(p.score+p.bonus-p.penalty) as score,g.group_age as groupage,g.lv  ,p.bonus ,p.penalty
+    from PARTICIPATION p,TEAMS t,Athletes a,Games g
+    where a.team_no=t.tno and p.athlete_no = a.no and g.event_id=5 and g.id=p.game_id and p.score is not null
+    order by g.lv, g.group_age, p.score
+    </select>
+    <select id="Competition5" resultType="java.util.HashMap">
+   select a.no as PersonId,a.name as name,t.name as teamname,(p.score+p.bonus-p.penalty) as score,g.group_age as groupage,g.lv  ,p.bonus ,p.penalty
+    from PARTICIPATION p,TEAMS t,Athletes a,Games g
+    where a.team_no=t.tno and p.athlete_no = a.no and g.event_id=7 and g.id=p.game_id and p.score is not null
+    order by g.lv, g.group_age, p.score
+    </select>
+    <select id="Competition6" resultType="java.util.HashMap">
+   select a.no as PersonId,a.name as name,t.name as teamname,(p.score+p.bonus-p.penalty) as score,g.group_age as groupage,g.lv  ,p.bonus ,p.penalty
+    from PARTICIPATION p,TEAMS t,Athletes a,Games g
+    where a.team_no=t.tno and p.athlete_no = a.no and g.event_id=6 and g.id=p.game_id and p.score is not null
+    order by g.lv, g.group_age, p.score
+    </select>
+    <select id="Competition7" resultType="java.util.HashMap">
+    select a.no as PersonId,a.name as name,t.name as teamname,(p.score+p.bonus-p.penalty) as score,g.group_age as groupage,g.lv  ,p.bonus ,p.penalty
+    from PARTICIPATION p,TEAMS t,Athletes a,Games g
+    where a.team_no=t.tno and p.athlete_no = a.no and g.event_id=8 and g.id=p.game_id and p.score is not null
+    order by g.lv, g.group_age, p.score
+    </select>
+
+    <select id="Competition8" resultType="java.util.HashMap">
+    select a.no as PersonId,a.name as name,t.name as teamname,(p.score+p.bonus-p.penalty) as score,g.group_age as groupage,g.lv  ,p.bonus ,p.penalty
+    from PARTICIPATION p,TEAMS t,Athletes a,Games g
+    where a.team_no=t.tno and p.athlete_no = a.no and g.event_id=12 and g.id=p.game_id and p.score is not null
+    order by g.lv, g.group_age, p.score
+    </select>
+
+    <select id="Competition9" resultType="java.util.HashMap">
+    select a.no as PersonId,a.name as name,t.name as teamname,(p.score+p.bonus-p.penalty) as score,g.group_age as groupage,g.lv  ,p.bonus ,p.penalty
+    from PARTICIPATION p,TEAMS t,Athletes a,Games g
+    where a.team_no=t.tno and p.athlete_no = a.no and g.event_id=10 and g.id=p.game_id and p.score is not null
+    order by g.lv, g.group_age, p.score
+    </select>
+
+    <select id="Competition10" resultType="java.util.HashMap">
+    select a.no as PersonId,a.name as name,t.name as teamname,(p.score+p.bonus-p.penalty) as score,g.group_age as groupage,g.lv  ,p.bonus ,p.penalty
+    from PARTICIPATION p,TEAMS t,Athletes a,Games g
+    where a.team_no=t.tno and p.athlete_no = a.no and g.event_id=11 and g.id=p.game_id and p.score is not null
+    order by g.lv, g.group_age, p.score
+    </select>
+
+    <select id="Competition11" resultType="java.util.HashMap">
+    select a.no as PersonId,a.name as name,t.name as teamname,(p.score+p.bonus-p.penalty) as score,g.group_age as groupage,g.lv  ,p.bonus ,p.penalty
+    from PARTICIPATION p,TEAMS t,Athletes a,Games g
+    where a.team_no=t.tno and p.athlete_no = a.no and g.event_id=2 and g.id=p.game_id and p.score is not null
+    order by g.lv, g.group_age, p.score
+    </select>
+
+    <select id="Competition12" resultType="java.util.HashMap">
+    select a.no as PersonId,a.name as name,t.name as teamname,(p.score+p.bonus-p.penalty) as score,g.group_age as groupage,g.lv  ,p.bonus ,p.penalty
+    from PARTICIPATION p,TEAMS t,Athletes a,Games g
+    where a.team_no=t.tno and p.athlete_no = a.no and g.event_id=9 and g.id=p.game_id and p.score is not null
+    order by g.lv, g.group_age, p.score
+    </select>
+
+    <select id="TeamPerson" resultType="java.util.HashMap">
+    select a.no as PersonId,a.name as Name,t.name as TeamName,a.sex as Sex,p.score + p.bonus- p.penalty as Score,e.name as GameName
+    from PARTICIPATION p,TEAMS t,Athletes a,Events e
+    where a.team_no=t.tno and p.athlete_no = a.no and t.account=#{0} and p.game_id=e.id and p.score is not null
+    order by Score desc
+    </select>
+
+    <select id="PersonSum"  resultType="java.util.HashMap">
+    select a.no as PersonId,a.name as Name,t.name as TeamName,SUM(p.score + p.bonus- p.penalty) as SumScore
+    from PARTICIPATION p,TEAMS t,Athletes a
+    where a.team_no=t.tno and p.athlete_no = a.no and p.score is not null
+    Group by a.name,a.no,t.name
+    order by SumScore desc
+   </select>
+</mapper>
