@@ -1,0 +1,60 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cms.mapper.GameMapper">
+    <insert id="insetGame">
+        insert into GAMES (EVENT_ID,GROUP_AGE,LV,ID) values (#{eventId},#{groupAge},#{level},#{gameId})
+    </insert>
+
+    <update id="updateRId" parameterType="int">
+        update GAMES
+        <trim prefix="set" suffixOverrides=",">
+        <if test="rIdNum!=null">RIDNUM=#{rIdNum},</if>
+        </trim>
+        where ID=#{gameId}
+    </update>
+
+    <select id="queryGameCount" resultType="int">
+        select count(ID) from GAMES
+    </select>
+
+    <select id="queryIsExist" resultType="int">
+        select ID from GAMES where EVENT_ID=#{eventId} AND GROUP_AGE=#{groupAge} AND LV=#{level}
+
+    </select>
+    <select id="queryAll" resultType="java.util.HashMap">
+         SELECT
+        g.ID as gameId,
+        g.GROUP_AGE as gameAge,
+        g.LV as gameLevel,
+        e.NAME as eventName,
+        g.RIDNUM as refereeNum
+    from
+        GAMES g
+    INNER JOIN
+        EVENTS e
+            ON g.EVENT_ID=e.ID
+    ORDER BY g.ID ASC
+    </select>
+
+    <select id="queryById" resultMap="GameResultMap">
+        SELECT * FROM GAMES WHERE ID = #{gameId}
+    </select>
+    <resultMap id="GameResultMap" type="com.cms.pojo.Game">
+        <!-- 用id属性来映射主键字段 -->
+        <id column="ID"  property="gameId" />
+        <!-- 用result属性来映射非主键字段 -->
+        <result column="EVENT_ID"  property="eventId" />
+        <result column="GROUP_AGE"  property="groupAge" />
+        <result column="LV"  property="level" />
+        <result column="RIDNUM"  property="rIdNum" />
+    </resultMap>
+
+    <select id="queryName" resultType="string">
+        select name from events where events.id = #{eventId}
+    </select>
+
+    <select id="queryNameById" resultType="string">
+        select name from events
+        where events.id = (select event_id from games where games.id = #{gid})
+    </select>
+
+</mapper>

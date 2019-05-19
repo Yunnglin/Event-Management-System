@@ -1,0 +1,109 @@
+html{
+    margin: 0;
+}
+body{
+    margin: 0;
+}
+#backImg{
+    width: 100%;
+    height: 100%;
+}
+#surface{
+    width: 100%;
+    height: 100%;
+    opacity: 50%;
+    z-index: 1;
+    -webkit-filter: blur(0px);
+    /* Chrome, Safari, Opera */
+    filter: blur(0px);
+}
+#black{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+    background: rgba(0, 0, 0, 0.3);
+
+}
+#login_main{
+    position: absolute;
+    top: 20.5%;
+    left: 30.5%;
+    width: 37.5%;
+    height: 57.5%;
+    z-index: 3;
+}
+#login_title{
+    position: absolute;
+    width: 33%;
+    height: 13%;
+    font-size: 50px;
+    left: 34%;
+    top: 13%;
+    line-height: 60px;
+    text-align: center;
+    font-family: STHupo;
+}
+#login_user{
+    position: absolute;
+    top: 38.5%;
+    left: 10%;
+    width: 100px;
+    height: 40px;
+    font-size: 30px;
+    text-align: center;
+    font-family: STXingkai;
+    border-radius: 5px;
+    color: white;
+    background-color: #77b7d2;
+}
+#username{
+    position: absolute;
+    top: 38.5%;
+    left: 35%;
+    width: 50%;
+    height: 8%;
+}
+#login_password{
+    position: absolute;
+    top: 57.5%;
+    left: 10%;
+    font-size: 30px;
+    font-family: STXingkai;
+    text-align: center;
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    color: white;
+    background-color: #77b7d2;
+}
+#password{
+    position: absolute;
+    top: 57.5%;
+    left: 35%;
+    width: 50%;
+    height: 8%;
+}
+#login_leader{
+    position: absolute;
+    top: 82%;
+    left: 10%;
+    width: 20%;
+    height: 10%;
+}
+#login_coach{
+    position: absolute;
+    top: 82%;
+    left: 70%;
+    width: 20%;
+    height: 10%;
+}
+#login_adm{
+    position: absolute;
+    top: 82%;
+    left: 40%;
+    width: 20%;
+    height: 10%;
+}
